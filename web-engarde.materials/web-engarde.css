@@ -1,0 +1,138 @@
+/*
+
+Style sheet Faute de servo, version 2
+
+*/
+
+a {
+	position: fixed;
+	left: 25px;
+ 	width: 100px;
+	height:30px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	border-radius: 12px;
+	text-align:center;	
+	text-decoration:none;
+	font-size: 1px;
+}
+
+.box1 {
+	top: 120px;
+}
+
+.box2 {
+	top: 170px;
+}
+
+.box3 {
+	top: 220px;
+}
+
+.box4 {
+	top: 270px;
+}
+
+.box5 {
+	top: 320px;
+}
+
+.box6 {
+	top: 370px;
+}
+
+.box7 {
+	top: 420px;
+}
+
+.box8 {
+	top: 470px;
+}
+
+.box9 {
+	top: 520px;
+}
+
+.box10 {
+	top: 570px;
+}
+
+a.noir {
+	color:black;
+	background:black;
+}
+
+a.brun {
+	color:brown;
+	background:brown;
+}
+
+a.rouge {
+	color:red;
+	background:red;
+}
+
+a.orange {
+	color:orange;
+	background:orange;
+}
+
+a.jaune {
+	color:yellow;
+	background:yellow;
+}
+
+a.vert {
+	color:green;
+	background:green;
+}
+
+a.bleu {
+	color:blue;
+	background:blue;
+}
+
+a.violet {
+	color:violet;
+	background:violet;
+}
+
+a.gris {
+	color:grey;
+	background:grey;
+}
+
+a.blanc {
+	color:white;
+	background:white;
+}
+
+.arrows {
+	position: fixed;
+	top: 50px;
+	left: 25px;
+	width: 100px;
+	text-align:center;
+	font-size: 20px;
+}
+
+.hidden {position:absolute;
+	left:-10000px;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+.titre {
+	color:blue;
+	font-size: 20px;
+}
+
+.prompt-input {
+	color:#0A0;
+}
+
+#output {
+	margin: 0 0 0 150px;
+}
