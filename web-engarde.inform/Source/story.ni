@@ -26,7 +26,10 @@ forceScroll is a truth state that varies. forceScroll is TRUE.
 
 Chapter 1 - Override Vorple
 
-[Not required in English version as there are no non-ASCII characters to escape]
+[To get around escaping of characters so I can use escaped unicode to render accented characters and symbols]
+
+To display text (content - text) in all the/-- elements called (classes - text):
+	execute JavaScript command "$('.[classes]').text('[content]')".
 
 Chapter 2 - Block Dialogue
 
