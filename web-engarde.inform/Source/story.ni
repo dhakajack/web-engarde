@@ -111,53 +111,9 @@ To say hiddenExitList:
 		if (N is greater than 2 and X is less than N):
 			say ",".
 
-Chapter 5 - Pinch hitting for French Module
+Chapter 5 -Langauge-specific tweaks
 
-[As far as I can tell, the most recent versions of French-language modules for Inform are not 
-compatible with Inform 7 v 6M62, which I needed for Vorple v3. These bits of code work in a
-very narrow context, but because this game has a limited number of commands and objects, 
-it works well enough for this specific game.]
-
-The indefinite article of doors is usually "une".
-
-Rule for listing nondescript items:
-	let L be a list of things;
-	say "Vous pouvez voir ";
-	repeat with item running through things in the location:
-		if the item is a person or the item is a door:
-			next;
-		add item to L;
-	repeat with N running from 1 to the number of entries in L:
-		if N is greater than 1 and N is the number of entries in L:
-			say " et ";
-		let E be entry N of L;
-		say "[an E]";
-		if E is open and E contains exactly one thing:
-			say " (contenant [a random thing in E])";
-		if the number of entries in L is greater than 2 and N is less than (the number of entries in L minus 1):
-			say ", ";
-	say "."
-	
-Rule for implicitly taking something (called the target):
-	try silently taking the target;
-	say "(prenant d'abord [definiteArticle of target] [target])[command clarification break]".
-	
-To say definiteArticle of (item - a thing):
-	say "l";
-	if the indefinite article of the item is "une":
-		say "a";
-	otherwise:
-		say "e";
-		if the indefinite article of the item is "des":
-			say "s".
-
-The can't go that way rule response (A) is "Vous ne pouvez pas aller par là."
-
-Rule for printing the banner text: 
-	place an inline element called "titre" reading "[story title]";
-	say line break;
-	say "[story headline] par [story author][line break]";
-	say "Release [release number] / Serial number 180106 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
+[not needed for English]
 
 Chapter 6 - Suppress Mention of Doors
 
@@ -169,7 +125,7 @@ For printing a locale paragraph about a door (called the item)
 Chapter 7 - Button Setup
 
 Palette is a list of text that varies. 
-Palette is {"noir","brun","rouge","orange","jaune","vert","bleu","violet","gris","blanc"}.
+Palette is {"black","brown","red","orange","yellow","green","blue","violet","gray","white"}.
 	
 Chapter 8 - Start of Play
 
@@ -745,7 +701,7 @@ Carry out simpleOpening:
 	
 [this works here because things only contain a single item]
 After opening something (called the item):
-	say "Vous ouvrez [definiteArticle of item] [item]";
+	say "Vous ouvrez [the item]";
 	if the item contains exactly one thing:
 		say ", révélant [a random thing in item]";
 	say "."

@@ -58,17 +58,17 @@ a {
 	top: 570px;
 }
 
-a.noir {
+a.black {
 	color:black;
 	background:black;
 }
 
-a.brun {
+a.brown {
 	color:brown;
 	background:brown;
 }
 
-a.rouge {
+a.red {
 	color:red;
 	background:red;
 }
@@ -78,17 +78,17 @@ a.orange {
 	background:orange;
 }
 
-a.jaune {
+a.yellow {
 	color:yellow;
 	background:yellow;
 }
 
-a.vert {
+a.green {
 	color:green;
 	background:green;
 }
 
-a.bleu {
+a.blue {
 	color:blue;
 	background:blue;
 }
@@ -98,12 +98,12 @@ a.violet {
 	background:violet;
 }
 
-a.gris {
+a.gray {
 	color:grey;
 	background:grey;
 }
 
-a.blanc {
+a.white {
 	color:white;
 	background:white;
 }
