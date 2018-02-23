@@ -85,7 +85,7 @@ To say exitList:
 						say "\u2192 ".
 						
 To listHiddenExits:
-	place an inline element called "hidden" reading "Potential exits: [hiddenExitList]. "
+	place an inline element called "hidden" reading "Potential exits:[hiddenExitList]. "
 	
 To say hiddenExitList:
 	let L be {west, north, south, east};
@@ -96,20 +96,20 @@ To say hiddenExitList:
 			if D is nothing or D is open or (D is simpleOpenable and the consciousness of the player is greater than 0) or (D is buttoned and the consciousness of the player is greater than one) or (D is locked and the consciousness of the player is greater than two):
 				if the way is:
 					-- west:
-						add "à l'ouest" to LL;
+						add " west" to LL;
 					-- north:
-						add "au nord" to LL;
+						add " north" to LL;
 					-- south:
-						add "au sud" to LL;
+						add " south" to LL;
 					-- east:
-						add "à l'est" to LL;
+						add " east" to LL;
 	let N be the number of entries in LL;
 	repeat with X running from 1 to N:
 		if (N is greater than 1 and X is N):
-			say " et ";
+			say " and";
 		say entry X of LL;
-		if (N is greater than 2 and X is less than (N - 1)):
-			say ", ".
+		if (N is greater than 2 and X is less than N):
+			say ",".
 
 Chapter 5 - Pinch hitting for French Module
 
@@ -117,11 +117,6 @@ Chapter 5 - Pinch hitting for French Module
 compatible with Inform 7 v 6M62, which I needed for Vorple v3. These bits of code work in a
 very narrow context, but because this game has a limited number of commands and objects, 
 it works well enough for this specific game.]
-
-Understand "nord" as north.
-Understand "est" as east.
-Understand "ouest" as west.
-Understand "sud" as south.
 
 The indefinite article of doors is usually "une".
 
@@ -707,7 +702,7 @@ Chapter 10 - Verbs
 
 Section 1 - simpleUnlocking
 
-simpleUnlocking is an action applying to nothing. Understand "déverrouiller" as simpleUnlocking.
+simpleUnlocking is an action applying to nothing. Understand "unlock" as simpleUnlocking.
 
 Carry out simpleUnlocking:
 	repeat with way running through directions:
@@ -735,7 +730,7 @@ Section 2- simpleOpening
 
 Definition: A door is simpleOpenable if it is closed and it is not locked and it is not buttoned.
 	
-simpleOpening is an action applying to nothing. Understand "ouvrir" as simpleOpening.
+simpleOpening is an action applying to nothing. Understand "open" as simpleOpening.
 
 Carry out simpleOpening:
 	repeat with the way running through directions:
@@ -757,7 +752,7 @@ After opening something (called the item):
 
 Section 3 - simpleEating
 
-simpleEating is an action applying to nothing. Understand "manger" as simpleEating.
+simpleEating is an action applying to nothing. Understand "eat" as simpleEating.
 
 Carry out simpleEating:
 	repeat with the item running through visible edible things:
@@ -770,7 +765,7 @@ Carry out simpleEating:
 	
 Section 4- simplePushing
 
-simplePushing is an action applying to nothing. Understand "pousser" as simplePushing.
+simplePushing is an action applying to nothing. Understand "push" as simplePushing.
 
 Carry out simplePushing:
 	repeat with the item running through visible buttoned things:
@@ -780,7 +775,7 @@ Carry out simplePushing:
 	
 Section 5- simpleTalking
 
-simpleTalking is an action applying to nothing. Understand "parler" as simpleTalking.
+simpleTalking is an action applying to nothing. Understand "talk" as simpleTalking.
 
 Check simpleTalking:
 	if the player is not in the sas:
@@ -829,7 +824,7 @@ Carry out simpleTalking:
 									
 Section 6 - simpleRepairing
 
-simpleRepairing is an action applying to nothing. Understand "réparer" as simpleRepairing.
+simpleRepairing is an action applying to nothing. Understand "repair" as simpleRepairing.
 
 Carry out simpleRepairing:
 	repeat with the item running through visible broken things:
@@ -851,27 +846,27 @@ To increment the consciousness of the player:
 
 Chapter 12 - Known Commands
 
-The list of text called actionList is always {"est", "ouest","manger","ouvrir","nord","sud","pousser","d\u00E9verrouiller","parler","r\u00E9parer"}.
+The list of text called actionList is always {"east", "west","eat","open","north","south","push","unlock","talk","repair"}.
 
 The commandList is a list of numbers that varies. The commandList is {}.
 
 To increment the knownCommands of the player:
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
-	place an inline element called "hidden" reading "Une novelle commande est apparue: ";
+	place an inline element called "hidden" reading "A new command has appeared: ";
 	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
 	place an inline element called "hidden" reading ". ".
 	
-Understand "est/ouest/manger/ouvrir/nord/sud/pousser/déverrouiller/parler/réparer" as "[okayCommand]".
+Understand "east/west/eat/open/north/south/push/unlock/talk/repair" as "[okayCommand]".
 
 [To prevent players bypassing the CSS to enter arbitrary commands]
 After reading a command:
 	if the knownCommands of the player is zero:
-		say "Le jeu est terminé.  Pour rejouer, rechargez le jeu dans votre navigateur.";
+		say "The game has ended. To play again, reload the game in your browser.";
 		reject the player's command;
 	otherwise:
 		if the player's command does not match "[okayCommand]":
-			say "Sélectionnez une commande parmi les liens ci-dessus.";
+			say "Select from one of the above command links.";
 			reject the player's command.
 				
 Chapter 13 - Milestones
