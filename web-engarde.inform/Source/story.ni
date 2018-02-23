@@ -138,14 +138,13 @@ When play begins:
 	place a block level element called "arrows";
 	sort the palette in random order.
 
-
 After printing the banner text:
 	listExits;
 	listHiddenExits;
-	say "[line break][italic type]Où suis-je[unicode 160]? D'ailleurs… qui suis-je[unicode 160]?[roman type][paragraph break]Vous vous réveillez tout seul dans une pièce plutôt banale et bleuâtre.[paragraph break][italic type]Pourquoi je ne me souviens de rien[unicode 160]?[paragraph break]Je dois me concentrer[unicode 160]! Qu'est-ce qui s'est passé[unicode 160]?[paragraph break]En tout cas, la solution n'est pas ici -- il faut explorer un peu.";
+	say "[line break][italic type]Where am I? For that matter, who am I?[roman type][paragraph break]You wake up alone in a plain room with a bluish hue.[paragraph break][italic type]Why can't I remember anything?[paragraph break]I've got to concentrate! What happened? Come on. Think! Think![paragraph break]In any case, the solution isn't here -- I'll have to look around.";
+	say roman type;
 	increment the knownCommands of the player.
 
-	
 Chapter 9 - Geography
 
 Section Location Generalities
@@ -163,19 +162,19 @@ Instead of going through a closed door (called la porte):
 		try looking;
 	otherwise:
 		if la porte is locked:
-			say "Cette porte est contrôlée par une serrure électronique.";
+			say "This door is secured with an electronic lock.";
 		otherwise:
 			if la porte is buttoned:
-				say "D'abord, ";
+				say "First, you have to ";
 				if the player is in an elevator:
-					say "il faut sélectionner l[apostrophe]étage.";
+					say "indicate the destination floor.";
 				otherwise:
-					say "il faut appeler l'ascenseur.";
+					say "call the elevator.";
 			otherwise:
-				say "La porte est fermée."
+				say "call the elevator."
 			
 To say bougePas:
-	say "Le mur ne bouge pas"
+	say "The wall does not budge".
 			
 Section Bloc Opératoire
 
@@ -184,28 +183,28 @@ Bloc Opératoire is a room. The description of Bloc Opératoire is "[descBlocOpe
 To say descBlocOperatoire:
 	if the consciousness of the player is:
 		-- 0:
-			say "Une pièce sombre[one of]. Rien d'intéressant ici[or][stopping]";
+			say "A dark room[one of]. Nothing interesting here[or][stopping]";
 		-- 1:
-			say "Il y a un peu de sang ici -- une grande pièce bleue avec des murs métalliques";
+			say "There's a bit of blood here -- a huge, blue room with metallic walls";
 		-- 2:
-			say "La salle bleue où les humains coupent les animaux et enlèvent leurs tripes";
+			say "The blue room in which humans cut up animals and remove their guts";
 		-- 3:
-			say "La table d'opération trône au centre de la pièce bleue, entourée d[apostrophe]équipements chirurgicaux. La sortie à l'est mène au couloir";
+			say "The operating table stands in the middle of the blue room, surrounded by surgical equipment. The exit leads to the corridor";
 		-- 4:
-			say "La table d'opération couverte de draps chirurgicaux trône au centre de la salle en bleue, avec ses accessoires pour retenir les animaux pendant la chirurgie expérimentale. Juste à côté, il y a une machine d'anesthésie, des moniteurs de signes vitaux et une unité de radiographie portable. Le couloir central de niveau deux se trouve à l'est"
+			say "The operating table in the middle of the room is covered in blue surgical drapes. The table has various straps and contraptions to immobilize animals during surgery. Just next to the table is an anesthesia machine, with knobs and dials, and tubes leading to the ceiling. Just above it, there are several vital signs monitors, all of which are off at present. A portable radiography machine has been wheeled in next to the table.[paragraph break]The central corridor for level two is just off to the east"
 			
 To say pnBlocOpératoire:
 	if the consciousness of the player is:
 		-- 0:
-			say "L'endroit bleuâtre";
+			say "The blue place";
 		-- 1:
-			say "L'endroit affreux";
+			say "The scary place";
 		-- 2:
-			say "La chambre de torture";
+			say "The torture chamber";
 		-- 3:
-			say "Salle d'opérations";
+			say "Operating room";
 		-- 4:
-			say "Bloc Opératoire".
+			say "Surgical theater".
 
 Section Couloir 2
 
@@ -214,41 +213,41 @@ Couloir 2 is a room. The description of Couloir 2 is "[descCouloir2]." The labZo
 To say descCouloir2:
 	if the consciousness of the player is:
 		-- 0:
-			say "Un couloir blanc et sans meuble";
+			say "A white, unfurnished hallway";
 		-- 1:
-			say "Un grand couloir blanc qui relie l'endroit affreux à l'ouest à la tanière du loup féroce au nord" ;
+			say "A great white corridor that connects the scary place to the west with the den of the fierce wolf to the north";
 		-- 2:
-			say "Le couloir qui mène de mon coin confortable au nord à la chambre de torture à l'ouest";
+			say "The hall that leads from my comfy nook to the north to the chamber of horrors to the west";
 			say "[liftDoorDogStatus]";
 		-- 3:
 			say "Le couloir central du deuxième niveau. La salle d'opérations se trouve à l'ouest, le chenil au nord, le laboratoire au sud et l'ascenseur à l'est";
 		-- 4:
-			say "Le couloir central du deuxième niveau. La salle d'opération se trouve à l'ouest, le laboratoire zoologique au nord, le laboratoire biochimique au sud et l'ascenseur à l'est".
+			say "The central corridor for level two. The operating room is to the west, the kennel to the north, the lab to the south, and the elevator to the east".
 			
 To say liftDoorDogStatus:
 	if the door east from the location is closed:
-		say ". Au milieu du mur à l[apostrophe]est, un bouton brille avec une lueur rouge";
+		say ". A red button shines on the wall to the east";
 	otherwise:
-		say ". Le ouverture à l'est a disparu".
+		say ". The opening to the east has disappeared".
 			
 To say pnCouloir2:
 	if the consciousness of the player is:
 		-- 0:
-			say "Couloir";
+			say "Corridor";
 		-- 1:
-			say "Grand couloir";
+			say "Great Hall";
 		-- 2:
-			say "Couloir dangereux";
+			say "Dangerous Passage";
 		-- 3:
-			say "Couloir, niveau 2";
+			say "Corridor, Level 2";
 		-- 4:
-			say "Niveau 2: Expériences Physiologiques".
+			say "Level 2: Physiological Experiments".
 	
 		
 After going east from Couloir 2 when the ascenseur2door is open for the first time:
 	now the BlockChatterFlag is true;
 	try looking;
-	say "«[unicode 160][italic type]Lucky, comment as-tu su ouvrir la boîte magique[unicode 160]?[line break]-- J'ai vu un bouton[unicode 160];[unicode 160]je l'ai appuyé. C'est ce que je fais. Alors, raconte-moi cette histoire de [quotation mark]boîte magique[quotation mark].[line break]-- Les géants… [line break]-- Ça veut dire les humains[unicode 160]?[line break]-- Oui, probablement. Ben, les humains, ils entrent dans la boîte et ils disparaissent. Plus tard, d'autres apparaissent à leur place. C'est magique.[line break]-- On verra.[roman type][unicode 160]»[paragraph break]".
+	say "[italic type][quotation mark]Lucky, how did you know how to open the magic box?[quotation mark][line break][quotation mark]I saw a button. I pushed it. That's what I do. So, what's all this about a [apostrophe]magic box[apostrophe]?[quotation mark][line break][quotation mark]The giants… [quotation mark][line break][quotation mark]You mean the humans?[quotation mark][line break][quotation mark]Sure, probably. Anyhow, the humans go into the box and they disappear. Later, other humans appear in the same box. It's got to be magic.[quotation mark][line break][quotation mark]Hmm. We'll see about that.[quotation mark][roman type][paragraph break]".
 			
 
 Section Laboratoire Zoologique
@@ -258,54 +257,54 @@ Laboratoire Zoologique is a room. The description of Laboratoire Zoologique is "
 To say descLabZoo:
 	if the consciousness of the player is:
 		-- 1:
-			say "Depuis sa cage le loup méchant vous dévisage constamment";
+			say "From his cage, the vicious wolf stares at you";
 		-- 2:
-			say "La pièce dans laquelle ils vous avaient appris à appuyer sur le bouton rouge du distributeur de friandises";
+			say "The room in which you were taught to press a button to get treats out of the reward machine";
 		-- 3:
-			say "Une cage occupe la moitié de la pièce et le reste de l'espace est dédié au dressage des animaux";
+			say "A cage takes up half the space in this room; the rest is dedicated to animal training equipment";
 		-- 4:
-			say "Les animaux sont maintenus dans une cage d'une superficie de 15 mètres carrés, ce qui leur permet de rester actifs pendant des expériences qui peuvent durer des semaines. Un des dispositifs utilisés pour leur entraînement se trouve du côté de la cage[one of]. Vous constatez que la cage contient un panneau[unicode 160]:[unicode 160][quotation mark]Sujet 205-Alpha[quotation mark][or][stopping]"
+			say "Animals are kept here in a large cage, which allows them to remain active during experiments that can last up to several weeks[one of]. You notice a sign taped to the cage: [apostrophe]Subject 205-Alpha[apostrophe][or][stopping]"
 			
 To say pnLabZoo:
 	if the consciousness of the player is:
 		-- 1:
-			say "La tanière du loup";
+			say "The wolf's den";
 		-- 2:
-			say "Chez moi";
+			say "My home";
 		-- 3:
-			say "Le chenil";
+			say "The kennel";
 		-- 4:
-			say "Laboratoire Zoologique".
+			say "Zoological laboratory".
 	
 To say openNord:
-		say "Le mur au nord s'ouvre, révélant la pièce voisine".
+		say "The wall to the north slides aside, revealing the room next door".
 
 	
-The cage is an openable closed container in the Laboratoire Zoologique. The indefinite article of cage is "une". The printed name of the cage is "cage[if the cage is open] ouverte[end if]".
+The cage is an openable closed container in the Laboratoire Zoologique.
 
-The chien is an edible thing. It is in the cage. The printed name of the chien is "[if the consciousness of the player is 1]loup[otherwise]chien[end if]". The chien can be dead. The chien is not dead. The indefinite article of chien is "un".
+The chien is an edible thing. It is in the cage. The printed name of the chien is "[if the consciousness of the player is 1]wolf[otherwise]dog[end if]". The chien can be dead. The chien is not dead. 
 
-The corps de chien is a thing. It is in the void. The indefinite article of corps de chien is "un".
+The animal body is a thing. It is in the void.
 
-The distributeur de nourriture is in the Laboratoire Zoologique. It is buttoned. The indefinite article of distributeur de nourriture is "un".
+The food dispenser is in the Laboratoire Zoologique. It is buttoned. 
 
-Instead of pushing the distributeur de nourriture:
-	say "Vous appuyez sur le bouton rouge. ";
+Instead of pushing the food dispenser:
+	say "You press the red button. ";
 	if the consciousness of the player is:
 		-- 2:
-			say "En récompense, quelques croquettes tombent au sol. Vous les mangez, mais le repas ne satisfait pas votre faim.";
+			say "In reward, a few nuggets fall to the ground. You eat them, but they do not satisfy your hunger.";
 		-- 3:
-			say "Vous n'avez la moindre envie de manger les croquettes de nourriture pour chien qui tombent à vos pieds.";
+			say "You don't find the reward nuggets that fall at your feet the least bit appetizing.";
 			move the tas de nourriture de chien to the Laboratoire Zoologique;
 		-- 4:
-			say "Le dispositif de conditionnement actif produit des cubes de nourriture pour chien qui s'accumulent sur le sol.";
+			say "The operant conditioning device dispenses a few dog food pellets that pile up on the ground.";
 			move the tas de nourriture de chien to the Laboratoire Zoologique.
 			
-The tas de nourriture de chien is in the void. The indefinite article of the tas de nourriture is "un".
+The tas de nourriture de chien is in the void.
 
 Every turn when the chien is in the cage and the player is in the Laboratoire Zoologique:
 	if a random chance of 3 in 8 succeeds:
-		say "Le loup [one of]aboie bruyamment[or]mord les barres de sa cage[or]se gratte les oreilles[or]fait les cent pas dans sa boîte métallique[or]hurle à pleins poumons[or]renifle l'air[or]renifle sa cage[or]se renifle lui-même[or]se lèche les pattes[or]vous montre les dents[or]grogne de manière menaçante[or]vous ignore[or]court de long en large dans sa cage, vous dévisageant[in random order]."		
+		say "The wolf [one of]barks loudly[or]chews the bars of his cage[or]scratches his ears[or]paces back and forth in his metal cage[or]howls with all his might[or]sniffs the air[or]sniffs his cage[or]sniffs himself[or]licks his paws[or]shows you his teeth[or]growls menacingly[or]ignores you[or]runs the length of his cage, eying you[in random order]."		
 	
 		 
 Section Ascenseur 2
@@ -316,22 +315,22 @@ An elevatorDoor is a kind of door. ElevatorDoors are buttoned.
 
 To say pnAsc:
 	if the consciousness of the player is 2:
-		say "La petite pièce";
+		say "The little room";
 		if Ascenseur 2 is visited:
-			say " qui vibre";
+			say " that vibrates";
 	otherwise:
-		say "L'ascenseur".
+		say "The elevator".
 
 Ascenseur 2 is an elevator. The Ascenseur2door is an elevatorDoor. It is east of Couloir 2 and west of Ascenseur 2. 
 
 Instead of pushing an elevatorDoor:
-	say "Vous appuyez sur le bouton";
+	say "You push the button";
 	if the player is in an elevator:
 		if the consciousness of the player is:
 			-- 2:
-				say " avec votre museau[one of] (qui est devenu plus court que dans vos souvenirs)[or][stopping] et remarquez que la pièce vibre subtilement. Un instant plus tard, le mur s[apostrophe]ouvre donnant sur un couloir à l[apostrophe]ouest.";
+				say " with your snout[one of] (which seems shorter than you remember)[or][stopping] and notice a slight vibration. A moment later, the wall opens upon a corridor to the west.";
 			-- otherwise:
-				say ", l'ascenseur [if the location is Ascenseur 2]descend au premier niveau[otherwise]monte au deuxième niveau[end if] et les portes à l'ouest s[']ouvrent."; 
+				say ", the elevator [if the location is Ascenseur 2]descends to the first level[otherwise]goes up to the second level[end if] and the doors open to the west."; 
 		if the player is in Ascenseur 2:
 			move the player to Ascenseur 1, without printing a room description;
 			now Ascenseur1door is open;
@@ -341,9 +340,9 @@ Instead of pushing an elevatorDoor:
 	otherwise:
 		if the consciousness of the player is:
 			-- 2:
-				say " et le mur s[apostrophe]ouvre vous permettant d'aller à l[apostrophe]est.";
+				say " and the wall slides open, allowing you to proceed to the east.";
 			-- otherwise:
-				say " et la porte de l[apostrophe]ascenseur à l[apostrophe]est s[apostrophe]ouvre.";
+				say " and the elevator door opens to the east.";
 		if the player is in Couloir 2:
 			now Ascenseur2door is open;
 		otherwise:
@@ -355,17 +354,17 @@ After going east from Couloir 2:
 		now the Ascenseur2door is closed.
 		
 To say portesReferment:
-	say "Vous ";
+	say "You ";
 	if the player is in an elevator:
-		say "entrez";
+		say "enter";
 	otherwise:
-		say "sortez";
-	say " et ";
+		say "leave";
+	say " and ";
 	if the consciousness of the player is less than 3:
-		say "le mur se referme";
+		say "the wall slides shut again";
 	otherwise:
-		say "les portes se referment";
-	say " silencieusement derrière vous".
+		say "the doors close";
+	say " silently behind you".
 	
 After going west from an Ascenseur 2:
 	say "[portesReferment].";
@@ -382,22 +381,22 @@ The labBioDoor is a locked door. It is south of Couloir 2 and north of Laboratoi
 To say descLabBio:
 	if the consciousness of the player is:
 		-- 3:
-			say "Normalement, la pièce déborde d[apostrophe]équipements high-techs avec des lumières clignotantes et le bruit continuel des moteurs robotiques. Pourtant, en ce moment tous les équipements sont éteints et il n'y a le moindre son";
+			say "The room is lined floor to ceiling with high-tech equipment. On a typical day, the room would be full of blinking lights and the whir of robotic actuators, but right now the equipment is dark and you don't hear the slightest sound";
 		-- 4:
 			if the disjoncteurs are not broken:
-				say "L'alimentation électrique rétablie, la pièce est bien illuminée, les ordinateurs sont allumés et les équipements semblent en mesure de réaliser les synthèses biochimiques les plus complexes";
+				say "With power restored, the room is now lit up like a Christmas tree, the computer fans are whirring, and the microfluidic station stands ready to carry out even the most complex biochemical syntheses";
 			otherwise:
-				say "Rien ne fonctionne dans cette pièce sombre, ni les ordinateurs, ni le système robotique de synthèse moléculaire. Il est évident que c'est à cause d'un coupure d'alimentation électrique quelque part"
+				say "The room is entirely dark, and neither the computers nor the robotic molecular synthesis unit are working. It's obvious that somewhere electrical power to the room has been cut"
 					
 To say pnLabBio:
 	if the consciousness of the player is:
 		-- 3:
-			say "Laboratoire Biochimique";
+			say "Biochemical Laboratory";
 		-- 4:
-			say "Laboratoire De Synthèse Moléculaire".
+			say "Molecular Synthesis Laboratory".
 			
 To say pnLabBioDoor:
-	say "porte du laboratoire".
+	say "laboratory door".
 	
 
 Section Couloir 1
@@ -407,21 +406,21 @@ Couloir 1 is a room. The description of Couloir 1  is "[descCouloir1]." The prin
 To say descCouloir1:
 	if the consciousness of the player is:
 		-- 2:
-			say "Un couloir qui ressemble au «[unicode 160]couloir dangereux[unicode 160]» près de chez vous. Vous voyez [if labPathDoor is closed]une sortie au sud et un mur coulissant au nord[otherwise]des sorties au nord et au sud[end if]";
-			say "[liftDoorDogStatus]"; 
+			say "A corridor that looks like the [quotation mark]dangerous hallway[quotation mark] near your cage. You see [if labPathDoor is closed]an exit to the south and a sliding door to the north[otherwise]exits to the north and south[end if]";
+			say "[liftDoorDogStatus]";
 		-- 3:
-			say "Le couloir central du premier niveau donne vers les toilettes au sud, les douches à l'ouest, un labo au nord et l'ascenseur à l'est";
+			say "The level one central corridor lies between the restrooms to the south, showers to the west, a lab to the north, and the elevator to the east";
 		-- 4:
-			say "Le couloir central du premier niveau donne vers les toilettes au sud, l'installation de décontamination à l'ouest, le laboratoire de pathologie au nord et l'ascenseur à l'est".
+			say "he central corridor on level one leads south to the restroom, west to the decontamination suite, north to the histopathology laboratory, and east to the elevator".
 		
 To say pnCouloir1:
 	if the consciousness of the player is:
 		-- 2:
-			say "Nouveau couloir";
+			say "New corridor";
 		-- 3:
-			say "Couloir, niveau 1";
+			say "Corridor, level one";
 		-- 4:
-			say "Niveau 1: Bioconfinement".
+			say "Level 1: Biocontainment".
 			
 After going east from Couloir 1:
 		say "[portesReferment].";
@@ -433,7 +432,7 @@ Section Ascenseur 1
 Ascenseur 1 is an elevator. The Ascenseur1door is an elevatorDoor. It is east of Couloir 1 and west of Ascenseur 1. 
 
 To say descAscenseur1:
-	say "Un bouton vert brille sur un panneau".
+	say "A button green shines on a panel".
 	
 After going west from an Ascenseur 1:
 	say "[portesReferment].";
@@ -447,47 +446,46 @@ Laboratoire de Pathologie is a room. The description of Laboratoire de Pathologi
 To say pnLabPath:
 	if the consciousness of the player is:
 		-- 2:
-			say "La cuisine";
+			say "The kitchen";
 		-- 3: 
-			say "Le labo préparatoire";
+			say "The prep lab";
 		-- 4:
-			say "Le laboratoire de pathologie".
+			say "The histopathology laboratory".
 
 To say descLabPath:
 	If the consciousness of the player is:
 		-- 2:
-			say "[one of]Cette pièce vous évoque les temps joyeux que vous avez passé en famille -- avant d[apostrophe]être enlevé. À en juger par les comptoirs, les étagères remplies de denrées, les éviers et les grands appareils, il s'agit sans aucun doute de la pièce la plus importante de la maison[unicode 160]:[unicode 160]la cuisine[or]Une cuisine ordinaire, meublé en noir[stopping]";
+			say "[one of]This room reminds you of better times that you spent with your family -- from before you were abducted. Considering the counters, shelves full of food, sinks, and large appliances, there's no doubt in your mind that this is the most important room in the entire house: the kitchen[or]A typical kitchen, with black decor[stopping]";
 		-- 3:
-			say "C'est l'endroit où les scientifiques préparent les lames de microscope.[paragraph break]Vous reconnaissez une trancheuse à viande et un four à micro-ondes, mais la plupart de l[apostrophe]équipement sur le comptoir ne vous est pas familier";
+			say "This is where the researchers prepare microscope slides.[paragraph break]You recognize a meat slicer and a microwave oven, but most of the equipment on the counter doesn't look familiar";
 		-- 4:
-			say "Vous avez vous-même sélectionné les équipements dernier cri trouvés dans ce laboratoire ultramoderne qui s'occupe de la préparation et de l'analyse des échantillons de tissus".
+			say "An ultramodern laboratory dedicated to preparation and analysis of tissue samples".
 	
-The frigo is a closed openable container in the Laboratoire de Pathologie. The frigo is closed. The printed name of the frigo is "[pnFrigo]". The indefinite article of the frigo is "un".
+The frigo is a closed openable container in the Laboratoire de Pathologie. The frigo is closed. The printed name of the frigo is "[pnFrigo]". 
 
 To say pnFrigo:
 	if the consciousness of the player is:
 		-- 2:
-			say "frigo[if the frigo is closed] (fermé)[end if]";
+			say "fridge[if the frigo is closed] (closed)[end if]";
 		-- 3:
-			say "congélo";
+			say "freezer";
 		-- 4:
-			say "congélateur pour spécimens de pathologie".
+			say "minus 80 freezer for storing pathology specimens".
 			
 After opening the frigo:
-	move the boîte en plastique to the location;
-	say "Vous ouvrez le frigo et une boîte en plastique tombe au sol."
+	move the tupperware container to the location;
+	say "You open the fridge and a plastic box falls to the floor."
 	
+The tupperware container is a closed openable container in the frigo. 
 
-The boîte en plastique is a closed openable container in the frigo. The boîte en plastique is closed. The indefinite article of the boîte en plastique is "une".
-
-The morceau de cerveau is a edible thing in the boîte en plastique. The indefinite article of the morceau de cerveau is "un".
+The slice of brain is a  edible thing in the tupperware container.
 
 After opening the labPathDoor:
 	say "[openNord]."
 	
 After going north from Couloir 1 when the labPathDoor is open for the first time:
 	now the BlockChatterFlag is true;
-	say "«[unicode 160][italic type]Oh là là[unicode 160]! dit Lucky avec joie.[line break]-- Pourquoi es-tu si content[unicode 160]?[line break]-- Vois-tu cette boîte-là[unicode 160]? Voilà la vraie boîte magique[unicode 160]:[unicode 160]le frigo[unicode 160]![line break]-- Est-ce qu'on fait des voyages dans un frigo[unicode 160]?[line break]-- Non, on mange ce qu'on trouve là-dedans[unicode 160]![roman type][unicode 160]»[paragraph break]";
+	say "[italic type][quotation mark]Mmmmm![quotation mark] says Lucky, obviously excited.[line break][quotation mark]What are you so happy about?[quotation mark][line break][quotation mark]You see that box, there? That's the real magic box: the fridge![quotation mark][line break][quotation mark]Do we get in the fridge to go places?[quotation mark][line break][quotation mark]No, we eat what's inside it![quotation mark][roman type][paragraph break]";
 	try looking.
 
 
@@ -496,36 +494,36 @@ Section Les Toilettes
 Les Toilettes is a room. The description of Les Toilettes is "[descToilettes]." Les Toilettes are south of Couloir 1. The printed name of Les Toilettes is "[pnToilettes]". 
 To say descToilettes:
 	if the consciousness of the player is less than 3:
-		say "L'odeur d'urine est forte ici[one of]. Beaucoup ont marqué leur territoire. Ce doit être un endroit très convoité[or][stopping]";
+		say "The scent of urine is strong here[one of]. Many have marked their territory. This must be an extremely desirable location[or][stopping]";
 	otherwise:
-		say "Un sol carrelé en noir et blanc, des cabinets, urinoirs et lavabos"
+		say "A black and white tiled floor, cabinets, urinals and sinks"
 	
 To say pnToilettes:
 	if the consciousness of the player is less than 3:
-		say "La pièce carrelée";
+		say "The tiled room";
 	otherwise:
-		say "Les toilettes".
+		say "The toilets".
 		
 Instead of simplePushing when the player is in les Toilettes:
 	if the consciousness of the player is less than 3:
-		say "Vous appuyez sur un bouton métallique et entendez un grand bruit.";
+		say "You press a metal button and immediately hear a loud sound.";
 	otherwise:
-		say "Vous tirez la chasse d'eau."
+		say "You pull the flush lever."
 		
 Instead of simpleOpening when the player is in Les Toilettes:
 	if the consciousness of the player is less than 3:
-		say "[if the potty is in Les Toilettes]Le bol d'eau est déjà ouvert[otherwise]En soulevant la couverture d'un meuble, vous révélez un bol plein d'eau[end if].";
+		say "[if the potty is in Les Toilettes]The water bowl is already open[otherwise]Having lifted the cover, you reveal a bowl full of water[end if].";
 	otherwise:
-		say "[if the potty is in Les Toilettes]Vous avez déjà soulevé[otherwise]Vous soulevez[end if] le couvercle des toilettes.";
+		say "[if the potty is in Les Toilettes]You have already lifted[otherwise]You lift[end if] the toilet seat cover.";
 	now the potty is in Les Toilettes.
 	
 The potty is a thing in the void. The printed name of the potty is "[pnPotty]". The indefinite article of the potty is "[if the consciousness of the player is less than 3]un[otherwise]des[end if]".
 
 To say pnPotty:
 	if the consciousness of the player is less than 3:
-		say "bol plein d[apostrophe]eau";
+		say "bowl full of water";
 	otherwise:
-		say "toilettes (dont le couvercle est soulevé)". 
+		say "toilet (the cover of which has been lifted)". 
 		
 Instead of simpleEating when the player is in Les Toilettes:
 	if the potty is in the void:
@@ -533,11 +531,11 @@ Instead of simpleEating when the player is in Les Toilettes:
 	otherwise:
 		if the consciousness of the player is:
 			-- 2:
-				say "Vous [one of]lapez l'eau dans le bol. C'est rafraîchissant[or]n'avez pas vraiment soif, mais vous avalez un peu plus d'eau[or]n'avez plus soif, ayant déjà avalé quelques litres d'eau[stopping].";
+				say "You [one of]lap up the water in the bowl. It's refreshing[or]aren't really thirsty, but you drink some water[or]are no longer thirsty having already guzzled down a few liters of water[stopping].";
 			-- 3:
-				say "Non, ça serait dégoûtant[one of] (même pour quelqu'un qui mange les cerveaux)[or][stopping]."; 
+				say "No, that would be disgusting[one of] (even for someone who eats brains)[or][stopping]."; 
 			-- 4:
-				say "Vous rendez-vous compte combien d'espèces de bactéries pathogènes se trouvent dans cette eau[unicode 160]? Pas de la question."
+				say "Do you have any idea how many species are pathogenic bacteria live in the water? No way."
 				
 After going south from Couloir 1 when the consciousness of the player is 3 for the first time:
 		now the BlockChatterFlag is true;
@@ -546,7 +544,7 @@ After going south from Couloir 1 when the consciousness of the player is 3 for t
 	
 After going south from Couloir 1 when the consciousness of the player is 4 for the first time:
 	now the BlockChatterFlag is true;
-	say "Vous voyez votre reflet dans le miroir et vous le regardez un long moment. Vous reconnaissez immédiatement Julien, vêtu de son uniforme bleu de garde et contre toute attente portant toujours son chapeau officiel.";
+	say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Is somebody else here?[roman type][paragraph break]A burly man dressed in a tattered uniform stares at you with unblinking eyes. His pale skin, rheumy eyes and sunken cheeks call to mind a cadaver.[paragraph break]This awkward encounter goes on for several minutes before you realize that you are staring at your own reflection in a mirror.";
 	try looking.
 
 Section Salle de Décontamination
@@ -558,42 +556,42 @@ The deconDoor is a locked door. It is west of Couloir 1 and east of Salle de Dé
 To say descDecon:
 	if the consciousness of the player is:
 		-- 3:
-			say "Des pommeaux de douche visent le centre de la pièce qui baigne continuellement dans une lumière violette";
+			say "The showerheads are aimed at the center of a room bathed continuously in a deep, purple light";
 		-- 4: 
-			say "Des jets à haute pression entourent la pièce afin d'arroser le personnel d'une solution antiseptique lorsqu'il entre et sort des zones potentiellement contaminées. La pièce est continuellement éclairée par des lumières germicides";
-	say ". La porte à l'est mène au couloir et celle au nord à l'escalier"
+			say "The high pressure nozzles that ring the room are designed to hose down personnel with an antiseptic solution as they come and go from potentially contaminated zones within the complex. The room is continuously illuminated by germicidal lights";
+	say ". Doors lead eastward to the hallway and northward to the stairs"
 
 To say pnDecon:
 	if the consciousness of the player is:
 		-- 3:
-			say "Les douches";
+			say "The showers";
 		-- 4:
-			say "Salle de Décontamination".
+			say "Decontamination room".
 			
 To say pnDeconDoor:
 	if the consciousness of the player is:
 		-- 3:
-			say "porte de la salle de bain";
+			say "door to the showers";
 		-- 4:
-			say "porte de la salle de décontamination".
+			say "decontamination suite door".
 			
 Instead of simplePushing when the player is in the Salle de Décontamination:
 	if the consciousness of the player is:
 		-- 3:
-			say "L'eau chaude vous détend. Après un instant, la douche s[apostrophe]éteint.";
+			say "You relax in the warm, gentle shower. After a moment, the shower stops spraying and you dry off.";
 		-- 4:
-			say "Le système de décontamination vous asperge avec une solution caustique.".
+			say "The personnel decontamination system blasts you with a phenolic-smelling spray.".
 
 Section Escalier 1
 
-Escalier 1 is a room. The description of Escalier 1  is "[descEscalier1]." The printed name of Escalier 1 is "Escalier (premier niveau)".
+Escalier 1 is a room. The description of Escalier 1  is "[descEscalier1]." The printed name of Escalier 1 is "Stairway (first level)".
 
 The esc1door is a locked door. It is north of Salle de Décontamination and south of Escalier 1.
 
-The printed name of esc1door is "porte entre la salle de [if the consciousness of the player is 3]bain[otherwise]décontamination[end if] et l'escalier".
+The printed name of esc1door is "door between the [if the consciousness of the player is 3]shower[otherwise]decontamination[end if] room and the stairs".
 
 To say descEscalier1:
-	say "L'escalier remonte vers le nord et relie [if the consciousness of the player is 3]la salle de bain[otherwise]la salle de décontamination[end if] au sud avec les niveaux plus hauts de l'installation".
+	say "The stairway climbs to the north and connects the [if the consciousness of the player is 3]shower[otherwise]decontamination[end if] room to the south with the rest of the installation above".
 	
 After going north from Salle de Décontamination:
 	say "[upNorth].";
@@ -604,17 +602,17 @@ After going south from Escalier 2:
 	try looking.
 	
 To say upNorth:
-	say "Vous montez l'escalier au nord".
+	say "You climb the stairs towards the north".
 	
 To say downSouth:
-	say "Vous descendez l'escalier au sud".
+	say "You go down the stairs southwards".
 
 Section Escalier 2
 
-Escalier 2 is a room. The description of Escalier 2  is "[descEscalier2]." Escalier 2 is north from Escalier 1. The printed name of Escalier 2 is "Escalier (deuxième niveau)".
+Escalier 2 is a room. The description of Escalier 2  is "[descEscalier2]." Escalier 2 is north from Escalier 1. The printed name of Escalier 2 is "Stairway (second level)".
 
 To say descEscalier2:
-	say "L'escalier remonte vers le nord et relie l[apostrophe]escalier au sud avec le sas au nord".
+	say "The stairs go up towards the north and connect the lower set of stairs to the south with the airlock to the north".
 	
 After going north from Escalier 1:
 	say "[upNorth].";
@@ -626,9 +624,9 @@ After going south from Sas:
 
 Section Sas
 
-Sas is a room. The description of Sas is "[descSas]." The printed name of the sas is "Sas".
+Sas is a room. The description of Sas is "[descSas]." The printed name of the sas is "Airlock".
 
-The sasDoor is a locked door. It is north of Escalier 2 and south of Sas. The printed name of the sasDoor is "porte blindée du sas".
+The sasDoor is a locked door. It is north of Escalier 2 and south of Sas. The printed name of the sasDoor is "armored airlock door".
 
 The scientifique is an edible thing in the sas. The scientifique has a truth state called introducedFlag. The introducedFlag of scientifique is false. The scientifique has a number called conversations. The conversations of the scientifique is 0.
 
@@ -637,20 +635,20 @@ The indefinite article of the scientifique is "[if the introducedFlag of scienti
 To say descSas:
 	if the consciousness of the player is:
 		-- 3:
-			say "Une longue pièce tubulaire baignée de lumière rouge";
+			say "A long, tubular room bathed in red light";
 		-- 4:
-			say "Les lourdes portes blindées, le manque de fenêtres et la forme tubulaire de la pièce vous rappellent un sous-marin. La lumière au-dessus de la porte à l'autre extrémité de la pièce signifie qu'elle est verrouillée";
-		say ". Les escaliers sont au sud".
+			say "The heavy armored doors, lack of windows, and tubular shape of the room remind you of a submarine. The light above the door at the other end of the room is red, signaling that the exterior door is locked";
+		say ". The stairs downward are behind you, to the south".
 			
 Instead of going north when the player is in the sas:
 	if scientifique is in the sas:
-		say "Vous auriez besoin de dépasser la scientifique, et elle n'a pas l'air coopérative. De plus, vous ne connaissez pas le code pour ouvrir la porte extérieure, il serait donc inutile d'essayer.";
+		say "You would need to get past the scientist and she doesn't appear to be all that cooperative. More over, since you don't know the code to open the outer door, it wouldn't make much sense to try.";
 	otherwise:
-		say "Futile. La porte est hermétiquement fermée et ne peut être ouverte que par ceux qui se trouvent dans la salle de contrôle."
+		say "Useless. The door is hermitically sealed and can only be opened by someone in the control room."
 			
 Before eating scientifique when the conversations of scientifique are less than 5:
 	now the BlockChatterFlag is true;
-	say "[one of]La scientifique vous repousse avec son pied-de-biche. Une fois hors de portée de votre bouche menaçante, elle appuie sur un bouton de l[apostrophe]interphone et dit[unicode 160]:[unicode 160]«[unicode 160]Attention[unicode 160]:[unicode 160]salle de contrôle. Ici docteur Rambaud, dans le sas. Julien est ici avec moi. Malheureusement, je dois vous signaler que l'expérience a raté.  Ne déverrouillez en aucun cas la porte extérieure.[no line break][unicode 160]»[line break][or]Le docteur Rambaud ne bouge pas de sa position derrière le bureau, mais lorsque vous l'approchez, elle lance une série de coups avec son pied-de-biche qui vous fait reconsidérer votre action.[or]La scientifique vous confie[unicode 160]:[unicode 160]«[unicode 160]Je vous fais crédit de votre persévérance, néanmoins…[unicode 160]» et elle vous frappe carrément au nez. Ébranlé, vous trébuchez un peu et vous hâtez de reculer.[or]Le docteur Rambaud vous bat avec le pied-de-biche à plusieurs reprises.[stopping]";
+	say "[one of]The scientist beats you back with her crowbar. Once out of reach of your slavering maw, she presses a button on the intercom and says, [quotation mark]Attention, control room, this is Doctor Rambaud in the airlock. Julien is here with me. Unfortunately, I have to report that the experiment has failed. Don't unlock the outer door no matter what.[quotation mark][paragraph break][or]Doctor Rambaud does not budge from behind the desk, but as you approach she lands a series of blows with her crowbar that makes you reconsider your actions.[or]The scientist acknowledges, [quotation mark]I have to give you credit for your perseverance, but… [quotation mark] and she whacks you solidly on the nose. Stunned, you stagger back out of reach of her crowbar.[or]Doctor Rambaud beats you repeatedly with the crowbar.[stopping]";
 	stop the action.
 	
 
@@ -863,14 +861,14 @@ After opening the cage:
 	
 After eating the chien:
 	now the chien is dead;
-	now the corps de chien is in the cage;
+	now the animal body is in the cage;
 	say "[line break]D'instinct, vous dévorez son cerveau et jetez le corps dans la cage. Encore une fois, de nouvelles pensées envahissent votre esprit.[paragraph break][italic type]Je vous préviens[unicode 160]:[unicode 160]si vous approchez de ma cage, je vous mordrai. Arrêtez[unicode 160]! Sans blague… [paragraph break]Mais, qu'est-ce qui se passe[unicode 160]? Qui est ce chien mort dans ma cage… dont le sang coule sur mon coussin préféré[unicode 160]?[paragraph break]Et pourquoi est-ce que je me tiens debout sur deux jambes à la façon des êtres humains[unicode 160]? C'est en fait plus facile que j'aurais pensé.";
 	increment the consciousness of the player;
 	now the BlockChatterFlag is true;
 	say "[italic type]«[unicode 160]Désolé.[line break]-- Quoi, désolé[unicode 160]?[line break]-- Moi, je suis désolé de t'avoir mangé.[line break]-- De m'avoir mangé[unicode 160]? Dis donc, qui es-tu[unicode 160]?[line break]-- La souris.[no line break][unicode 160]»[roman type][line break]";
 	increment the knownCommands of the player.
 	
-After eating the morceau de cerveau:
+After eating the slice of brain:
 	say "[line break]En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe de plutôt monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
 	now the potty is plural-named;
 	now indefinite article of the potty is "des";
