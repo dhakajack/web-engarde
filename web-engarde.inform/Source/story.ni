@@ -220,7 +220,7 @@ To say descCouloir2:
 			say "The hall that leads from my comfy nook to the north to the chamber of horrors to the west";
 			say "[liftDoorDogStatus]";
 		-- 3:
-			say "Le couloir central du deuxième niveau. La salle d'opérations se trouve à l'ouest, le chenil au nord, le laboratoire au sud et l'ascenseur à l'est";
+			say "The central corridor for level two. The operating room is to the west, the kennel to the north, the lab to the south, and the elevator to the east";
 		-- 4:
 			say "The central corridor for level two. The operating room is to the west, the kennel to the north, the lab to the south, and the elevator to the east".
 			
@@ -628,9 +628,7 @@ Sas is a room. The description of Sas is "[descSas]." The printed name of the sa
 
 The sasDoor is a locked door. It is north of Escalier 2 and south of Sas. The printed name of the sasDoor is "armored airlock door".
 
-The scientifique is an edible thing in the sas. The scientifique has a truth state called introducedFlag. The introducedFlag of scientifique is false. The scientifique has a number called conversations. The conversations of the scientifique is 0.
-
-The indefinite article of the scientifique is "[if the introducedFlag of scientifique is true]le[otherwise]une[end if]". 
+The scientist is an edible thing in the sas. The scientist has a truth state called introducedFlag. The introducedFlag of scientist is false. The scientist has a number called conversations. The conversations of the scientist is 0.
 
 To say descSas:
 	if the consciousness of the player is:
@@ -641,12 +639,12 @@ To say descSas:
 		say ". The stairs downward are behind you, to the south".
 			
 Instead of going north when the player is in the sas:
-	if scientifique is in the sas:
+	if scientist is in the sas:
 		say "You would need to get past the scientist and she doesn't appear to be all that cooperative. More over, since you don't know the code to open the outer door, it wouldn't make much sense to try.";
 	otherwise:
 		say "Useless. The door is hermitically sealed and can only be opened by someone in the control room."
 			
-Before eating scientifique when the conversations of scientifique are less than 5:
+Before eating scientist when the conversations of scientist are less than 5:
 	now the BlockChatterFlag is true;
 	say "[one of]The scientist beats you back with her crowbar. Once out of reach of your slavering maw, she presses a button on the intercom and says, [quotation mark]Attention, control room, this is Doctor Rambaud in the airlock. Julien is here with me. Unfortunately, I have to report that the experiment has failed. Don't unlock the outer door no matter what.[quotation mark][paragraph break][or]Doctor Rambaud does not budge from behind the desk, but as you approach she lands a series of blows with her crowbar that makes you reconsider your actions.[or]The scientist acknowledges, [quotation mark]I have to give you credit for your perseverance, but… [quotation mark] and she whacks you solidly on the nose. Stunned, you stagger back out of reach of her crowbar.[or]Doctor Rambaud beats you repeatedly with the crowbar.[stopping]";
 	stop the action.
@@ -662,23 +660,13 @@ Carry out simpleUnlocking:
 	repeat with way running through directions:
 		if the door the way of the location is locked:
 			now the door the way from the location is unlocked;
-			say "Vous entrez le code sur le pavé numérique et entendez se déverrouiller la porte ";
-			if the way is:
-				-- east:
-					say "à l[apostrophe]est";
-				-- west:
-					say "à l'ouest";
-				-- north:
-					say "au nord";
-				-- south:
-					say "au sud";
-			say ".[no line break][one of][firstUnlocked][or][stopping][paragraph break]";
+			say "You enter the code on the numeric keypad and hear the door to the [way] unlock.[no line break][one of][firstUnlocked][or][stopping][paragraph break]";
 			stop the action;
-	say "Vous ne voyez aucune porte verrouillée."
+	say "You don't see any locked door."
 	
 To say firstUnlocked:
 	now the BlockChatterFlag is true;[hate to side effect this way, but here it seems expedient]
-	say "[paragraph break]«[unicode 160][italic type]Attends, dit le chien. Quel est ce nouveau truc[unicode 160]?[line break]-- Il faut introduire un code pour ouvrir les portes avec des serrures électroniques.[line break]-- Et tu te souviens de ce code[unicode 160]? demande la souris.[line break]-- Apparemment.[no line break][unicode 160]»[roman type]".
+	say "[paragraph break][italic type][quotation mark]Hang on a minute,[quotation mark] says the dog. [quotation mark]What kind of a trick is that?[quotation mark][line break][quotation mark]To unlock these doors with electronic locks, you have to enter the right code.[quotation mark][line break][quotation mark]And you remember the code?[quotation mark] asks the mouse.[line break][quotation mark]Apparently so.[quotation mark][roman type]".
 	
 Section 2- simpleOpening
 
@@ -695,14 +683,15 @@ Carry out simpleOpening:
 		if the item is closed:
 			try opening the item;
 			stop the action;
-	say "Rien à ouvrir ici." 
+	say "There's nothing obvious to open here." 
 	
-[this works here because things only contain a single item]
+[this works here because things only contain a single item
 After opening something (called the item):
 	say "Vous ouvrez [the item]";
 	if the item contains exactly one thing:
 		say ", révélant [a random thing in item]";
 	say "."
+]
 
 Section 3 - simpleEating
 
@@ -712,9 +701,9 @@ Carry out simpleEating:
 	repeat with the item running through visible edible things:
 		try eating the item;
 		stop the action;
-	say "Il n[apostrophe]y a rien à manger";
+	say "You don't see anything to eat";
 	if the tas de nourriture de chien is in the location:
-		say " (du moins, rien dont vous avez envie de manger)";
+		say " (at least, nothing that looks appetizing)";
 	say "."
 	
 Section 4- simplePushing
@@ -725,7 +714,7 @@ Carry out simplePushing:
 	repeat with the item running through visible buttoned things:
 		try pushing the item;
 		stop the action;
-	say "Rien à appuyer ici."
+	say "There's nothing to push here."
 	
 Section 5- simpleTalking
 
@@ -733,48 +722,48 @@ simpleTalking is an action applying to nothing. Understand "talk" as simpleTalki
 
 Check simpleTalking:
 	if the player is not in the sas:
-		say "Personne n'est présent. À qui parlez-vous[one of][unicode 160]?[paragraph break]Voulez-vous que tout le monde pense que vous êtes débile[or][stopping][unicode 160]?";
+		say "No one is around. Who are you talking to[one of]?[paragraph break]Do you want everyone to think you're nuts[or][stopping]?";
 		stop the action;
 	otherwise:
-		if the dépouille sanglante du Docteur Rambaud is in the sas:
+		if the bloody corpse of Docteur Rambaud is in the sas:
 			if the interphone is not live:
-				say "Pour parler avec la salle de contrôle, il faut d'abord allumer l'interphone.";
+				say "To talk to the control room, you must first activate the intercom.";
 				stop the action.
 				
 Carry out simpleTalking:
-	if the dépouille sanglante du Docteur Rambaud is in the sas:
+	if the bloody corpse of Docteur Rambaud is in the sas:
 		now the BlockChatterFlag is true;
 		if the curedFlag of the player is not true:
-			say "[one of]Vous expliquez votre plan. Le directeur de l'installation prend le micro et vous souhaite bon chance. Par ailleurs, il vous demande de rappeler quand vous avez réussi. À part ça, il ne faut pas utiliser l'interphone[or]La salle de contrôle refuse de vous parler jusqu[apostrophe]à ce que vous ayez en main un remède efficace[stopping]. Il raccroche et l'interphone s[apostrophe]éteint.";
+			say "[one of]You explain your plan. The director of the installation grabs the microphone and wishes you good luck. Beyond that, he instructs you report back when you have succeeded. Short of that, though, he requests that you not use the intercom[or]The control room refuses to talk to you until you have a proven cure in hand[stopping]. They hang up on you and the intercom goes dark.";
 			now the interphone is not live;
 		otherwise:
 			increase the conversations of the player by 1;
 			if the conversations of the player is:
 				-- 1:
-					say "«[unicode 160]Salle de contrôle, Professeur Drummond à l'appareil.[line break]-- C'est ton chien, Lucky[unicode 160]! Je suis ici dans le sas[unicode 160]! Je suis tellement heureux de t'entendre[unicode 160]![line break]-- Euh… est-ce que vous vous moquez de moi[unicode 160]? L'interphone n'est que pour les communications officielles. Qui est-ce[unicode 160]?[paragraph break][italic type]-- C'est lui[unicode 160]! C'est le père de ma famille, dit Lucky.[line break]-- Calme toi, Lucky, insiste la scientifique. Laisse Julien prendre le micro.[roman type][paragraph break]-- Excusez-moi, dit Julien. Je peux tout expliquer. Je suis Julien Truffaut.[line break]-- Le garde[unicode 160]?[line break]-- Oui.[line break]-- Impossible. Le docteur Rambaud a dit qu'il était devenu un zombie. Les zombies ne peuvent pas parler. Je n'ai pas de temps pour ces conneries.[no line break][unicode 160]»[paragraph break]";
+					say "[quotation mark]Control room, Professor Drummond speaking.[quotation mark][line break][quotation mark]It's me, your dog, Lucky! I'm in the airlock! I am so happy to hear your voice![quotation mark][line break][quotation mark]Um. Huh? Are you messing with me? The intercom is only for official communications. Who is this?[quotation mark][paragraph break][italic type][quotation mark]It's him! It's the father of my family,[quotation mark] says Lucky.[line break][quotation mark]Calm down, Lucky,[quotation mark] insists the scientist. [quotation mark]Please let Julien do the talking.[quotation mark][roman type][paragraph break][quotation mark]Excuse me,[quotation mark] says Julien. [quotation mark]I can explain everything. I am Julien Truffaut.[quotation mark][line break][quotation mark]The guard?[line break][quotation mark]Yes.[quotation mark][line break][quotation mark]Impossible. Doctor Rambaud said that he had turned. Zombies can't talk. I don't have time for your crap, now get off the line.[quotation mark][paragraph break]";
 				-- 2:
-					say "«[unicode 160]Je ne plaisante pas, dit Julien. Le docteur Rambaud m'a guéri.[line break]-- Assez, répond le professeur. Si elle est là, donnez-lui la parole.[line break]-- Elle est… occupée… en ce moment[unicode 160]». Pendant que vous parlez, vous traînez le corps inerte de la scientifique vers l'escalier.[paragraph break]«[unicode 160]Dites donc, continuez-vous, si vous méfiez de moi, activez la caméra de surveillance dans le sas. Vous me verrez.[line break]-- Attendez.[no line break][unicode 160]»[paragraph break]";
+					say "[quotation mark]I'm not joking,[quotation mark] pleads Julien. [quotation mark]Doctor Rambaud has cured me.[quotation mark][line break][quotation mark]Okay, enough,[quotation mark] answers the professor. [quotation mark]If she's there, put her on.[quotation mark][line break][quotation mark]She is… occupied… at the moment.[quotation mark] While you are speaking, you drag the scientist's lifeless body around the corner to the stairwell.[paragraph break][quotation mark]Listen,[quotation mark] you continue, [quotation mark]if you don't believe me, turn on the surveillance cameras in the airlock. You'll be able to see me.[quotation mark][line break][quotation mark]Okay, give me a sec.[quotation mark][paragraph break]";
 				-- 3:
-					say "«[unicode 160]Me voyez-vous[unicode 160]? vous demandez.[line break]-- Oui. Mais comment se fait-il que vous êtes toujours en vie[unicode 160]? J'ai pensé que vous étiez infecté par le virus.[line break]-- Oui, vous avez raison, comme je vous l[apostrophe]ai dit…[paragraph break][italic type]-- Laisse-moi expliquer, dit la scientifique.[roman type][paragraph break]-- Le docteur Rambaud a préparé un remède efficace utilisant le système microfluidique de biosynthèse suivant le protocol [quotation mark]M13[quotation mark] dont elle a discuté avec vous auparavant. Mes voies neuronales ont été restaurées et je suis guéri de l'infection.[line break]-- Ouah. C[apostrophe]est peut-être la fin de la pandémie.[line break]-- Oui. Certainement[unicode 160]![no line break][unicode 160]»[paragraph break]";
+					say "[quotation mark]Do you see me?[quotation mark] you ask.[line break][quotation mark]Yes. Got you on the screen. But how can you still be alive? I thought you'd been infected by the virus.[quotation mark][line break][quotation mark]Well, yes, you're right, but as I told you…[quotation mark][paragraph break][italic type][quotation mark]Let me explain,[quotation mark] interrupts the scientist.[roman type][paragraph break][quotation mark]Doctor Rambaud prepared a cure using the microfluidic biosynthesis workstation following protocol M13 as she discussed with you previously. My neural pathways were restored and I am entirely cured.[quotation mark][line break][quotation mark]Okay… But that would mean… this could be it. An end the pandemic![quotation mark][line break][quotation mark]Right. We need to move on this quickly.[quotation mark][paragraph break]";
 				-- 4: 
-					say "Vous demandez à parler avec le responsable de l'installation, le colonel Greillier et vous expliquez en détail votre histoire.[paragraph break]Après quelques heures de discussion, il est convaincu et la porte extérieure du sas est déverrouillée vous permettant de sortir.";
+					say "You request to speak to the director of the entire research complex, Colonel Greillier, and you relate everything that has happened, leaving out, for now, some of the details suggested by Lucky and the mouse.[paragraph break]After a couple hours of discussion and some blood tests, the colonel is convinced and orders that the airlock doors be unsealed, permitting you to exit. ";
 					terminate the game;
 	otherwise:
 		now the BlockChatterFlag is true;
-		increase the conversations of scientifique by 1;
-		if the conversations of scientifique is:
+		increase the conversations of scientist by 1;
+		if the conversations of scientist is:
 			-- 1:
-				say "Vous commencez à balbutier et la scientifique vous dévisage d'un regard inquisiteur.[paragraph break]«[unicode 160]C'est possible[unicode 160]? demande-t-elle. Es-tu toujours capable de parler[unicode 160]?[line break]-- Oui, vous grognez au prix d'un grand effort. Moi... parle.[line break]-- Incroyable[unicode 160]! C'est un miracle, Julien. De quoi tu te souviens[unicode 160]?[paragraph break][italic type]-- Julien[unicode 160]? Qui est-ce[unicode 160]? demande Lucky.[line break]-- C'est pas moi, répond la voix minuscule de la souris. Peut-être que le nom appartient à notre ami, la tranche de cerveau[unicode 160]?[line break]-- Je ne m'en souviens pas, mais bon, je pourrais aussi bien être ce Julien.[roman type][paragraph break]-- Rien. Rien de tout. Julien… C'est moi[unicode 160]?[line break]-- Oui, Julien, c'est toi. Et moi, je suis ton Isabelle. Isabelle Rambaud, répond-elle d'un ton déçu.[no line break][unicode 160]»[paragraph break]";
+				say "You start babbling incoherently, the words refusing to come. As the sounds trip off your tongue, the scientist stares at you incredulously.[paragraph break][quotation mark]Is it possible,[quotation mark] she asks. [quotation mark]Are you still capable of speaking somehow?[quotation mark][line break][quotation mark]Yes,[quotation mark] you groan painfully, [quotation mark]I… speak.[quotation mark][line break][quotation mark]Incredible! It's a miracle, Julien. What do you remember?[quotation mark][paragraph break][italic type][quotation mark]Julien? Who's Julien?[quotation mark] asks Lucky.[line break][quotation mark]Not me,[quotation mark] says the mouse. [quotation mark]Maybe the name belongs to our buddy, the slice of brain?[quotation mark][line break][quotation mark]I don't recall, but sure, I guess I could be this Julien. I mean, why not?[quotation mark][roman type][paragraph break][quotation mark]Nothing. I don't remember a thing… Julien… that's me?[quotation mark][line break][quotation mark]Yes, Julien. It's you. And I'm your Isabelle. Isabelle Rambaud,[quotation mark] replies the scientist in a disappointed tone.[paragraph break]";
 			-- 2:
-				say "«[unicode 160][italic type]Elle a de jolis yeux (pour un géant), remarque la souris.[line break]-- Tais-toi, disent Lucky et la tranche de cerveau à l'unisson.[no line break][unicode 160]»[roman type][paragraph break]Vous vous efforcez de former les mots les uns après les autres.[paragraph break]«[unicode 160]Que faisons-nous ici[unicode 160]?[line break]-- Écoute, Julien. Je n'ai pas beaucoup de temps. Je suis chercheuse en médecine et tu es garde. Nous travaillions dans une installation consacrée à trouver un remède contre le virus Zombie777 qui a dévasté le monde entier.[line break]-- Un garde[unicode 160]?[line break]-- Oui. Fais attention, Julien, c'est important. Une foule d'individus infectés ont encerclé le laboratoire et tu me protégeais quand tu as été griffé. Pour éviter que tu ne deviennes un zombie, je t'ai administré le traitement expérimental.[line break]-- Alors, je suis guéri[unicode 160]?[line break]-- Loin de là, je dirais.[no line break][unicode 160]»[paragraph break]";
+				say "[italic type][quotation mark]She has pretty eyes (for a giant),[quotation mark] remarks the mouse.[line break][quotation mark]Shut up,[quotation mark] say the slice of brain and Lucky in unison.[roman type][paragraph break]You force yourself to form the words, one after another.[paragraph break][quotation mark]What are we doing here?[quotation mark][line break][quotation mark]Listen, Julien, I don't have much time. I am a medical researcher and you are a guard. We both work at an installation dedicated to finding a cure for the zombie777 virus, which has desolated the entire world.[quotation mark][line break][quotation mark]A guard?[quotation mark][line break][quotation mark]Yes. Pay attention, Julien, this is important. A crowd of pandemic victims surrounded the lab complex and you were protecting me when you were scratched by one of them. I had to give you the experimental treatment to prevent you from turning into a zombie.[quotation mark][line break][quotation mark]So, I'm cured?[quotation mark][line break][quotation mark]No, not even close.[quotation mark][paragraph break]";
 			-- 3:
-				say "«[unicode 160]Le traitement n'a pas marché[unicode 160]? demandez-vous.[line break]-- Pas entièrement, il me semble. J'ai eu un problème avec le système microfluidique de synthèse biomoléculaire qui a produit le traitement. Je crois qu'un composant a été omis dans la formule. J[apostrophe]étais en train de faire des réparations sur l'unité de synthèse quand tu m'a prise au dépourvu. Tu m'as attaquée, mais j'ai réussi à m'enfuir vers le sas. Et voilà où nous en sommes.[line break]-- Désolé.[line break]-- Tu n[apostrophe]étais pas toi-même. Tu étais complètement transformé en zombie. Mais… comment se fait-il que tu puisses parler maintenant[unicode 160]? Les zombies n'en sont pas capables.[no line break][unicode 160]»[paragraph break]";
+				say "[quotation mark]So, the treatment didn't work?[quotation mark] you ask.[line break][quotation mark]No, not entirely it would seem. I had a problem with the microfluidic biosynthesis unit that produced the dose I gave you. I think that one of the ingredients must have been left out of that batch. I was trying to repair the unit when you caught me off guard. You attacked me, but I managed to hole up here in the airlock. So. That's where things stand.[quotation mark][line break][quotation mark]Sorry.[quotation mark][line break][quotation mark]It wasn't you. You were a full-blown zombie at the time. But… how is it that now you're able to talk? I've never heard of a zombie that could talk -- it just doesn't happen.[quotation mark][paragraph break]";
 			-- 4:
-				say "«[unicode 160]Nous avons beaucoup de mal à parler.[line break]-- Naturellement, vos neurones sont en état de… attends… nous[unicode 160]?[paragraph break][italic type]-- Parle-lui de moi, implore la souris toute excitée.[line break]-- Et de moi[unicode 160]! ajoute Lucky.[roman type][paragraph break]-- Ouais, je dis [quotation mark]nous[quotation mark] parce qu'il y a trois esprits dans ma tête[unicode 160]:[unicode 160]la souris, le chien qui s'appelle Lucky et la tranche de cerveau. Nous travaillons ensemble pour nous déplacer et parler.[line break]-- Ben, fait-elle en marquant un pause, ça explique tout. Votre cerveau était réinitialisé, c'est-à-dire effacé, par le virus, mais tu as réussi à le recharger d'une certaine façon avec des cerveaux normaux. La tranche dont tu parles est une biopsie que j'ai pris de Julien avant que le virus avait atteint cette portion de son cerveau.[no line break][unicode 160]»[paragraph break]";
+				say "[quotation mark]It's really hard for us to talk.[quotation mark][line break][quotation mark]Naturally, your neural pathways are in a state of… hold on… what do you mean, [apostrophe]us[apostrophe]?[quotation mark][paragraph break][italic type][quotation mark]Tell her about me,[quotation mark] implores the mouse, full of excitement.[line break][quotation mark]And about me![quotation mark] adds Lucky.[roman type][paragraph break][quotation mark]Yeah. About that. I said [apostrophe]us[apostrophe] because there are three minds in my head: a mouse, a dog named Lucky, and a slice of brain. We work together as best we can to get around and talk.[quotation mark][line break][quotation mark]Well.[quotation mark] She stares a moment at the ceiling to gather her thoughts. [quotation mark]Well, I suppose that explains everything. You brain was rebooted, more or less erased by the virus, but somehow you have managed to sort of reload it with normal brains. That slice of brain that you mentioned must have been the biopsy that I took from Julien before the virus had invaded that part of his brain.[quotation mark][paragraph break]";
 			-- 5:
-				say "«[unicode 160]Alors, nous sommes bel et bien foutus[unicode 160]? dites-vous.[paragraph break][italic type]-- Tout à fait, grommelle la souris.[line break]-- Oui, il me semble, accorde Lucky.[roman type][paragraph break]-- Peut-être que non… [line break]-- As-tu une idée[unicode 160]?[line break]-- Oui, je crois. Fais exactement ce que je te dis[unicode 160]:[unicode 160]Je suis en train de mourir, déjà je ne peux même pas bouger les jambes. Pourtant... Si tu manges mon cerveau -- attends, pas encore, laisse-moi arriver à la fin de mon discours -- si tu manges mon cerveau ma personnalité fusionnera avec les tiennes. Le virus est encore présent en toi et il va détruire ton cerveau, mais il a été ralenti par la première dose du traitement. S'il reste assez de temps, on peut réparer l'unité de synthèse et cette fois produire un traitement curatif. Je vivrai en toi, avec tes pensées.[line break]-- Alors, je dois manger ton cerveau maintenant[unicode 160]?[line break]-- Vas-y[unicode 160]![no line break][unicode 160]»[paragraph break]";
+				say "[quotation mark]So, we're well and truly screwed?[quotation mark] you say.[paragraph break][italic type][quotation mark]Totally,[quotation mark] whines the mouse.[line break][quotation mark]Yeah, I'd say so,[quotation mark] agrees Lucky.[roman type][paragraph break][quotation mark]Maybe not… [quotation mark][line break][quotation mark]You have an idea?[quotation mark][line break][quotation mark]Yes, I think so. Do exactly what I say: I don't have long for this world. I can't even feel my legs; it's only a matter of time. However… if you eat my brain -- hang on, not yet! Let me finish talking -- thanks. As I was saying, if you eat my brain, my personality will meld with all of yours. You are still actively infected with the virus and in time it will destroy what's left of your brain, but the infection seems to have been slowed by the first treatment, even if it wasn't completely effective. If there's enough time, I can repair the synthesis unit and we can try one more time to produce a cure for the virus. If we succeed, I can live on in you, along with your thoughts.[quotation mark][line break][quotation mark]So, I should eat your brain now?[quotation mark][line break][quotation mark]Go for it.[quotation mark][paragraph break]";
 			-- otherwise:
-				say "Il ne reste rien à dire."
+				say "There's nothing more to say."
 									
 Section 6 - simpleRepairing
 
@@ -784,11 +773,11 @@ Carry out simpleRepairing:
 	repeat with the item running through visible broken things:
 		try touching the item;
 		stop the action;
-	say "Vous ne voyez rien à réparer."
+	say "You don't see anything in need of repair."
 	
 Instead of touching something (called the item):
 	now the item is not broken;
-	say "Vous réparez[the item]."
+	say "You repair [the item]."
 	[override touch with specific repair actions.]
 	
 Chapter 11 - Consciousness
@@ -884,10 +873,10 @@ After going north from Escalier 2 when the sasDoor is not closed for the first t
 	say "Elle vous regarde avec mépris.";
 	increment the knownCommands of the player.
 	
-After eating scientifique:
+After eating scientist:
 	now the BlockChatterFlag is true;
-	say "[line break]Vous dévorez le cerveau de la scientifique. Immédiatement vous voyez le monde d'un point de vue plus raffiné et érudit.[paragraph break]«[unicode 160][italic type]C'est fait[unicode 160]? demande la voix d'Isabelle avec hésitation.[line break]-- Oui, tu étais délicieuse, enthousiasme la souris.[line break]-- Le meilleur jusqu'ici, ajoute Lucky.[line break]-- Excuse mes co-esprits, ils manquent cruellement de tact, intervient la tranche de cerveau.[line break]-- Hé[unicode 160]! gémissent la souris et le chien.[line break]-- Sois la bienvenue, Isabelle, continue la tranche de cerveau. Laisse-moi te présenter notre petite troupe[unicode 160]:[unicode 160]voilà Lucky, le chien, et ici figure Le Marquis Des Souris (ou juste simplement [quotation mark]Souris[quotation mark] parce qu'il est plutôt modeste), et moi, je suis le nommé [quotation mark]tranche de cerveau[quotation mark]. On est à ta disposition.[line break]-- Bonjour, les gars, dit Isabelle avec chaleur. [unicode 160]»[line break]";
-	move the dépouille sanglante du Docteur Rambaud to the sas;
+	say "[line break]Vous dévorez le cerveau de la scientist. Immédiatement vous voyez le monde d'un point de vue plus raffiné et érudit.[paragraph break]«[unicode 160][italic type]C'est fait[unicode 160]? demande la voix d'Isabelle avec hésitation.[line break]-- Oui, tu étais délicieuse, enthousiasme la souris.[line break]-- Le meilleur jusqu'ici, ajoute Lucky.[line break]-- Excuse mes co-esprits, ils manquent cruellement de tact, intervient la tranche de cerveau.[line break]-- Hé[unicode 160]! gémissent la souris et le chien.[line break]-- Sois la bienvenue, Isabelle, continue la tranche de cerveau. Laisse-moi te présenter notre petite troupe[unicode 160]:[unicode 160]voilà Lucky, le chien, et ici figure Le Marquis Des Souris (ou juste simplement [quotation mark]Souris[quotation mark] parce qu'il est plutôt modeste), et moi, je suis le nommé [quotation mark]tranche de cerveau[quotation mark]. On est à ta disposition.[line break]-- Bonjour, les gars, dit Isabelle avec chaleur. [unicode 160]»[line break]";
+	move the bloody corpse of Docteur Rambaud to the sas;
 	move the interphone to the sas;
 	move the panneau électrique to escalier 1;
 	move the unité de synthèse microfluidique to the Laboratoire Biochimique;
@@ -900,7 +889,7 @@ Every turn:
 	if the curedFlag of the player is not true:
 		if the disjoncteurs are not broken and the servomoteur is not broken and the player is in the Laboratoire Biochimique:
 			now the BlockChatterFlag is true;
-			say "L'appareil robotique émet un bip et remplit un flacon d'un fluide vert fluo. Vous le prenez anxieusement, portez un toast à votre propre santé, et buvez le remède à grandes gorgées.[paragraph break]«[unicode 160][italic type]Je ne ressens rien, s'inquiète la tranche de cerveau.[line break]-- Attendez, rassure Isabelle.[line break]-- Moi non plus, opine la souris.[line break]-- Attendez, insiste la scientifique.[line break]-- Houlà[unicode 160]! s'exclame Lucky. Quelque chose commence à…[line break]-- C'est parti[unicode 160]! hurle la scientifique. [roman type][unicode 160]»[paragraph break]Vous tremblez violentement et vous évanouissez. Lorsque vous vous levez, vous observez que votre peau a repris son teint naturel et que vous pouvez vous déplacer sans trébucher. Bref, vous êtes guéri.[paragraph break]";
+			say "L'appareil robotique émet un bip et remplit un flacon d'un fluide vert fluo. Vous le prenez anxieusement, portez un toast à votre propre santé, et buvez le remède à grandes gorgées.[paragraph break]«[unicode 160][italic type]Je ne ressens rien, s'inquiète la tranche de cerveau.[line break]-- Attendez, rassure Isabelle.[line break]-- Moi non plus, opine la souris.[line break]-- Attendez, insiste la scientist.[line break]-- Houlà[unicode 160]! s'exclame Lucky. Quelque chose commence à…[line break]-- C'est parti[unicode 160]! hurle la scientist. [roman type][unicode 160]»[paragraph break]Vous tremblez violentement et vous évanouissez. Lorsque vous vous levez, vous observez que votre peau a repris son teint naturel et que vous pouvez vous déplacer sans trébucher. Bref, vous êtes guéri.[paragraph break]";
 			now the curedFlag of the player is true;
 	if the BlockChatterFlag is false:
 		if the consciousness of the player is:
@@ -1000,8 +989,8 @@ Section Everybody Dialogue
 
 EverybodyDialogue is a list of text that varies. 
 
-EverybodyDialogue is { "Quelle sensation incroyable[unicode 160]! délire la scientifique.[line break]-- On s'y habitue après un temps, dit la souris laconiquement.[line break]-- Dis-lui le plan, Lucky, demande la tranche de cerveau. Je ne me rappelle pas de toutes les étapes.[line break]-- D'accord, dit le chien, numéro un[unicode 160]:[unicode 160]pour commencer nous avons besoin de trouver le reste du cerveau de Julien, numéro deux[unicode 160]:[unicode 160]quitterons l'installation, enfin, numéro plus que deux[unicode 160]:[unicode 160]nous chercherons ma famille.",
-"Euh. D'accord, dit Isabelle. Mais en premier lieu il faut sortir de la pièce où vous m'avez trouvée, et pour ce faire, il faut synthétiser le remède, propose la scientifique.[line break]-- Impossible, dit la souris d'un ton définitif.[line break]-- Pourquoi[unicode 160]? demande Isabelle bouleversée.[line break]-- C'est une question de mathématiques, répond la souris d'un air pointilleux. Le plan de Lucky commence déjà avec numéro un. Il n'y a rien avant le numéro un.[line break]-- Numéro zéro[unicode 160]? suggère Isabelle.[roman type][unicode 160]»[paragraph break]Silence radio.[paragraph break]«[unicode 160][italic type]OK, dit Isabelle, renumérotons… un[unicode 160]:[unicode 160]faire le remède, deux[unicode 160]:[unicode 160]sortir de l'installation, trois[unicode 160]:[unicode 160]chercher la famille de Lucky. Ça vous convient[unicode 160]?[line break]-- Oui, accorde Lucky, ça l'air raisonnable.[line break]-- Et mathématiquement correct, ajoute la souris.",
+EverybodyDialogue is { "Quelle sensation incroyable[unicode 160]! délire la scientist.[line break]-- On s'y habitue après un temps, dit la souris laconiquement.[line break]-- Dis-lui le plan, Lucky, demande la tranche de cerveau. Je ne me rappelle pas de toutes les étapes.[line break]-- D'accord, dit le chien, numéro un[unicode 160]:[unicode 160]pour commencer nous avons besoin de trouver le reste du cerveau de Julien, numéro deux[unicode 160]:[unicode 160]quitterons l'installation, enfin, numéro plus que deux[unicode 160]:[unicode 160]nous chercherons ma famille.",
+"Euh. D'accord, dit Isabelle. Mais en premier lieu il faut sortir de la pièce où vous m'avez trouvée, et pour ce faire, il faut synthétiser le remède, propose la scientist.[line break]-- Impossible, dit la souris d'un ton définitif.[line break]-- Pourquoi[unicode 160]? demande Isabelle bouleversée.[line break]-- C'est une question de mathématiques, répond la souris d'un air pointilleux. Le plan de Lucky commence déjà avec numéro un. Il n'y a rien avant le numéro un.[line break]-- Numéro zéro[unicode 160]? suggère Isabelle.[roman type][unicode 160]»[paragraph break]Silence radio.[paragraph break]«[unicode 160][italic type]OK, dit Isabelle, renumérotons… un[unicode 160]:[unicode 160]faire le remède, deux[unicode 160]:[unicode 160]sortir de l'installation, trois[unicode 160]:[unicode 160]chercher la famille de Lucky. Ça vous convient[unicode 160]?[line break]-- Oui, accorde Lucky, ça l'air raisonnable.[line break]-- Et mathématiquement correct, ajoute la souris.",
 "Attends, dit Lucky, toujours comptant les étapes du plan proposé par Isabelle. Que ferons-nous en ce qui concerne le cerveau manquant[unicode 160]? Si j'ai bien compris, nous en aurons besoin pour reconstituer Julien.[line break]-- Malheureusement, répond Isabelle, la tranche de cerveau est maintenant tout qui reste de Julien. Nous utilisons en ce moment les voies neurales du reste de son cerveau, mais à l'exception de la tranche récupérée rien ne reste de sa personnalité. C'est une perte grave, particulièrement pour moi.[line break]-- Pourquoi pour toi[unicode 160]? demande la souris.[line break]-- Parce que nous étions fiancés, Julien et moi.[line break]-- Désolé, dit la tranche de cerveau. Si je pouvais me souvenir de toi, je suis sûre que je t'aurais aimée.",
 "Isabelle, penses-tu que nous allons un jour trouver ma famille[unicode 160]? demande Lucky.[line break]-- Oui, j'en suis certaine.[line break]-- Comment peux-tu être si sûr[unicode 160]? demande la tranche de cerveau.[line break]-- Parce que je connais la famille[unicode 160]:[unicode 160]Jean-Paul et Alexandra Drummond et leurs filles, Léa et Camille. Ils ne vivent qu[apostrophe]à une centaine de mètres de moi et Julien.[line break]-- Oui, j'ai entendu ces noms souvent à la maison. Tu as assurément raison, mais comment peux-tu connaître de qui je parlais[unicode 160]? demande Lucky.[line break]-- Je les ai vus dans vos pensées, dit la scientifique.",
 "Tu dis que tu as vu dans les pensées de Lucky[unicode 160]? demande la souris. Comment est-ce possible[unicode 160]?[line break]-- Nous faisons tous partie d'un seul cerveau maintenant. Nos esprits sont d'une manière ou d'une autre mélangés. Je peux accéder à ses pensées et il peut également accéder aux miennes.[line break]-- Cool[unicode 160]! dit . Nous avons des superpouvoirs[unicode 160]!",
@@ -1040,7 +1029,7 @@ The void is a room.
 
 The petite créature grise is an edible thing. It is in the void. The indefinite article of the petite créature grise is "une".
 
-The dépouille sanglante du Docteur Rambaud is a thing in the void. The indefinite article of dépouille sanglante du Docteur Rambaud is "la".
+The bloody corpse of Docteur Rambaud is a thing in the void. The indefinite article of bloody corpse of Docteur Rambaud is "la".
 
 The interphone is a buttoned thing in the void. The interphone can be live. The interphone is not live. The indefinite article of the interphone is "une".
 
