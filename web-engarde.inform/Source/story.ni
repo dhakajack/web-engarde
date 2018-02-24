@@ -286,7 +286,7 @@ The chien is an edible thing. It is in the cage. The printed name of the chien i
 
 The animal body is a thing. It is in the void.
 
-The food dispenser is in the Laboratoire Zoologique. It is buttoned. 
+The food dispenser is in the Laboratoire Zoologique. It is buttoned. The printed name of the food dispenser is "[if the consciousness of the player is greater than 2]dog [end if]food dispenser".
 
 Instead of pushing the food dispenser:
 	say "You press the red button. ";
@@ -888,7 +888,7 @@ Chapter 14 - Dialogue
 
 Every turn:
 	if the curedFlag of the player is not true:
-		if the disjoncteurs are not broken and the servomoteur is not broken and the player is in the Laboratoire Biochimique:
+		if the disjoncteurs are not broken and the servo motor is not broken and the player is in the Laboratoire Biochimique:
 			now the BlockChatterFlag is true;
 			say "The robotic workstation emits a beep and fills a flask with fluorescent green fluid. You take the flask, propose a short toast to yourself, and kick it back in one gulp.[paragraph break][quotation mark]I don't feel anything,[quotation mark] worries the slice of brain.[line break][quotation mark]Wait for it,[quotation mark] reassures Isabelle.[line break][quotation mark]Me neither,[quotation mark] pipes up the mouse.[line break][quotation mark]Wait for it,[quotation mark] insists the scientist.[line break][quotation mark]Oh my![quotation mark] barks Lucky. [quotation mark]Something's starting to…[quotation mark][line break][quotation mark]And we're off![quotation mark] shouts the doctor.[paragraph break]You shake violently and pass out. When you are able to stand up again, you note that you skin has recovered its normal tint and that you can walk without lurching back and forth. In short, you've been cured.[paragraph break]";
 			now the curedFlag of the player is true;
@@ -1050,25 +1050,25 @@ The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-nam
 Instead of touching the disjoncteurs:
 	say "You reset the circuit breakers";
 	now the disjoncteurs are not broken;
-	if the servo moteur is broken:
+	if the servo motor is broken:
 		say ".[paragraph break]There's a sharp clicking sound from the electrical panel and you notice that the circuit breakers have again tripped";
 		now the disjoncteurs are broken;
 	say "."
 
 The microfluidic synthesis unit is an openable closed container in the void. The printed name of the microfluidic synthesis unit is "microfluidic synthesis unit".
 
-The servo moteur is in the microfluidic synthesis unit. The servomoteur is broken. The printed name of the servomoteur is "[pnServo]". 
+The servo motor is in the microfluidic synthesis unit. The servo motor is broken. The printed name of the servo motor is "[pnServo]". 
 
 To say pnServo:
 	say "servo motor";
-	if the servomoteur is not broken:
+	if the servo motor is not broken:
 		say " that you have repaired".
 
 After opening the microfluidic synthesis unit:
 	say "You open the service panel and immediately recognize the problem: a fleck of solder has fallen across the terminals of a servo motor, shorting it out."
 	
-Instead of touching the servomoteur:
-	now the servomoteur is not broken;
+Instead of touching the servo motor:
+	now the servo motor is not broken;
 	say "You brush aside the bit of solder. The machine should work normally now, when powered up."
 
 Chapter 16 - End Game
