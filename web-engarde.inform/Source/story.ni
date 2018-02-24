@@ -295,12 +295,12 @@ Instead of pushing the food dispenser:
 			say "In reward, a few nuggets fall to the ground. You eat them, but they do not satisfy your hunger.";
 		-- 3:
 			say "You don't find the reward nuggets that fall at your feet the least bit appetizing.";
-			move the tas de nourriture de chien to the Laboratoire Zoologique;
+			move the pile of dog food to the Laboratoire Zoologique;
 		-- 4:
 			say "The operant conditioning device dispenses a few dog food pellets that pile up on the ground.";
-			move the tas de nourriture de chien to the Laboratoire Zoologique.
+			move the pile of dog food to the Laboratoire Zoologique.
 			
-The tas de nourriture de chien is in the void.
+The pile of dog food is in the void.
 
 Every turn when the chien is in the cage and the player is in the Laboratoire Zoologique:
 	if a random chance of 3 in 8 succeeds:
@@ -535,16 +535,16 @@ Instead of simpleEating when the player is in Les Toilettes:
 			-- 3:
 				say "No, that would be disgusting[one of] (even for someone who eats brains)[or][stopping]."; 
 			-- 4:
-				say "Do you have any idea how many species are pathogenic bacteria live in the water? No way."
+				say "Do you have any idea how many species of pathogenic bacteria live in the water? No way."
 				
 After going south from Couloir 1 when the consciousness of the player is 3 for the first time:
 		now the BlockChatterFlag is true;
-		say "Quand vous entrez dans les toilettes, un mouvement attire votre attention.[paragraph break][italic type]Y a-t-il quelqu'un d'autre ici[unicode 160]?[roman type][paragraph break]Un costaud vêtu d'un uniforme en lambeaux vous dévisage sans sourciller. Son teint blafard, ses yeux cernés et ses joues creuses rappellent un cadavre.[paragraph break]Cette rencontre maladroite continue pendant plusieurs minutes, jusqu'au moment où vous vous rendez compte que vous regardez votre propre reflet dans un miroir.";
+		say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Is somebody else here?[roman type][paragraph break]A burly man dressed in a tattered uniform stares at you with unblinking eyes. His pale skin, rheumy eyes and sunken cheeks call to mind a cadaver.[paragraph break]This awkward encounter goes on for several minutes before you realize that you are staring at your own reflection in a mirror.";
 		try looking.
 	
 After going south from Couloir 1 when the consciousness of the player is 4 for the first time:
 	now the BlockChatterFlag is true;
-	say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Is somebody else here?[roman type][paragraph break]A burly man dressed in a tattered uniform stares at you with unblinking eyes. His pale skin, rheumy eyes and sunken cheeks call to mind a cadaver.[paragraph break]This awkward encounter goes on for several minutes before you realize that you are staring at your own reflection in a mirror.";
+	say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Is somebody else here?[roman type][paragraph break]A burly man dressed in a tattered uniform stares at you with unblinking eyes. His pale skin, rheumy eyes and sunken cheeks call to mind a cadaver.[paragraph break]This awkward encounter goes on for several minutes before you realize that you are staring at your own reflection in a mirror.at.";
 	try looking.
 
 Section Salle de Décontamination
@@ -679,6 +679,9 @@ Carry out simpleOpening:
 		if the door the way of the location is simpleOpenable:
 			try opening the door the way from the location;
 			stop the action;
+		if the door the way of the location is locked and the consciousness of the player is greater than 2:
+			say "You would have to first unlock the door [the way].";
+			stop the action;
 	repeat with the item running through visible containers:
 		if the item is closed:
 			try opening the item;
@@ -702,7 +705,7 @@ Carry out simpleEating:
 		try eating the item;
 		stop the action;
 	say "You don't see anything to eat";
-	if the tas de nourriture de chien is in the location:
+	if the pile of dog food is in the location:
 		say " (at least, nothing that looks appetizing)";
 	say "."
 	
