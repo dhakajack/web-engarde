@@ -816,23 +816,23 @@ Chapter 13 - Milestones
 
 After going east for the first time:
 	try looking;
-	say "Une petite créature arrive de nulle part, se faufile entre vos pieds, et s'enfuit vers l'ouest.";
+	say "A tiny creature zips out of nowhere, weaves between your feet, and flees to the west.";
 	increment the knownCommands of the player.
 	
 After going west from Couloir 2 for the first time:
 	move the petite créature grise to the Bloc Opératoire;
 	try looking;
-	say "Elle se cache dans l'obscurité, tremblante.";
+	say "It hides in the shadows, trembling.";
 	increment the knownCommands of the player.
 	
 After eating the petite créature grise:
-	say "[line break]De votre main, vous balayez aveuglément les recoins à la base du mur. Malgré votre manque de vitesse et de dextérité, par miracle vous réussissez à coincer le petit rongeur contre le mur. Vous vous empressez de le saisir fermement et sentez quelque chose de chaud, poilu, et maintenant, mouillé dans la paume de votre main. Sans y penser plus, vous le mangez précipitamment.[paragraph break]Après un petit moment, de nouvelles pensées vous frappent. Pris au dépourvu, vous frissonnez.[paragraph break][italic type]Au secours[unicode 160]! Un énorme monstre me poursuit[unicode 160]! Il va me manger[unicode 160]! Il faut me dissimuler.[paragraph break]Je… euh.  Suis-je mort ou quoi[unicode 160]? [unicode 160]Je ne comprends pas[roman type].";
+	say "[line break]You blindly sweep the base of the wall with your hand. Despite your lack of speed and dexterity, by some miracle you manage to trap the tiny rodent against the wall. You seize it firmly and feel something warm, furry, and now moist, melt in your hand. Without another thought, you pop it into your mouth and swallow.[paragraph break]A moment later, you are overcome as new thoughts flood your mind.[paragraph break][italic type]Help! A giant monster is after me! It's going to eat me! I have to hide.[paragraph break]I…um.  Am I dead or what? I don't get it. What's going on?[roman type].";
 	increment the consciousness of the player.
 	
 After going east when the consciousness of the player is 1 for the first time:
 	try looking;
 	now the BlockChatterFlag is true;
-	say "[italic type]Ah, le grand couloir blanc.[paragraph break]Combien de fois est-ce que j'ai vu les géants marcher à travers les murs lisses pour entrer dans les pièces secrètes[unicode 160]? Comment le font-ils[unicode 160]?[no line break][roman type][line break]";
+	say "[italic type]Ah, the great white hallway.[paragraph break]How many times I have seen the giants walk right through the smooth walls into secret rooms? How do they do it?[roman type][line break]";
 	increment the knownCommands of the player.
 	
 After opening the labZooDoor:
@@ -840,42 +840,40 @@ After opening the labZooDoor:
 	increment the knownCommands of the player.
 	
 After going north from Couloir 2 for the first time:
-	say "Vous pénétrez dans la tanière du loup, un endroit bien connu mais toujours effrayant.";
+	say "You sneak into the wolf's den, a place that is well known to you, but still terrifying.";
 	try looking;
-	say "Comme d'habitude le loup est emprisonné dans sa cage et vous êtes libre d'explorer, hors de portée de ses mâchoires baveuses.";
+	say "As usual, the wolf is imprisoned in an iron cage and you are free to explore, beyond the reach of his slaving fangs.";
 	increment the knownCommands of the Player.
 	
 After opening the cage:
-	say "Vous ouvrez la cage mais le loup reste prudemment à l'intérieur."
+	say "You open the cage, but the wolf remains prudently inside, watching you."
 	
 After eating the chien:
 	now the chien is dead;
 	now the animal body is in the cage;
-	say "[line break]D'instinct, vous dévorez son cerveau et jetez le corps dans la cage. Encore une fois, de nouvelles pensées envahissent votre esprit.[paragraph break][italic type]Je vous préviens[unicode 160]:[unicode 160]si vous approchez de ma cage, je vous mordrai. Arrêtez[unicode 160]! Sans blague… [paragraph break]Mais, qu'est-ce qui se passe[unicode 160]? Qui est ce chien mort dans ma cage… dont le sang coule sur mon coussin préféré[unicode 160]?[paragraph break]Et pourquoi est-ce que je me tiens debout sur deux jambes à la façon des êtres humains[unicode 160]? C'est en fait plus facile que j'aurais pensé.";
+	say "[line break]Out of instinct, you eat its brain and throw the body back into the cage. Once again, new thoughts invade your mind.[paragraph break][italic type]I'm warning you: if you get near my cage, I'll eat you. Stop! I'm not kidding…[paragraph break]Huh? What's going on? What's that dead dog doing in my cage… bleeding on my favorite pillow?[paragraph break]And what am I doing standing on my hind legs like a human? It seems to be easier than I would have thought.";
 	increment the consciousness of the player;
 	now the BlockChatterFlag is true;
-	say "[italic type]«[unicode 160]Désolé.[line break]-- Quoi, désolé[unicode 160]?[line break]-- Moi, je suis désolé de t'avoir mangé.[line break]-- De m'avoir mangé[unicode 160]? Dis donc, qui es-tu[unicode 160]?[line break]-- La souris.[no line break][unicode 160]»[roman type][line break]";
+	say "[italic type][quotation mark]Sorry[quotation mark][line break][quotation mark]Sorry about what?[quotation mark][line break][quotation mark]I guess, I'm sorry that I ate you.[quotation mark][line break][quotation mark]Ate me? Who are you, anyhow?[quotation mark][line break][quotation mark]The mouse.[quotation mark][roman type][line break]";
 	increment the knownCommands of the player.
 	
 After eating the slice of brain:
-	say "[line break]En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe de plutôt monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
-	now the potty is plural-named;
-	now indefinite article of the potty is "des";
+	say "[line break]While eating the slice of brain you notice that the flavor is a little bit off.[paragraph break]Nothing happens for a few minutes, and you begin to wonder if you can now eat just anything you find without having to worry about it.[paragraph break]Suddenly, the world explodes from muddy grays into full, vibrant color. A wave of electricity courses through your mind and you collapse, disoriented. As you stand back up, new ideas blend into your thoughts and you see everything in a new light.";
 	increment the consciousness of the player;
 	now the BlockChatterFlag is true;
-	say "[italic type]«[unicode 160] Il faut patrouiller[unicode 160]! ordonne une nouvelle voix.[line break]-- Patrouiller[unicode 160]? Qu'est que ça veut dire[unicode 160]? demande la souris.[line break]-- Cela signifie marcher partout, pour sécuriser l'installation, répond la voix.[line break]-- J'aime bien faire des promenades[unicode 160]! dit Lucky tout excité.[no line break][unicode 160]»[roman type][line break]";
+	say "[italic type][quotation mark]We have to patrol![quotation mark] commands a new voice.[line break][quotation mark]Patrol? What's that mean?[quotation mark] asks the mouse.[line break][quotation mark]Well, it means to walk everywhere and secure the installation,[quotation mark] replies the voice.[line break][quotation mark]I love to go on walks![quotation mark] says Lucky excitedly.[roman type][line break]";
 	increment the knownCommands of the player.
 	
 After going north from Escalier 2 when the sasDoor is not closed for the first time:
 	now the BlockChatterFlag is true;
-	say "Une femme d'une quarantaine d'années vêtue d'une blouse blanche est assise derrière un bureau en métal. Elle est à mi-chemin entre vous et la porte à l'autre bout de la pièce. Elle semble gravement blessée et saigne d'une blessure au bras qu'elle a bandé de gaze stérile. Dans son autre main, elle brandit un pied-de-biche.";
+	say "A women in her forties, dressed in a white lab coat sits behind a metal desk. She is half way between you and the door at the other end of the room. Her upper right arm is swathed in gauze, but the bandages are drenched in blood and she appears gravely injured. In her other hand, she brandishes a crowbar with determination.";
 	try looking;
-	say "Elle vous regarde avec mépris.";
+	say "She stares at you warily.";
 	increment the knownCommands of the player.
 	
 After eating scientist:
 	now the BlockChatterFlag is true;
-	say "[line break]Vous dévorez le cerveau de la scientist. Immédiatement vous voyez le monde d'un point de vue plus raffiné et érudit.[paragraph break]«[unicode 160][italic type]C'est fait[unicode 160]? demande la voix d'Isabelle avec hésitation.[line break]-- Oui, tu étais délicieuse, enthousiasme la souris.[line break]-- Le meilleur jusqu'ici, ajoute Lucky.[line break]-- Excuse mes co-esprits, ils manquent cruellement de tact, intervient la tranche de cerveau.[line break]-- Hé[unicode 160]! gémissent la souris et le chien.[line break]-- Sois la bienvenue, Isabelle, continue la tranche de cerveau. Laisse-moi te présenter notre petite troupe[unicode 160]:[unicode 160]voilà Lucky, le chien, et ici figure Le Marquis Des Souris (ou juste simplement [quotation mark]Souris[quotation mark] parce qu'il est plutôt modeste), et moi, je suis le nommé [quotation mark]tranche de cerveau[quotation mark]. On est à ta disposition.[line break]-- Bonjour, les gars, dit Isabelle avec chaleur. [unicode 160]»[line break]";
+	say "[line break]You eat the scientist's brain and immediately perceive the world from a more refined and erudite perspective.[paragraph break][italic type][quotation mark]Is it done?[quotation mark] asks the voice of Isabelle with hesitation.[line break][quotation mark]Yes, you were delicious,[quotation mark] compliments the mouse.[line break][quotation mark]The best yet,[quotation mark] adds Lucky.[line break][quotation mark]Excuse my co-brains, they are sorely lacking in tact,[quotation mark] interjects the slice of brain.[line break][quotation mark]Hey![quotation mark] complain the mouse and dog.[line break][quotation mark]Make yourself at home, Isabelle,[quotation mark] continues the slice of brain. [quotation mark]Let me present our little company: here's Lucky the dog, and that's the Duke of Mousedom (or just [apostrophe]the mouse[apostrophe], as he's rather modest), and me. I'm the one they call [apostrophe]slice of brain[apostrophe]. We are at your service.[quotation mark][line break][quotation mark]Good morning, boys,[quotation mark] says Isabelle warmly.";
 	move the bloody corpse of Docteur Rambaud to the sas;
 	move the interphone to the sas;
 	move the panneau électrique to escalier 1;
