@@ -1027,46 +1027,46 @@ Chapter 15 - The Void
 
 The void is a room.
 
-The petite créature grise is an edible thing. It is in the void. The indefinite article of the petite créature grise is "une".
+The petite créature grise is an edible thing. It is in the void. 
 
-The bloody corpse of Docteur Rambaud is a thing in the void. The indefinite article of bloody corpse of Docteur Rambaud is "la".
+The bloody corpse of Docteur Rambaud is a thing in the void. The indefinite article of bloody corpse of Doctor Rambaud is "the".
 
-The interphone is a buttoned thing in the void. The interphone can be live. The interphone is not live. The indefinite article of the interphone is "une".
+The interphone is a buttoned thing in the void. The interphone can be live. The interphone is not live. 
 
 Instead of pushing the interphone:[only present at consciousness 4]
 	if the interphone is not live:
-		say "Une petite LED rouge sur l'interphone s'allume indiquant que vous êtes en direct avec la salle de contrôle.";
+		say "A little red LED lights up on the intercom indicating that the connection to the control room is live.";
 		now the interphone is live;
 	otherwise:
-		say "Vous avez déjà activé l'interphone et sa LED reste allumée."
+		say "You have already activated the intercom; the red LED is still on."
 
-The panneau électrique is an openable closed container in the void. The printed name of the panneau électrique is "panneau électrique[if the panneau électrique is closed] (fermé)[end if]".
+The panneau électrique is an openable closed container in the void. The printed name of the panneau électrique is "electrical panel[if the panneau électrique is closed] (closed)[end if]".
 
-The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The indefinite article of disjoncteurs is "des". The printed name of the disjoncteurs is "disjoncteurs[if the disjoncteurs are broken] sautés[end if]". The indefinite article of the panneau électrique is "un".
+The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The printed name of the disjoncteurs is "[if the disjoncteurs are broken]flipped [end if]circuit breakers".
 
 Instead of touching the disjoncteurs:
-	say "Vous remettez les disjoncteurs";
+	say "You reset the circuit breakers";
 	now the disjoncteurs are not broken;
 	if the servomoteur is broken:
-		say ".[paragraph break]Le panneau électrique fait un bruit sec et vous constatez que les disjoncteurs ont de nouveau sautés";
+		say ".[paragraph break]There's a sharp clicking sound from the electrical panel and you notice that the circuit breakers have again tripped";
 		now the disjoncteurs are broken;
 	say "."
 
-The unité de synthèse microfluidique is an openable closed container in the void. The indefinite article of the unité de synthèse microfluidique is "une". The printed name of the unité de synthèse microfluidique is "unité de synthèse microfluidique[if the unité de synthèse microfluidique is closed] (fermée)[end if]".
+The microfluidic synthesis unit is an openable closed container in the void. The printed name of the microfluidic synthesis unit is "microfluidic synthesis unit[if the unité de synthèse microfluidique is closed] (closed)[end if]".
 
 The servomoteur is in the unité de synthèse microfluidique. The servomoteur is broken. The printed name of the servomoteur is "[pnServo]". The indefinite article of servomoteur is "un".
 
 To say pnServo:
-	say "servomoteur";
+	say "servo motor";
 	if the servomoteur is not broken:
-		say " que vous avez réparé".
+		say " that you have repaired".
 
 After opening the unité de synthèse microfluidique:
-	say "Vous ouvrez le panneau d'accès et tout de suite reconnaissez le problème[unicode 160]:[unicode 160]une écaille de soudure est tombée sur les terminaux d'un servomoteur, créant un court-circuit."
+	say "You open the service panel and immediately recognize the problem: a fleck of solder has fallen across the terminals of a servomotor, shorting it out."
 	
 Instead of touching the servomoteur:
 	now the servomoteur is not broken;
-	say "Vous écartez le morceau de soudure. La machine doit fonctionner normalement maintenant."
+	say "You brush aside the bit of solder. The machine should work normally now, when powered up."
 
 Chapter 16 - End Game
 
@@ -1077,7 +1077,7 @@ To terminate the game:
 	now the knownCommands of the player is 0.
 	
 To say VictoryText:
-	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[line break]* Graham Nelson pour avoir conçu et écrit Inform 7.[line break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[line break]* Corax pour ses suggestions concernant l'accessibilité.[line break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[line break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[line break]* Bêta-testeurs: Brian Rushton, Denise Jobin et Hugo Labrande.[paragraph break][bold type]FIN."
+	say "*** YOU HAVE WON ***[roman type][paragraph break]You have saved the world from the scourge of the zombie777 virus.[paragraph break][bold type]>about[roman type][line break]This game was originally created as part of the 2018 French Interactive Fiction Competition. The English translation of the game was submitted to the 2018 IFcomp. The game was written in Inform 7.[paragraph break][bold type]>credits[roman type][paragraph break]I'd like to thank:[paragraph break]* Organizers of both competitions.[paragraph break]* Graham Nelson for having conceived and written Inform.[paragraph break]* Authors of the extensions used in this work and its previous versions : Eric Forgeot, Emily Short, Erik Temple, and Juhana Leinonen.[paragraph break]* Ben Collins-Sussman, who painted the cover.[paragraph break]* Proofers and beta-testers: Éric Forgeot, Stéphane Flauder, Denise Jobin, Brian Rushton, Hugo Labrande (original version). Lara Welch, Ben Collins-Sussman (English language version).* Corax for suggestions regarding accessibility.[paragraph break][paragraph break][bold type]FIN."
 	
 Chapter 17 - Testing
 
