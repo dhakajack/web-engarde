@@ -1086,7 +1086,7 @@ To terminate the game:
 	now the knownCommands of the player is 0.
 	
 To say VictoryText:
-	say "[paragraph break]*** YOU HAVE WON ***[roman type][paragraph break]You have saved the world from the scourge of the zombie777 virus.[paragraph break]".
+	say "[paragraph break]        *** YOU HAVE WON ***[roman type][paragraph break]You have saved the world from the scourge of the zombie777 virus.[paragraph break]".
 	
 To infos:
 	say "[bold type]>about[roman type][line break]This game was originally created as part of the ";
@@ -1146,7 +1146,7 @@ To credits:
 	say " for suggestions regarding accessibility.";
 	close HTML tag;
 	close HTML tag;
-	say "[line break][bold type]FIN."
+	say "[bold type]FIN."
 	
 Chapter 17 - Testing
 
