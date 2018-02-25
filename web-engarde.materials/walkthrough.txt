@@ -1,104 +1,101 @@
-* Notez: Ce jeu ne fonctionne pas avec l'interpréteur Lectrote. En tant que je sache, d'autres interpréteurs fonctionnent bien. Si vous rencontrez des problèmes, une version en ligne est disponible.
-
 === SOLUTION ===
 
-Voici la solution minimale pour Faute de Servo.
+Here’s the minimal solution for “En Garde”.
 
-Quelques astuces:
+A few hints:
 
-* Vous ne pouvez pas tapez des commandes. Le clavier n'est pas utilisé dans ce jeu ; jetez-le par la fenêtre.
-* Avant de le lancer, regardez sous la fenêtre pour vous assurer que personne n'est pas là.
-* Pendant le jeu, des cases colorées apparaîtront.
-* Chaque couleur correspond à une commande.
-* C'est à vous d'expérimenter pour élucider la signification de chaque couleur.
-* Ne vous en faites pas -- vous ne pouvez pas mettre le jeu dans un état non gangable.
-* Même si la position d'une case changera pendant le jeu, c'est sa couleur qui compte.
+* You can’t type commands. The keyboard isn’t used in this game; chuck it out the window.
+* Before tossing it, check under the window to be be sure that no one is below.
+* During the game, colored boxes will appear.
+* Each color coresponds to a command.
+* It’s up to you to figure out what command each color represents.
+* Don’t worry — you can’t put the game into an unwinnnable state, so feel free to experiment.
 
-Commandes ( dont il n'y a que dix... ) :
+Commands:
 
-est 
-ouest 
-manger 
-est   
-ouvrir   
-nord   
-ouvrir   
-manger   
-pousser   
-sud   
-pousser   
-est   
-pousser   
-ouest   
-sud   
-ouvrir   
-manger   
-manger   
-manger   
-nord   
-ouvrir   
-nord   
-ouvrir   
-ouvrir   
-manger   
-sud   
-ouest   
-déverrouiller   
-ouvrir   
-ouest   
-déverrouiller   
-ouvrir   
-nord   
-nord   
-déverrouiller   
-ouvrir   
-nord   
-parler   
-parler   
-parler   
-parler   
-parler   
-manger   
-sud   
-sud   
-sud   
-est   
-pousser   
-est   
-pousser   
-ouest   
-déverrouiller   
-ouvrir   
-sud   
-ouvrir   
-réparer   
-nord   
-pousser   
-est   
-pousser   
-ouest   
-ouest   
-nord   
-ouvrir   
-réparer   
-sud   
-est   
-pousser   
-est   
-pousser   
-ouest   
-sud   
-nord   
-pousser   
-est   
-pousser   
-ouest   
-ouest   
-nord   
-nord   
-nord   
-pousser   
-parler   
-parler   
-parler    
-parler 
+east 
+west 
+eat 
+east   
+open   
+north   
+open   
+eat   
+push   
+south   
+push   
+east   
+push   
+west   
+south   
+open   
+eat   
+eat   
+eat   
+north   
+open   
+north   
+open   
+open   
+eat   
+south   
+west   
+unlock   
+open   
+west   
+unlock   
+open   
+north   
+north   
+unlock   
+open   
+north   
+talk   
+talk   
+talk   
+talk   
+talk   
+eat   
+south   
+south   
+south   
+east   
+push   
+east   
+push   
+west   
+unlock   
+open   
+south   
+open   
+repair   
+north   
+push   
+east   
+push   
+west   
+west   
+north   
+open   
+repair   
+south   
+east   
+push   
+east   
+push   
+west   
+south   
+north   
+push   
+east   
+push   
+west   
+west   
+north   
+north   
+north   
+push   
+talk   
+talk   
+talk    
+talk 
