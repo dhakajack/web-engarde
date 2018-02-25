@@ -113,7 +113,11 @@ To say hiddenExitList:
 
 Chapter 5 -Langauge-specific tweaks
 
-[not needed for English]
+Rule for printing the banner text: 
+	place an inline element called "titre" reading "[story title]";
+	say line break;
+	say "[story headline] by [story author][line break]";
+	say "Release [release number] / Serial number 180225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
 
 Chapter 6 - Suppress Mention of Doors
 
