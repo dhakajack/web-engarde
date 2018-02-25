@@ -2,7 +2,7 @@
 
 The story headline is "A voyager forever mindless".
 The story genre is "horror".
-The release number is 1.
+The release number is 2.
 The story creation year is 2018.
 The story description is "The one thing you don't miss is memory."
 
