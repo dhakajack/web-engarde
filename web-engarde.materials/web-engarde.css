@@ -5,6 +5,10 @@ Style sheet Faute de servo, version 2
 */
 
 a {
+	color:#00a;
+}
+
+.boutons {
 	position: fixed;
 	left: 25px;
  	width: 100px;

@@ -804,7 +804,7 @@ To increment the knownCommands of the player:
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
 	place an inline element called "hidden" reading "A new command has appeared: ";
-	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
+	place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
 	place an inline element called "hidden" reading ". ".
 	
 Understand "east/west/eat/open/north/south/push/unlock/talk/repair" as "[okayCommand]".
@@ -1080,11 +1080,73 @@ Chapter 16 - End Game
 To terminate the game:
 	remove all elements called "vorple-link";
 	say "[VictoryText]";
+	infos;
+	credits;
 	[to prevent players bypassing CSS from continuing past this point]
 	now the knownCommands of the player is 0.
 	
 To say VictoryText:
-	say "[paragraph break]*** YOU HAVE WON ***[roman type][paragraph break]You have saved the world from the scourge of the zombie777 virus.[paragraph break][bold type]>about[roman type][line break]This game was originally created as part of the 2018 French Interactive Fiction Competition. The English translation of the game was submitted to the 2018 IFcomp. The game was written in Inform 7.[paragraph break][bold type]>credits[roman type][paragraph break]I'd like to thank:[paragraph break]* Organizers of both competitions.[line break]* Graham Nelson for having conceived and written Inform.[line break]* Authors of the extensions used in this work and its previous versions : Eric Forgeot, Emily Short, Erik Temple, and Juhana Leinonen.[line break]* Ben Collins-Sussman, who painted the cover.[line break]* Proofers and beta-testers: Éric Forgeot, Stéphane Flauder, Denise Jobin, Brian Rushton, Hugo Labrande (original version). Lara Welch, Ben Collins-Sussman (English language version).[line break]* Corax for suggestions regarding accessibility.[paragraph break][bold type]FIN."
+	say "[paragraph break]*** YOU HAVE WON ***[roman type][paragraph break]You have saved the world from the scourge of the zombie777 virus.[paragraph break]".
+	
+To infos:
+	say "[bold type]>about[roman type][line break]This game was originally created as part of the ";
+	place a link to web site "http://www.fiction-interactive.fr/concours/concours-2018/" reading "2018 French Interactive Fiction Competition";
+	say ". The English translation of the game was submitted to the ";
+	place a link to web site "https://ifcomp.org/" reading "2018 IFcomp";
+	say ". The game was written in ";
+	place a link to web site "http://inform7.com/" reading "Inform 7";
+	say ". The source code is available on ";
+	place a link to web site "https://github.com/dhakajack/web-engarde" reading "github";
+	say " and is provided under ";
+	place a link to web site "https://github.com/dhakajack/web-engarde/blob/master/LICENSE" reading "MIT license";
+	say ". Please report any errors using the ";
+	place a link to web site "https://github.com/dhakajack/web-engarde/issues" reading "online bug tracker";
+	say ".[paragraph break]";
+	
+To credits:
+	say "[bold type]>credits[roman type]";
+	open HTML tag "ul";
+	open HTML tag "li";
+	say "Organizers of both competitions.";
+	close HTML tag;
+	open HTML tag "li";
+	place a link to web site "http://www.ifwiki.org/index.php/Graham_Nelson" reading "Graham Nelson";
+	say " for having conceived and written Inform.";
+	close HTML tag;
+	open HTML tag "li";
+	say "Authors of the extensions used in this work and its previous versions : ";
+	place a link to web site "http://www.ifwiki.org/index.php/Eric_Forgeot" reading "Éric Forgeot";
+	say ", ";
+	place a link to web site "http://www.ifwiki.org/index.php/Emily_Short" reading "Emily Short";
+	say ", ";
+	place a link to web site "http://www.ifwiki.org/index.php/Erik_Temple" reading "Erik Temple";
+	say ", and ";
+	place a link to web site "http://www.ifwiki.org/index.php/Juhana_Leinonen" reading "Juhana Leinonen";
+	say ".";
+	close HTML tag;
+	open HTML tag "li";
+	place a link to web site "http://www.ifwiki.org/index.php/Ben_Collins-Sussman" reading "Ben Collins-Sussman";
+	say ", who painted the cover.";
+	close HTML tag;
+	open HTML tag "li";
+	say "Proofers and beta-testers: ";
+	place a link to web site "http://www.ifwiki.org/index.php/Eric_Forgeot" reading "Éric Forgeot";
+	say ", ";
+	place a link to web site "http://www.ifwiki.org/index.php/St%C3%A9phane_Flauder" reading "Stéphane Flauder";
+	say ", Denise Jobin, ";
+	place a link to web site "http://www.ifwiki.org/index.php/Mathbrush" reading "Brian Rushton";
+	say ", and ";
+	place a link to web site "http://www.ifwiki.org/index.php/Hugo_Labrande" reading "Hugo Labrande";
+	say " (original version). Lara Welch, ";
+	place a link to web site "http://www.ifwiki.org/index.php/Ben_Collins-Sussman" reading "Ben Collins-Sussman";
+	say " (English version).";
+	close HTML tag;
+	open HTML tag "li";
+	place a link to web site "http://www.fiction-interactive.fr/author/corax/" reading "Corax";
+	say " for suggestions regarding accessibility.";
+	close HTML tag;
+	close HTML tag;
+	say "[line break][bold type]FIN."
 	
 Chapter 17 - Testing
 
