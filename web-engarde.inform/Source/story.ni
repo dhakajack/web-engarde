@@ -187,7 +187,7 @@ Bloc Opératoire is a room. The description of Bloc Opératoire is "[descBlocOpe
 To say descBlocOperatoire:
 	if the consciousness of the player is:
 		-- 0:
-			say "A dark room[one of]. Nothing interesting here[or][stopping]";
+			say "A dimly lit room[one of] with some deep shadows[or][stopping]";
 		-- 1:
 			say "There's a bit of blood here -- a huge, blue room with metallic walls";
 		-- 2:
