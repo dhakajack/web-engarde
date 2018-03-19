@@ -719,6 +719,10 @@ Carry out simpleEating:
 	if the pile of dog food is in the location:
 		say " (at least, nothing that looks appetizing)";
 	say "."
+
+
+Rule for implicitly taking something (called the target) while eating:
+	try silently taking the target.
 	
 Section 4- simplePushing
 
@@ -866,7 +870,7 @@ After opening the cage:
 After eating the chien:
 	now the chien is dead;
 	now the animal body is in the cage;
-	say "[line break]Out of instinct, you eat its brain and throw the body back into the cage. Once again, new thoughts invade your mind.[paragraph break][italic type]I'm warning you: if you get near my cage, I'll eat you. Stop! I'm not kidding…[paragraph break]Huh? What's going on? What's that dead dog doing in my cage… bleeding on my favorite pillow?[paragraph break]And what am I doing standing on my hind legs like a human? It seems to be easier than I would have thought.";
+	say "[line break]Out of instinct, you eat the wolf[apostrophe]s brain and throw the body back into the cage. Once again, new thoughts invade your mind.[paragraph break][italic type]I'm warning you: if you get near my cage, I'll eat you. Stop! I'm not kidding…[paragraph break]Huh? What's going on? What's that dead dog doing in my cage… bleeding on my favorite pillow?[paragraph break]And what am I doing standing on my hind legs like a human? It seems to be easier than I would have thought.";
 	increment the consciousness of the player;
 	now the BlockChatterFlag is true;
 	say "[italic type][quotation mark]Sorry[quotation mark][line break][quotation mark]Sorry about what?[quotation mark][line break][quotation mark]I guess, I'm sorry that I ate you.[quotation mark][line break][quotation mark]Ate me? Who are you, anyhow?[quotation mark][line break][quotation mark]The mouse.[quotation mark][roman type][line break]";
