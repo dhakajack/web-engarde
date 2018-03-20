@@ -209,6 +209,12 @@ To say pnBlocOpératoire:
 			say "Operating room";
 		-- 4:
 			say "Surgical theater".
+			
+Instead of simplePushing when the player is in the Bloc Opératoire:
+	if the consciousness of the player is less than 4:
+		say "You aren't sure what does what in here and don't want to risk accidently dissecting yourself by poking randomly about[one of]. That would be embarassing[or][stopping].";
+	otherwise:
+		say "You aren't scrubbed in and all the equipment in here is sterile; you don't want to contaminate the equipment."
 
 Section Couloir 2
 
