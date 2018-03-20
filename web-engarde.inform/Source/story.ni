@@ -584,7 +584,7 @@ Instead of simplePushing when the player is in the Salle de Décontamination:
 		-- 3:
 			say "You relax in the warm, gentle shower. After a moment, the shower stops spraying and you dry off.";
 		-- 4:
-			say "The personnel decontamination system blasts you with a phenolic-smelling spray.".
+			say "[one of]The personnel decontamination system blasts you with a phenolic-smelling spray[or]Your skin sizzles and eyes burn from the caustic spray[stopping].".
 
 Section Escalier 1
 
