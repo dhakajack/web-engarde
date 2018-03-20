@@ -795,15 +795,30 @@ Section 6 - simpleRepairing
 simpleRepairing is an action applying to nothing. Understand "repair" as simpleRepairing.
 
 Carry out simpleRepairing:
-	repeat with the item running through visible broken things:
-		try touching the item;
-		stop the action;
+	repeat with the item running through visible things:
+		if the item is:
+			-- the servo motor:
+				if the servo motor is broken:
+					say "You brush aside the bit of solder. The machine should work normally now, when powered up.";
+					now the servo motor is not broken;
+				otherwise:
+					if the curedFlag of the player is true:
+						say "All of the equipment in here has performed flawlessly, there is nothing more to fix. In theory, with some resupply, the unit is now capable of cranking out more doses of the cure.";
+					otherwise:
+						say "The machinery itself looks functional -- the problem appears to be lack of electrical current to the room itself.";
+				stop the action;
+			-- the disjoncteurs:
+				if the servo motor is broken:
+					say "As soon as you flip the circuit breakers, there is a sharp clicking sound from the electrical panel and you notice the breakers have again tripped[one of][or][or]. As long as an electrical fault condition persists, they will automatically cut in to avert damage to the sensitive equipment in the lab[or]. They will not remain in the [quotation mark]on[quotation mark] position until you address whatever condition is causing a massive electrical current draw in the lab[or]. Chances are, something in the lab has shorted out. You need to fix that first[or][stopping].";
+				otherwise:
+					if the disjoncteurs are broken:
+						say "Having fixed the short circuit in the biochemical synthesis laboratory, once you reset the circuit breakers, they remain in the reset position. Consequently, power should now be flowing to that lab.";
+						now the disjoncteurs are not broken;
+					otherwise:
+						say "The circuit breaks are already locked in the [quotation mark]on[quotation mark] position, so power should be flowing to all stations on level two of the complex.";
+				stop the action;
+	[if it falls through to this point, give the default blocking message]
 	say "You don't see anything in need of repair."
-	
-Instead of touching something (called the item):
-	now the item is not broken;
-	say "You repair [the item]."
-	[override touch with specific repair actions.]
 	
 Chapter 11 - Consciousness
 
@@ -867,7 +882,7 @@ After opening the labZooDoor:
 After going north from Couloir 2 for the first time:
 	say "You sneak into the wolf's den, a place that is well known to you, but still terrifying.";
 	try looking;
-	say "As usual, the wolf is imprisoned in an iron cage and you are free to explore, beyond the reach of his slaving fangs.";
+	say "As usual, the wolf is imprisoned in an iron cage and you are free to explore, beyond the reach of his slavering fangs.";
 	increment the knownCommands of the Player.
 	
 After opening the cage:
@@ -1069,14 +1084,6 @@ The panneau électrique is an openable closed container in the void. The printed
 
 The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The printed name of the disjoncteurs is "[if the disjoncteurs are broken]flipped[otherwise]reset[end if] circuit breakers".
 
-Instead of touching the disjoncteurs:
-	say "You reset the circuit breakers";
-	now the disjoncteurs are not broken;
-	if the servo motor is broken:
-		say ".[paragraph break]There's a sharp clicking sound from the electrical panel and you notice that the circuit breakers have again tripped";
-		now the disjoncteurs are broken;
-	say "."
-
 The microfluidic synthesis unit is an openable closed container in the void. The printed name of the microfluidic synthesis unit is "microfluidic synthesis unit".
 
 The servo motor is in the microfluidic synthesis unit. The servo motor is broken. The printed name of the servo motor is "[pnServo]". 
@@ -1088,10 +1095,6 @@ To say pnServo:
 
 After opening the microfluidic synthesis unit:
 	say "You open the service panel and immediately recognize the problem: a fleck of solder has fallen across the terminals of a servo motor, shorting it out."
-	
-Instead of touching the servo motor:
-	now the servo motor is not broken;
-	say "You brush aside the bit of solder. The machine should work normally now, when powered up."
 
 Chapter 16 - End Game
 
