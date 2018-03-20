@@ -740,10 +740,10 @@ simpleTalking is an action applying to nothing. Understand "talk" as simpleTalki
 
 Check simpleTalking:
 	if the player is not in the sas:
-		say "No one is around. Who are you talking to[one of]?[paragraph break]Do you want everyone to think you're nuts[or][stopping]?";
+		say "You don't see anyone to talk to.";					
 		stop the action;
 	otherwise:
-		if the bloody corpse of Docteur Rambaud is in the sas:
+		if the bloody corpse of Docteur Rambaud is not in the void:
 			if the intercom is not live:
 				say "To talk to the control room, you must first activate the intercom.";
 				stop the action.
