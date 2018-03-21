@@ -650,9 +650,9 @@ To say descSas:
 			
 Instead of going north when the player is in the sas:
 	if scientist is in the sas:
-		say "You would need to get past the scientist and she doesn't appear to be all that cooperative. More over, since you don't know the code to open the outer door, it wouldn't make much sense to try.";
+		say "You would need to get past the scientist and she doesn't appear to be all that cooperative. Moreover, since you don't know the code to open the outer door, it wouldn't make much sense to try.";
 	otherwise:
-		say "Useless. The door is hermitically sealed and can only be opened by someone in the control room."
+		say "Useless. The door is hermetically sealed and can only be opened by someone in the control room."
 			
 Before eating scientist when the conversations of scientist are less than 5:
 	now the BlockChatterFlag is true;
