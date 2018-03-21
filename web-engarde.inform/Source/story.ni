@@ -660,11 +660,11 @@ Before eating scientist when the conversations of scientist are less than 5:
 	stop the action.
 
 After choosing notable locale objects when player is in sas:
-	If the bloody corpse of Docteur Rambaud is in sas, set the locale priority of corpse of Docteur Rambaud to 9. [this assures Inform looks for the corpse first]
+	If the bloody corpse of Doctor Rambaud is in sas, set the locale priority of the bloody corpse of Doctor Rambaud to 9. [this assures Inform looks for the corpse first]
 	
-Rule for printing a locale paragraph about the bloody corpse of Docteur Rambaud when the bloody corpse of Docteur Rambaud is in the sas:
+Rule for printing a locale paragraph about the bloody corpse of Doctor Rambaud when the bloody corpse of Doctor Rambaud is in the sas:
 	say "The corpse of Docteur Rambaud lies crumpled on the floor not far from the intercom.";
-	now the bloody corpse of Docteur Rambaud is mentioned;
+	now the bloody corpse of Doctor Rambaud is mentioned;
 	now the intercom is mentioned.
 
 Chapter 10 - Verbs
@@ -744,13 +744,13 @@ Check simpleTalking:
 		say "You don't see anyone to talk to.";					
 		stop the action;
 	otherwise:
-		if the bloody corpse of Docteur Rambaud is not in the void:
+		if the bloody corpse of Doctor Rambaud is not in the void:
 			if the intercom is not live:
 				say "To talk to the control room, you must first activate the intercom.";
 				stop the action.
 				
 Carry out simpleTalking:
-	if the bloody corpse of Docteur Rambaud is not in the void:
+	if the bloody corpse of Doctor Rambaud is not in the void:
 		now the BlockChatterFlag is true;
 		if the curedFlag of the player is not true:
 			say "[one of]Speaking into the intercom, you explain your plan. The director of the installation grabs the microphone and wishes you good luck. Beyond that, he instructs you report back when you have succeeded. Short of that, though, he requests that you not use the intercom[or]The control room refuses to talk to you until you have a proven cure in hand[stopping]. They hang up on you and the intercom goes dark.";
@@ -762,7 +762,7 @@ Carry out simpleTalking:
 					say "[quotation mark]Control room, Professor Drummond speaking.[quotation mark][line break][quotation mark]It's me, your dog, Lucky! I'm in the airlock! I am so happy to hear your voice![quotation mark][line break][quotation mark]Um. Huh? Are you messing with me? The intercom is only for official communications. Who is this?[quotation mark][paragraph break][italic type][quotation mark]It's him! It's the father of my family,[quotation mark] says Lucky.[line break][quotation mark]Calm down, Lucky,[quotation mark] insists the scientist. [quotation mark]Please let Julien do the talking.[quotation mark][roman type][paragraph break][quotation mark]Excuse me,[quotation mark] says Julien. [quotation mark]I can explain everything. I am Julien Truffaut.[quotation mark][line break][quotation mark]The guard?[quotation mark][line break][quotation mark]Yes.[quotation mark][line break][quotation mark]Impossible. Doctor Rambaud said that he had turned. Zombies can't talk. I don't have time for your crap, now get off the line.[quotation mark][paragraph break]";
 				-- 2:
 					say "[quotation mark]I'm not joking,[quotation mark] pleads Julien. [quotation mark]Doctor Rambaud has cured me.[quotation mark][line break][quotation mark]Okay, enough,[quotation mark] answers the professor. [quotation mark]If she's there, put her on.[quotation mark][line break][quotation mark]She is… occupied… at the moment.[quotation mark] While you are speaking, you drag the scientist's lifeless body around the corner to the stairwell.[paragraph break][quotation mark]Listen,[quotation mark] you continue, [quotation mark]if you don't believe me, turn on the surveillance cameras in the airlock. You'll be able to see me.[quotation mark][line break][quotation mark]Okay, give me a sec.[quotation mark][paragraph break]";
-					move the bloody corpse of Docteur Rambaud to Escalier 2;
+					move the bloody corpse of Doctor Rambaud to Escalier 2;
 				-- 3:
 					say "[quotation mark]Do you see me?[quotation mark] you ask.[line break][quotation mark]Yes. Got you on the screen. But how can you still be alive? I thought you'd been infected by the virus.[quotation mark][line break][quotation mark]Well, yes, you're right, but as I told you…[quotation mark][paragraph break][italic type][quotation mark]Let me explain,[quotation mark] interrupts the scientist.[roman type][paragraph break][quotation mark]Doctor Rambaud prepared a cure using the microfluidic biosynthesis workstation following protocol M13 as she discussed with you previously. My neural pathways were restored and I am entirely cured.[quotation mark][line break][quotation mark]Okay… But that would mean… this could be it. An end to the pandemic![quotation mark][line break][quotation mark]Right. We need to move on this quickly.[quotation mark][paragraph break]";
 				-- 4: 
@@ -909,7 +909,7 @@ After going north from Escalier 2 when the sasDoor is not closed for the first t
 After eating scientist:
 	now the BlockChatterFlag is true;
 	say "[line break]You eat the scientist's brain and immediately perceive the world from a more refined and erudite perspective.[paragraph break][italic type][quotation mark]Is it done?[quotation mark] asks the voice of Isabelle with hesitation.[line break][quotation mark]Yes, you were delicious,[quotation mark] compliments the mouse.[line break][quotation mark]The best yet,[quotation mark] adds Lucky.[line break][quotation mark]Excuse my co-brains, they are sorely lacking in tact,[quotation mark] interjects the slice of brain.[line break][quotation mark]Hey![quotation mark] complain the mouse and dog.[line break][quotation mark]Make yourself at home, Isabelle,[quotation mark] continues the slice of brain. [quotation mark]Let me present our little company: here's Lucky the dog, and that's the Duke of Mousedom (or just [apostrophe]the mouse[apostrophe], as he's rather modest), and me. I'm the one they call [apostrophe]slice of brain[apostrophe]. We are at your service.[quotation mark][line break][quotation mark]Good morning, boys,[quotation mark] says Isabelle warmly.";
-	move the bloody corpse of Docteur Rambaud to the sas;
+	move the bloody corpse of Doctor Rambaud to the sas;
 	move the intercom to the sas;
 	move the panneau électrique to escalier 1;
 	move the microfluidic synthesis unit to the Laboratoire Biochimique;
@@ -1064,7 +1064,7 @@ The void is a room.
 
 The small gray creature is an edible thing. It is in the void. 
 
-The bloody corpse of Docteur Rambaud is a thing in the void. The indefinite article of bloody corpse of Doctor Rambaud is "the".
+The bloody corpse of Doctor Rambaud is a thing in the void. The indefinite article of bloody corpse of Doctor Rambaud is "the".
 
 The intercom is a buttoned thing in the void. The intercom can be live. The intercom is not live. 
 
