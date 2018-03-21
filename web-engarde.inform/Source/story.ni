@@ -483,12 +483,12 @@ To say pnFrigo:
 			say "-80[unicode 176]C freezer for storing pathology specimens".
 			
 After opening the frigo:
-	move the tupperware container to the location;
+	move the plastic container to the location;
 	say "You open the fridge and a plastic box falls to the floor."
 	
-The tupperware container is a closed openable container in the frigo. 
+The plastic container is a closed openable container in the frigo. The printed name of the plastic container is "[if the consciousness of the player is less than 3]plastic[otherwise]Tupperware[end if] container".
 
-The slice of brain is a  edible thing in the tupperware container.
+The slice of brain is a  edible thing in the plastic container.
 
 After opening the labPathDoor:
 	say "[openNord]."
@@ -705,13 +705,8 @@ Carry out simpleOpening:
 			stop the action;
 	say "There's nothing obvious to open here." 
 	
-[this works here because things only contain a single item
-After opening something (called the item):
-	say "Vous ouvrez [the item]";
-	if the item contains exactly one thing:
-		say ", révélant [a random thing in item]";
-	say "."
-]
+After opening the plastic container:
+	say "You grab the plastic container by a corner and shake it back and forth until it comes apart. A glistening slice of brain goes flying across the kitchen, strikes the wall with a rubbery smack, and slides to the floor."
 
 Section 3 - simpleEating
 
@@ -769,7 +764,7 @@ Carry out simpleTalking:
 					say "[quotation mark]I'm not joking,[quotation mark] pleads Julien. [quotation mark]Doctor Rambaud has cured me.[quotation mark][line break][quotation mark]Okay, enough,[quotation mark] answers the professor. [quotation mark]If she's there, put her on.[quotation mark][line break][quotation mark]She is… occupied… at the moment.[quotation mark] While you are speaking, you drag the scientist's lifeless body around the corner to the stairwell.[paragraph break][quotation mark]Listen,[quotation mark] you continue, [quotation mark]if you don't believe me, turn on the surveillance cameras in the airlock. You'll be able to see me.[quotation mark][line break][quotation mark]Okay, give me a sec.[quotation mark][paragraph break]";
 					move the bloody corpse of Docteur Rambaud to Escalier 2;
 				-- 3:
-					say "[quotation mark]Do you see me?[quotation mark] you ask.[line break][quotation mark]Yes. Got you on the screen. But how can you still be alive? I thought you'd been infected by the virus.[quotation mark][line break][quotation mark]Well, yes, you're right, but as I told you…[quotation mark][paragraph break][italic type][quotation mark]Let me explain,[quotation mark] interrupts the scientist.[roman type][paragraph break][quotation mark]Doctor Rambaud prepared a cure using the microfluidic biosynthesis workstation following protocol M13 as she discussed with you previously. My neural pathways were restored and I am entirely cured.[quotation mark][line break][quotation mark]Okay… But that would mean… this could be it. An end the pandemic![quotation mark][line break][quotation mark]Right. We need to move on this quickly.[quotation mark][paragraph break]";
+					say "[quotation mark]Do you see me?[quotation mark] you ask.[line break][quotation mark]Yes. Got you on the screen. But how can you still be alive? I thought you'd been infected by the virus.[quotation mark][line break][quotation mark]Well, yes, you're right, but as I told you…[quotation mark][paragraph break][italic type][quotation mark]Let me explain,[quotation mark] interrupts the scientist.[roman type][paragraph break][quotation mark]Doctor Rambaud prepared a cure using the microfluidic biosynthesis workstation following protocol M13 as she discussed with you previously. My neural pathways were restored and I am entirely cured.[quotation mark][line break][quotation mark]Okay… But that would mean… this could be it. An end to the pandemic![quotation mark][line break][quotation mark]Right. We need to move on this quickly.[quotation mark][paragraph break]";
 				-- 4: 
 					say "You request to speak to the director of the entire research complex, Colonel Greillier, and you relate everything that has happened, leaving out, for now, some of the details suggested by Lucky and the mouse.[paragraph break]After a couple hours of discussion and some blood tests, the colonel is convinced and orders that the airlock doors be unsealed, permitting you to exit. ";
 					terminate the game;
@@ -976,7 +971,7 @@ mouseDialogue is a list of text that varies.
 	
 mouseDialogue is {
 "In any case, I seem to have grown quite a bit. Hmph, how about that.",
-"I've got a real hankering for something, I just can't quite put my paw on it.",
+"I've got a real hankering for something [unicode 8212] I just can't quite put my paw on it.",
 "Let's see, what do I usually want?",
 "Sleep? Nope. Drink? Nope. Sex? Nope.[paragraph break]My gods! No? Am I sick?",
 "Ah, that's it. I'm hungry.",
@@ -997,7 +992,7 @@ mouseDogDialogue is {
 "I can't figure out how I managed to eat you.[quotation mark][line break][quotation mark]What do you remember about it?[quotation mark][line break][quotation mark]I was seized by a sudden urge to eat brains.[quotation mark][line break][quotation mark]Brains? Which ones?[quotation mark][line break][quotation mark]In this case -- yours.[quotation mark][line break][quotation mark]Ah, I see… no, not really.",
 "Have you always lived here, Mouse?[quotation mark][line break][quotation mark]My family has lived here for generations, it is our hereditary territory. We defend it against all invaders. Field mice are nothing but thugs and thieves.[quotation mark][line break][quotation mark]Have you ever seen the outside world?[quotation mark][line break][quotation mark]I don't have the slightest desire to do so. I've heard stories, of course: the sky, clouds, fields, and so on, but none that interests me.",
 "What about you, Lucky? You mentioned a family? Do you have a wife? We mice don't believe in marriage, but I've heard you dogs are more traditional.[quotation mark][line break][quotation mark]A family, yes, but not a wife (although there was that poodle next door… but, um, that's another story). No, when I speak of family, I'm talking about a human family.",
-"You were their slave?[quotation mark] asks the mouse.[line break][quotation mark]No, it wasn't like that. I played with the kids, they fed me, they pet me all day, and I even had my own bed.[quotation mark][line break][quotation mark]You're dreaming. I've never seen anything like that. Humans don't like animals -- they're always trying to crush us under their heels.",
+"You were their slave?[quotation mark] asks the mouse.[line break][quotation mark]No, it wasn't like that. I played with the kids, they fed me, they petted me all day, and I even had my own bed.[quotation mark][line break][quotation mark]You're dreaming. I've never seen anything like that. Humans don't like animals -- they're always trying to crush us under their heels.",
 "Meh, you don't know anything about humans,[quotation mark] refutes Lucky.[line break][quotation mark]I don't want to know them from any closer, thank you very much.[quotation mark][line break][quotation mark]You would have liked my family.[quotation mark][line break][quotation mark]If that's the case, why did you leave such an amazing family, if I may ask?[quotation mark][line break][quotation mark]Not by choice. We were in a forest, I saw a squirrel, and you can figure out the rest. I never saw them again.[quotation mark][line break][quotation mark]Don't talk to me about squirrels. They're worse than wild mice.",
 "Lucky, do you think that some day you'll find your family?[quotation mark][line break][quotation mark]Hope so.[quotation mark][line break][quotation mark]Me too. I'd like to chase squirrels with you.[quotation mark][line break][quotation mark]Yeah, that would be great."
 }
@@ -1038,7 +1033,7 @@ EverybodyDialogue is { "[quotation mark]What an incredible sensation![quotation 
 "[quotation mark]Fine,[quotation mark] says the scientist patiently, [quotation mark]let's take another example. Mouse, I am thinking at this very moment of this morning's breakfast. I am trying to visualize it in as much detail as I can… try to see it.[quotation mark][line break][quotation mark]Where?[quotation mark] asks the mouse. [quotation mark]I can't smell anything.[quotation mark][line break][quotation mark]Ah,[quotation mark] says Isabelle, [quotation mark]Therein lies the problem. I was thinking in visual terms. Here, let me imagine its aroma, its taste… [quotation mark][line break][quotation mark]Oh! Yes, yes! I'm starting to sense it! My gods! It was a huge meal! This is fabulous. Can I relive every meal you've ever eaten? Pinch me, I'm dreaming.[quotation mark]",
 "[quotation mark]Even though I find the memory of your last meal delicious, right now I don't feel like eating anything but brains. That's kind of weird, isn't it?[quotation mark] remarks the mouse.[line break][quotation mark]In fact, it's entirely normal for someone who has been zombified,[quotation mark] replies the scientist.[line break][quotation mark]We're zombies?[quotation mark] asks Lucky.[line break][quotation mark]No,[quotation mark] clarifies the scientist. [quotation mark]Together we constitute a single zombie, sharing Julien's body.[quotation mark][line break][quotation mark]At least I'm in my own body,[quotation mark] remarks the slice of brain.", 
 "[quotation mark]Are other zombies as pleasant as we are?[quotation mark] asks Lucky.[line break][quotation mark]No,[quotation mark] replies Isabelle, [quotation mark]they are monsters. We're something else entirely. I'd say that we're sort of a pseudozombie, having received a partially effective treatment. Your typical zombie can't talk or think, all they can do is eat brains.[quotation mark][line break][quotation mark]And that's a problem?[quotation mark] asks the mouse.[line break][quotation mark]Rather a big one,[quotation mark] remarks the scientist. [quotation mark]They've just about destroyed civilization![quotation mark]", 
-"[quotation mark]How is that possible?[quotation mark] asks the slice of brain.[line break][quotation mark]The virulence of this virus is without precedent,[quotation mark] replies the scientist. [quotation mark]The slightest scratch is enough to transmit the virus. The first cases were reported in Cambodia and twenty-four hours later thousands of cases appeared around the world thanks to international flights. A week later: global chaos. Without electricity, food, and water, the largest cities collapsed almost immediately. Fires have swept the countryside. Only a few pockets of humanity remain.[quotation mark]",
+"[quotation mark]How is that possible?[quotation mark] asks the slice of brain.[line break][quotation mark]The virulence of this virus is without precedent,[quotation mark] replies the scientist. [quotation mark]The slightest scratch is enough to transmit the virus. The first cases were reported in Cambodia and twenty-four hours later, thousands of cases appeared around the world thanks to international flights. A week later: global chaos. Without electricity, food, and water, the largest cities collapsed almost immediately. Fires have swept the countryside. Only a few pockets of humanity remain.[quotation mark]",
 "[quotation mark]What about animals?[quotation mark] asks the mouse. [quotation mark]Were they affected?[quotation mark][line break][quotation mark]In fact,[quotation mark] replies Isabelle, [quotation mark]we think that the disease was canine in origin. Before we lost communications with the Pasteur Institute in Ho Chi Minh City, they had isolated a mutant form of rabies putatively responsible for the pandemic.[quotation mark][line break][quotation mark]Rabies![quotation mark] Lucky cries, [quotation mark]There's nothing more terrifying than rabies![quotation mark][line break][quotation mark]Until now,[quotation mark] corrects the slice of brain.",
 "[quotation mark]If zombie-ism spreads so quickly,[quotation mark] worries Lucky, [quotation mark]do you think that my family has survived?[quotation mark][line break][quotation mark]Yes, I know so,[quotation mark] reassures the scientist. [quotation mark]The Drummonds work here at the installation and all staff families are housed within the compound. You're not far from them right now.[quotation mark][line break][quotation mark]That's great![quotation mark] exclaims the dog.", 
 "[quotation mark]Isabelle,[quotation mark] says the mouse, [quotation mark]if the cure works as expected, what will become of us?[quotation mark][line break][quotation mark]In what sense?[quotation mark][line break][quotation mark]Will we remain individuals with our own thoughts or do you think that we'll somehow blend together into one mind?[quotation mark][line break][quotation mark]Impossible to say. Up until now, we've all lead our own separate lives. You have your memories, I have mine. But in the future, we'll see everything from the same point of view. We'll share one body and it's possible that over time we'll end up as a single mind. Can't really say right now how that will go.[quotation mark]", 
