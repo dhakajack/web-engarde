@@ -766,7 +766,7 @@ Carry out simpleTalking:
 				-- 3:
 					say "[quotation mark]Do you see me?[quotation mark] you ask.[line break][quotation mark]Yes. Got you on the screen. But how can you still be alive? I thought you'd been infected by the virus.[quotation mark][line break][quotation mark]Well, yes, you're right, but as I told you…[quotation mark][paragraph break][italic type][quotation mark]Let me explain,[quotation mark] interrupts the scientist.[roman type][paragraph break][quotation mark]Doctor Rambaud prepared a cure using the microfluidic biosynthesis workstation following protocol M13 as she discussed with you previously. My neural pathways were restored and I am entirely cured.[quotation mark][line break][quotation mark]Okay… But that would mean… this could be it. An end to the pandemic![quotation mark][line break][quotation mark]Right. We need to move on this quickly.[quotation mark][paragraph break]";
 				-- 4: 
-					say "You request to speak to the director of the entire research complex, Colonel Greillier, and you relate everything that has happened, leaving out, for now, some of the details suggested by Lucky and the mouse.[paragraph break]After a couple hours of discussion and some blood tests, the colonel is convinced and orders that the airlock doors be unsealed, permitting you to exit. ";
+					say "You ask to speak to the director of the entire research complex, Colonel Greillier, and you relate everything that has happened, leaving out, for now, some of the details suggested by Lucky and the mouse.[paragraph break]After a couple hours of discussion and some blood tests, the colonel is convinced and orders that the airlock doors be unsealed, permitting you to exit. ";
 					terminate the game;
 	otherwise:
 		now the BlockChatterFlag is true;
@@ -1114,7 +1114,7 @@ To infos:
 	say ". The source code is available on ";
 	place a link to web site "https://github.com/dhakajack/web-engarde" reading "github";
 	say " and is provided under ";
-	place a link to web site "https://github.com/dhakajack/web-engarde/blob/master/LICENSE" reading "MIT license";
+	place a link to web site "https://github.com/dhakajack/web-engarde/blob/master/LICENSE" reading "the MIT license";
 	say ". Please report any errors using the ";
 	place a link to web site "https://github.com/dhakajack/web-engarde/issues" reading "online bug tracker";
 	say ".[paragraph break]";
