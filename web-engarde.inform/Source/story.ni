@@ -663,7 +663,7 @@ After choosing notable locale objects when player is in sas:
 	If the bloody corpse of Doctor Rambaud is in sas, set the locale priority of the bloody corpse of Doctor Rambaud to 9. [this assures Inform looks for the corpse first]
 	
 Rule for printing a locale paragraph about the bloody corpse of Doctor Rambaud when the bloody corpse of Doctor Rambaud is in the sas:
-	say "The corpse of Docteur Rambaud lies crumpled on the floor not far from the intercom.";
+	say "The corpse of Doctor Rambaud lies crumpled on the floor not far from the intercom.";
 	now the bloody corpse of Doctor Rambaud is mentioned;
 	now the intercom is mentioned.
 
