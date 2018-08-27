@@ -699,7 +699,7 @@ Carry out simpleOpening:
 			try opening the door the way from the location;
 			stop the action;
 		if the door the way of the location is locked and the consciousness of the player is greater than 2:
-			say "You would have to first unlock the door [the way].";
+			say "You would have to first unlock the door to [the way].";
 			stop the action;
 	repeat with the item running through visible containers:
 		if the item is closed:
