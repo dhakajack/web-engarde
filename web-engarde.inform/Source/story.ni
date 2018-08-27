@@ -681,7 +681,7 @@ Carry out simpleUnlocking:
 			now the door the way from the location is unlocked;
 			say "You enter the code on the numeric keypad and hear the door to the [way] unlock.[no line break][one of][firstUnlocked][or][stopping][paragraph break]";
 			stop the action;
-	say "You don't see any locked door."
+	say "You don't see any locked door here[if the location is sas], except the reinforced vault door leading northward into the complex. You are aware, however, that door can only be opened from the other side. Your passcode will not work on it now that failsafe protocol has been engaged[end if]."
 	
 To say firstUnlocked:
 	now the BlockChatterFlag is true;[hate to side effect this way, but here it seems expedient]
