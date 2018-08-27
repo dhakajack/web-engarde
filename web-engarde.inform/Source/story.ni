@@ -127,13 +127,17 @@ For printing a locale paragraph about a door (called the item)
 	(this is the don't mention doors in room descriptions rule):
 	set the locale priority of the item to 0;
 	continue the activity.
+	
+Chapter 7 - Suppress Container Open/Closed Messages
 
-Chapter 7 - Button Setup
+The examine containers rule is not listed in any rulebook.
+
+Chapter 8 - Button Setup
 
 Palette is a list of text that varies. 
 Palette is {"black","brown","red","orange","yellow","green","blue","violet","gray","white"}.
 	
-Chapter 8 - Start of Play
+Chapter 9 - Start of Play
 
 When play begins:
 	execute JavaScript command "function forceScroll() {if((navigator.userAgent.indexOf('Opera') || navigator.userAgent.indexOf('OPR') || navigator.userAgent.indexOf('Chrome')) != -1 ) {return false;} else {return true;}} forceScroll()";
@@ -151,7 +155,7 @@ After printing the banner text:
 	say roman type;
 	increment the knownCommands of the player.
 
-Chapter 9 - Geography
+Chapter 10 - Geography
 
 Section Location Generalities
 
@@ -473,7 +477,7 @@ To say descLabPath:
 		-- 4:
 			say "An ultramodern laboratory dedicated to preparation and analysis of tissue samples".
 	
-The frigo is a closed openable container in the Laboratoire de Pathologie. The frigo is closed. The printed name of the frigo is "[pnFrigo]". 
+The frigo is a closed openable container in the Laboratoire de Pathologie. The frigo is closed. The printed name of the frigo is "[if the frigo is open]open[otherwise]closed[end if] [pnFrigo]". 
 
 To say pnFrigo:
 	if the consciousness of the player is:
@@ -488,7 +492,7 @@ After opening the frigo:
 	move the plastic container to the location;
 	say "You open the fridge and a plastic box falls to the floor."
 	
-The plastic container is a closed openable container in the frigo. The printed name of the plastic container is "[if the consciousness of the player is less than 3]plastic[otherwise]Tupperware[end if] container".
+The plastic container is a closed openable container in the frigo. The printed name of the plastic container is "[if the plastic container is open]open[otherwise]closed[end if] [if the consciousness of the player is less than 3]plastic[otherwise]Tupperware[end if] container".
 
 The slice of brain is a  edible thing in the plastic container.
 
@@ -669,7 +673,7 @@ Rule for printing a locale paragraph about the bloody corpse of Doctor Rambaud w
 	now the bloody corpse of Doctor Rambaud is mentioned;
 	now the intercom is mentioned.
 
-Chapter 10 - Verbs
+Chapter 11 - Verbs
 
 Section 1 - simpleUnlocking
 
@@ -819,14 +823,14 @@ Carry out simpleRepairing:
 	[if it falls through to this point, give the default blocking message]
 	say "You don't see anything in need of repair."
 	
-Chapter 11 - Consciousness
+Chapter 12 - Consciousness
 
 To increment the consciousness of the player:
 	increase the consciousness of the player by 1;
 	try looking.
 
 
-Chapter 12 - Known Commands
+Chapter 13 - Known Commands
 
 The list of text called actionList is always {"east", "west","eat","open","north","south","push","unlock","talk","repair"}.
 
@@ -851,7 +855,7 @@ After reading a command:
 			say "Select from one of the above command links.";
 			reject the player's command.
 				
-Chapter 13 - Milestones
+Chapter 14 - Milestones
 
 After going east for the first time:
 	try looking;
@@ -920,7 +924,7 @@ After eating scientist:
 	increment the knownCommands of the player;
 	increment the consciousness of the player.
 		
-Chapter 14 - Dialogue
+Chapter 15 - Dialogue
 
 Every turn:
 	if the curedFlag of the player is not true:
@@ -1062,7 +1066,7 @@ CuredDialogue is {
 "[quotation mark]So, now what?[quotation mark] asks the mouse.[line break][quotation mark]Julien,[quotation mark] says Isabelle, [quotation mark]we have to talk with the Colonel and convince him that you're cured and that we now have a way to reverse the damage caused by the virus.[quotation mark][line break][quotation mark]Okay, I'll do my best,[quotation mark] says Julien.[line break][quotation mark]Onward, comrades![quotation mark] cries the mouse."
 }.
 
-Chapter 15 - The Void
+Chapter 16 - The Void
 
 The void is a room.
 
@@ -1079,7 +1083,7 @@ Instead of pushing the intercom:[only present at consciousness 4]
 	otherwise:
 		say "You have already activated the intercom; the red LED is still on."
 
-The panneau électrique is an openable closed container in the void. The printed name of the panneau électrique is "electrical panel".
+The panneau électrique is an openable closed container in the void. The printed name of the panneau électrique is "[if the panneau électrique is open]open[otherwise]closed[end if] electrical panel".
 
 The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The printed name of the disjoncteurs is "[if the disjoncteurs are broken]flipped[otherwise]reset[end if] circuit breakers".
 
@@ -1095,7 +1099,7 @@ To say pnServo:
 After opening the microfluidic synthesis unit:
 	say "You open the service panel and immediately recognize the problem: a fleck of solder has fallen across the terminals of a servo motor, shorting it out."
 
-Chapter 16 - End Game
+Chapter 17 - End Game
 
 To terminate the game:
 	remove all elements called "vorple-link";
@@ -1168,7 +1172,7 @@ To credits:
 	close HTML tag;
 	say "[bold type]FIN."
 	
-Chapter 17 - Testing
+Chapter 18 - Testing
 
 Test me with "east / west / eat /east / open / north / open / eat / push / south / push /east / push / west / south / open / eat / eat / eat / north / open / north / open / open / eat / south / west / unlock / open / west / unlock / open / north / north / unlock / open / north / talk / talk / talk / talk / talk / eat / south / south / south /east / push /east / push / west / unlock / open / south / open / repair / north / push /east / push / west / west / north / open / repair / south /east / push /east / push / west / south / north / push /east / push / west / west / north / north / north / push / talk / talk / talk /  talk ".
 
