@@ -551,7 +551,7 @@ Instead of simpleEating when the player is in Les Toilettes:
 				
 After going south from Couloir 1 when the consciousness of the player is 3 for the first time:
 		now the BlockChatterFlag is true;
-		say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Is somebody else here?[roman type][paragraph break]A burly man dressed in a tattered uniform stares at you with unblinking eyes. His pale skin, rheumy eyes and sunken cheeks call to mind a cadaver.[paragraph break]This awkward encounter goes on for several minutes before you realize that you are staring at your own reflection in a mirror.";
+		say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Who's here? A man... Oh, Julian, look: it's you.[roman type][paragraph break]You facepalm, and in the mirror, still dressed in his blue guard uniform and cap, so does Julian. This is going to take some getting used to.";
 		try looking.
 	
 After going south from Couloir 1 when the consciousness of the player is 4 for the first time:
