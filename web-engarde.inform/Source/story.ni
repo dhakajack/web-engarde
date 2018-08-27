@@ -342,7 +342,7 @@ Instead of pushing an elevatorDoor:
 			-- 2:
 				say " with your snout[one of] (which seems shorter than you remember)[or][stopping] and notice a slight vibration. A moment later, the wall opens upon a corridor to the west.";
 			-- otherwise:
-				say ", the elevator [if the location is Ascenseur 2]descends to the first level[otherwise]goes up to the second level[end if] and the doors open to the west."; 
+				say ", the elevator [if the location is Ascenseur 2]descends to the first level[otherwise]goes up to the second level[end if] and the door opens to the west."; 
 		if the player is in Ascenseur 2:
 			move the player to Ascenseur 1, without printing a room description;
 			now Ascenseur1door is open;
@@ -375,7 +375,7 @@ To say portesReferment:
 	if the consciousness of the player is less than 3:
 		say "the wall slides shut again";
 	otherwise:
-		say "the doors close";
+		say "the door closes";
 	say " silently behind you".
 	
 After going west from an Ascenseur 2:
