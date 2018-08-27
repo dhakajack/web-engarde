@@ -796,7 +796,7 @@ Carry out simpleTalking:
 	if the bloody corpse of Doctor Rambaud is not in the void:
 		now the BlockChatterFlag is true;
 		if the curedFlag of the player is not true:
-			say "[one of]Speaking into the intercom, you explain your plan. The director of the installation grabs the microphone and wishes you good luck. Beyond that, he instructs you report back when you have succeeded. Short of that, though, he requests that you not use the intercom[or]The control room refuses to talk to you until you have a proven cure in hand[stopping]. They hang up on you and the intercom goes dark.";
+			say "[one of]Speaking into the intercom, you explain your plan. The technician on the other end of the line wishes you good luck. Beyond that, he instructs you report back when you have succeeded. Short of that, though, he requests that you not use the intercom[or]The control room refuses to talk to you until you have a proven cure in hand[stopping]. They hang up on you and the intercom goes dark.";
 			now the intercom is not live;
 		otherwise:
 			increase the conversations of the player by 1;
@@ -1191,6 +1191,10 @@ To credits:
 	place a link to web site "http://www.ifwiki.org/index.php/Hugo_Labrande" reading "Hugo Labrande";
 	say " (original version). Lara Welch, ";
 	place a link to web site "http://www.ifwiki.org/index.php/Ben_Collins-Sussman" reading "Ben Collins-Sussman";
+	say ", ";
+	place a link to web site "http://www.ifwiki.org/index.php/Andrew_Schultz" reading "Andrew Schultz";
+	say ", and ";
+	place a link to web site "http://www.ifwiki.org/index.php/Valentine_Kopteltsev" reading "Valentin Koptel[apostrophe]tsev";
 	say " (English version).";
 	close HTML tag;
 	open HTML tag "li";
