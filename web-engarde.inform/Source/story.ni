@@ -111,7 +111,7 @@ To say hiddenExitList:
 		if (N is greater than 2 and X is less than N):
 			say ",".
 
-Chapter 5 -Langauge-specific tweaks
+Chapter 5 -Language-specific tweaks
 
 Rule for printing the banner text: 
 	place an inline element called "titre" reading "[story title]";
@@ -433,14 +433,14 @@ Rule for printing a locale paragraph about the microfluidic synthesis unit:
 		if the microfluidic synthesis unit is broken:
 			say "to indicate an error condition";
 		otherwise:
-			say "normally.";
+			say "normally";
 	say ". The unit's service panel is ";
 	if the microfluidic synthesis unit is closed:
 		say "closed";
 	otherwise:
 		say "open, revealing ";
 		if the disjoncteurs are broken:
-			say "its inner workings.";
+			say "its inner workings";
 		otherwise:
 			if the microfluidic synthesis unit is broken:
 				say "a non-";
@@ -875,7 +875,14 @@ To increment the knownCommands of the player:
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
 	place an inline element called "hidden" reading "A new command has appeared: ";
-	place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
+	if the knownCommands of the player is 8:
+		remove all elements called "vorple-link";
+		repeat with N running from 1 to 8:
+			place a link to the command "[entry N of actionList]" called "boutons box[N] literate" reading "[entry N of actionList]";	
+	if the knownCommands of the player is less than 8:
+		place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
+	otherwise:
+		place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] literate" reading "[entry knownCommands of the player of actionList]";	
 	place an inline element called "hidden" reading ". ".
 	
 Understand "east/west/eat/open/north/south/push/unlock/talk/repair" as "[okayCommand]".
@@ -951,7 +958,7 @@ After going north from Escalier 2 when the sasDoor is not closed for the first t
 	
 After eating scientist:
 	now the BlockChatterFlag is true;
-	say "[line break]You eat the scientist's brain and immediately perceive the world from a more refined and erudite perspective.[paragraph break][italic type][quotation mark]Is it done?[quotation mark] asks the voice of Isabelle with hesitation.[line break][quotation mark]Yes, you were delicious,[quotation mark] compliments the mouse.[line break][quotation mark]The best yet,[quotation mark] adds Lucky.[line break][quotation mark]Excuse my co-brains, they are sorely lacking in tact,[quotation mark] interjects the slice of brain.[line break][quotation mark]Hey![quotation mark] complain the mouse and dog.[line break][quotation mark]Make yourself at home, Isabelle,[quotation mark] continues the slice of brain. [quotation mark]Let me present our little company: here's Lucky the dog, and that's the Duke of Mousedom (or just [apostrophe]the mouse[apostrophe], as he's rather modest), and me. I'm the one they call [apostrophe]slice of brain[apostrophe]. We are at your service.[quotation mark][line break][quotation mark]Good morning, boys,[quotation mark] says Isabelle warmly.";
+	say "[line break]You eat the scientist's brain and immediately perceive the world from a more refined and erudite perspective.[paragraph break][italic type][quotation mark]Is it done?[quotation mark] asks the voice of Isabelle with hesitation.[line break][quotation mark]Yes, you were delicious,[quotation mark] compliments the mouse.[line break][quotation mark]The best yet,[quotation mark] adds Lucky.[line break][quotation mark]Excuse my co-brains, they are sorely lacking in tact,[quotation mark] interjects the slice of brain.[line break][quotation mark]Hey![quotation mark] complain the mouse and dog.[line break][quotation mark]Make yourself at home, Isabelle,[quotation mark] continues the slice of brain. [quotation mark]Let me present our little company: here's Lucky the dog, and that's the Duke of Mousedom (or just [apostrophe]the mouse[apostrophe], as he's rather modest), and me. I'm the one they call [apostrophe]slice of brain[apostrophe]. We are at your service.[quotation mark][line break][quotation mark]Good morning, boys,[quotation mark] says Isabelle warmly.[roman type][line break]";
 	move the bloody corpse of Doctor Rambaud to the sas;
 	move the intercom to the sas;
 	move the panneau électrique to escalier 1;
