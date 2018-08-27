@@ -719,6 +719,8 @@ Carry out simpleEating:
 		try eating the item;
 		stop the action;
 	say "You don't see anything to eat";
+	if the consciousness of the player is 1 and the chien is in the cage:
+		say " (at least, nothing you can get to for the moment)";
 	if the pile of dog food is in the location:
 		say " (at least, nothing that looks appetizing)";
 	say "."
