@@ -151,7 +151,7 @@ When play begins:
 After printing the banner text:
 	listExits;
 	listHiddenExits;
-	say "[line break][italic type]Where am I? For that matter, who am I?[roman type][paragraph break]You wake up alone in a plain room with a bluish hue.[paragraph break][italic type]Why can't I remember anything?[paragraph break]I've got to concentrate! What happened? Come on. Think! Think![paragraph break]In any case, the solution isn't here -- I'll have to look around.";
+	say "[line break][italic type]Where am I? For that matter, who am I?[roman type][paragraph break]You wake up alone in a plain room with a bluish hue.[paragraph break][italic type]Why can't I remember anything?[paragraph break]I've got to concentrate! What happened? Come on. Think! Think![paragraph break]In any case, the solution isn't here [unicode 8212] I'll have to look around.";
 	say roman type;
 	increment the knownCommands of the player.
 
@@ -195,7 +195,7 @@ To say descBlocOperatoire:
 		-- 0:
 			say "A dimly lit room[one of] with some deep shadows[or][stopping]";
 		-- 1:
-			say "There's a bit of blood here -- a huge, blue room with metallic walls";
+			say "There's a bit of blood here [unicode 8212] a huge, blue room with metallic walls";
 		-- 2:
 			say "The blue room in which humans cut up animals and remove their guts";
 		-- 3:
@@ -296,13 +296,20 @@ To say openNord:
 		say "The wall to the north slides aside, revealing the room next door".
 
 	
-The cage is an openable closed container in the Laboratoire Zoologique. The printed name of the cage is "[if the cage is open]open [end if]cage".
+The cage is an openable closed container in the Laboratoire Zoologique. The printed name of the cage is "cage".
 
 The chien is an edible thing. It is in the cage. The printed name of the chien is "[if the consciousness of the player is 1]wolf[otherwise]dog[end if]". The chien can be dead. The chien is not dead. 
 
-The animal body is a thing. It is in the void.
-
 The food dispenser is in the Laboratoire Zoologique. It is buttoned. The printed name of the food dispenser is "[if the consciousness of the player is greater than 2]dog [end if]food dispenser".
+
+After choosing notable locale objects when the player is in the Laboratoire Zoologique:
+	set the locale priority of the food dispenser to 9.
+	
+Rule for printing a locale paragraph about the food dispenser:
+	say "A [food dispenser] stands next to [if the cage is open]an open[otherwise]a closed[end if] [cage][if chien is dead] containing the mauled corpse of an animal[end if].";
+	now the chien is mentioned; 
+	now the food dispenser is mentioned;
+	now the cage is mentioned.
 
 Instead of pushing the food dispenser:
 	say "You press the red button. ";
@@ -414,7 +421,35 @@ To say pnLabBio:
 To say pnLabBioDoor:
 	say "laboratory door".
 	
-
+After choosing notable locale objects when the player is in the Laboratoire Biochimique:
+	if the microfluidic synthesis unit is in the location, set the locale priority of the microfluidic synthesis unit to 9.
+	
+Rule for printing a locale paragraph about the microfluidic synthesis unit:
+	say "A next-generation microfluidic synthesis unit takes up one side of the room, its panel indicators ";
+	if disjoncteurs are broken:
+		say "uniformly dark";
+	otherwise:
+		say "blinking ";
+		if the microfluidic synthesis unit is broken:
+			say "to indicate an error condition";
+		otherwise:
+			say "normally.";
+	say ". The unit's service panel is ";
+	if the microfluidic synthesis unit is closed:
+		say "closed";
+	otherwise:
+		say "open, revealing ";
+		if the disjoncteurs are broken:
+			say "its inner workings.";
+		otherwise:
+			if the microfluidic synthesis unit is broken:
+				say "a non-";
+			otherwise:
+				say "a repaired, ";
+			say "functional servo motor";
+	say ".";
+	now the microfluidic synthesis unit is mentioned.
+	
 Section Couloir 1
 
 Couloir 1 is a room. The description of Couloir 1  is "[descCouloir1]." The printed name of Couloir 1 is "[pnCouloir1]".
@@ -471,13 +506,13 @@ To say pnLabPath:
 To say descLabPath:
 	If the consciousness of the player is:
 		-- 2:
-			say "[one of]This room reminds you of better times that you spent with your family -- from before you were abducted. Considering the counters, shelves full of food, sinks, and large appliances, there's no doubt in your mind that this is the most important room in the entire house: the kitchen[or]A typical kitchen, with black decor[stopping]";
+			say "[one of]This room reminds you of better times that you spent with your family [unicode 8212] from before you were abducted. Considering the counters, shelves full of food, sinks, and large appliances, there's no doubt in your mind that this is the most important room in the entire house: the kitchen[or]A typical kitchen, with black decor[stopping]";
 		-- 3:
 			say "This is where the researchers prepare microscope slides.[paragraph break]You recognize a meat slicer and a microwave oven, but most of the equipment on the counter doesn't look familiar";
 		-- 4:
 			say "An ultramodern laboratory dedicated to preparation and analysis of tissue samples".
 	
-The frigo is a closed openable container in the Laboratoire de Pathologie. The frigo is closed. The printed name of the frigo is "[if the frigo is open]open[otherwise]closed[end if] [pnFrigo]". 
+The frigo is a closed openable container in the Laboratoire de Pathologie. The frigo is closed. The printed name of the frigo is "[pnFrigo]". 
 
 To say pnFrigo:
 	if the consciousness of the player is:
@@ -492,9 +527,9 @@ After opening the frigo:
 	move the plastic container to the location;
 	say "You open the fridge and a plastic box falls to the floor."
 	
-The plastic container is a closed openable container in the frigo. The printed name of the plastic container is "[if the plastic container is open]open[otherwise]closed[end if] [if the consciousness of the player is less than 3]plastic[otherwise]Tupperware[end if] container".
+The plastic container is a closed openable container in the frigo. The printed name of the plastic container is "[if the consciousness of the player is less than 3]plastic[otherwise]Tupperware[end if] container".
 
-The slice of brain is a  edible thing in the plastic container.
+The slice of brain is an edible thing in the plastic container.
 
 After opening the labPathDoor:
 	say "[openNord]."
@@ -553,12 +588,12 @@ Instead of simpleEating when the player is in Les Toilettes:
 			-- 4:
 				say "Do you have any idea how many species of pathogenic bacteria live in the water? No way."
 				
-After going south from Couloir 1 when the consciousness of the player is 3 for the first time:
+After going south from Couloir 1 when the consciousness of the player is 4 for the first time:
 		now the BlockChatterFlag is true;
 		say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Who's here? A man... Oh, Julian, look: it's you.[roman type][paragraph break]You facepalm, and in the mirror, still dressed in his blue guard uniform and cap, so does Julian. This is going to take some getting used to.";
 		try looking.
 	
-After going south from Couloir 1 when the consciousness of the player is 4 for the first time:
+After going south from Couloir 1 when the consciousness of the player is 3 for the first time:
 	now the BlockChatterFlag is true;
 	say "As you enter the bathroom, you catch some movement out of the corner of your eye.[paragraph break][italic type]Is somebody else here?[roman type][paragraph break]A burly man dressed in a tattered uniform stares at you with unblinking eyes. His pale skin, rheumy eyes and sunken cheeks call to mind a cadaver.[paragraph break]This awkward encounter goes on for several minutes before you realize that you are staring at your own reflection in a mirror.";
 	try looking.
@@ -580,7 +615,7 @@ To say descDecon:
 To say pnDecon:
 	if the consciousness of the player is:
 		-- 3:
-			say "The showers";
+			say "The Locker Room";
 		-- 4:
 			say "Decontamination room".
 			
@@ -785,11 +820,11 @@ Carry out simpleTalking:
 			-- 2:
 				say "[italic type][quotation mark]She has pretty eyes (for a giant),[quotation mark] remarks the mouse.[line break][quotation mark]Shut up,[quotation mark] say the slice of brain and Lucky in unison.[roman type][paragraph break]You force yourself to form the words, one after another.[paragraph break][quotation mark]What are we doing here?[quotation mark][line break][quotation mark]Listen, Julien, I don't have much time. I am a medical researcher and you are a guard. We both work at an installation dedicated to finding a cure for the zombie777 virus, which has devastated the entire world.[quotation mark][line break][quotation mark]A guard?[quotation mark][line break][quotation mark]Yes. Pay attention, Julien, this is important. A crowd of pandemic victims surrounded the lab complex and you were protecting me when you were scratched by one of them. I had to give you the experimental treatment to prevent you from turning into a zombie.[quotation mark][line break][quotation mark]So, I'm cured?[quotation mark][line break][quotation mark]No, not even close.[quotation mark][paragraph break]";
 			-- 3:
-				say "[quotation mark]So, the treatment didn't work?[quotation mark] you ask.[line break][quotation mark]No, not entirely it would seem. I had a problem with the microfluidic biosynthesis unit that produced the dose I gave you. I think that one of the ingredients must have been left out of that batch. I was trying to repair the unit when you caught me off guard. You attacked me, but I managed to hole up here in the airlock. So. That's where things stand.[quotation mark][line break][quotation mark]Sorry.[quotation mark][line break][quotation mark]It wasn't you. You were a full-blown zombie at the time. But… how is it that now you're able to talk? I've never heard of a zombie that could talk -- it just doesn't happen.[quotation mark][paragraph break]";
+				say "[quotation mark]So, the treatment didn't work?[quotation mark] you ask.[line break][quotation mark]No, not entirely it would seem. I had a problem with the microfluidic biosynthesis unit that produced the dose I gave you. I think that one of the ingredients must have been left out of that batch. I was trying to repair the unit when you caught me off guard. You attacked me, but I managed to hole up here in the airlock. So. That's where things stand.[quotation mark][line break][quotation mark]Sorry.[quotation mark][line break][quotation mark]It wasn't you. You were a full-blown zombie at the time. But… how is it that now you're able to talk? I've never heard of a zombie that could talk [unicode 8212] it just doesn't happen.[quotation mark][paragraph break]";
 			-- 4:
 				say "[quotation mark]It's really hard for us to talk.[quotation mark][line break][quotation mark]Naturally, your neural pathways are in a state of… hold on… what do you mean, [apostrophe]us[apostrophe]?[quotation mark][paragraph break][italic type][quotation mark]Tell her about me,[quotation mark] implores the mouse, full of excitement.[line break][quotation mark]And about me![quotation mark] adds Lucky.[roman type][paragraph break][quotation mark]Yeah. About that. I said [apostrophe]us[apostrophe] because there are three minds in my head: a mouse, a dog named Lucky, and a slice of brain. We work together as best we can to get around and talk.[quotation mark][line break][quotation mark]Well.[quotation mark] She stares a moment at the ceiling to gather her thoughts. [quotation mark]Well, I suppose that explains everything. Your brain was rebooted, more or less erased by the virus, but somehow you have managed to sort of reload it with normal brains. That slice of brain that you mentioned must have been the biopsy that I took from Julien before the virus had invaded that part of his brain.[quotation mark][paragraph break]";
 			-- 5:
-				say "[quotation mark]So, we're well and truly screwed?[quotation mark] you say.[paragraph break][italic type][quotation mark]Totally,[quotation mark] whines the mouse.[line break][quotation mark]Yeah, I'd say so,[quotation mark] agrees Lucky.[roman type][paragraph break][quotation mark]Maybe not… [quotation mark][line break][quotation mark]You have an idea?[quotation mark][line break][quotation mark]Yes, I think so. Do exactly what I say: I don't have long for this world. I can't even feel my legs; it's only a matter of time. However… if you eat my brain -- hang on, not yet! Let me finish talking -- thanks. As I was saying, if you eat my brain, my personality will meld with all of yours. You are still actively infected with the virus and in time it will destroy what's left of your brain, but the infection seems to have been slowed by the first treatment, even if it wasn't completely effective. If there's enough time, I can repair the synthesis unit and we can try one more time to produce a cure for the virus. If we succeed, I can live on in you, along with your thoughts.[quotation mark][line break][quotation mark]So, I should eat your brain now?[quotation mark][line break][quotation mark]Go for it.[quotation mark][paragraph break]";
+				say "[quotation mark]So, we're well and truly screwed?[quotation mark] you say.[paragraph break][italic type][quotation mark]Totally,[quotation mark] whines the mouse.[line break][quotation mark]Yeah, I'd say so,[quotation mark] agrees Lucky.[roman type][paragraph break][quotation mark]Maybe not… [quotation mark][line break][quotation mark]You have an idea?[quotation mark][line break][quotation mark]Yes, I think so. Do exactly what I say: I don't have long for this world. I can't even feel my legs; it's only a matter of time. However… if you eat my brain [unicode 8212] hang on, not yet! Let me finish talking [unicode 8212] thanks. As I was saying, if you eat my brain, my personality will meld with all of yours. You are still actively infected with the virus and in time it will destroy what's left of your brain, but the infection seems to have been slowed by the first treatment, even if it wasn't completely effective. If there's enough time, I can repair the synthesis unit and we can try one more time to produce a cure for the virus. If we succeed, I can live on in you, along with your thoughts.[quotation mark][line break][quotation mark]So, I should eat your brain now?[quotation mark][line break][quotation mark]Go for it.[quotation mark][paragraph break]";
 			-- otherwise:
 				say "There's nothing more to say."
 									
@@ -800,18 +835,18 @@ simpleRepairing is an action applying to nothing. Understand "repair" as simpleR
 Carry out simpleRepairing:
 	repeat with the item running through visible things:
 		if the item is:
-			-- the servo motor:
-				if the servo motor is broken:
+			-- the microfluidic synthesis unit:
+				if the microfluidic synthesis unit is broken:
 					say "You brush aside the bit of solder. The machine should work normally now, when powered up.";
-					now the servo motor is not broken;
+					now the microfluidic synthesis unit is not broken;
 				otherwise:
 					if the curedFlag of the player is true:
 						say "All of the equipment in here has performed flawlessly, there is nothing more to fix. In theory, with some resupply, the unit is now capable of cranking out more doses of the cure.";
 					otherwise:
-						say "The machinery itself looks functional -- the problem appears to be lack of electrical current to the room itself.";
+						say "The machinery itself looks functional [unicode 8212] the problem appears to be lack of electrical current to the room itself.";
 				stop the action;
 			-- the disjoncteurs:
-				if the servo motor is broken:
+				if the the microfluidic synthesis unit is broken:
 					say "As soon as you flip the circuit breakers, there is a sharp clicking sound from the electrical panel and you notice the breakers have again tripped[one of][or][or]. As long as an electrical fault condition persists, they will automatically cut in to avert damage to the sensitive equipment in the lab[or]. They will not remain in the [quotation mark]on[quotation mark] position until you address whatever condition is causing a massive electrical current draw in the lab[or]. Chances are, something in the lab has shorted out. You need to fix that first[or][stopping].";
 				otherwise:
 					if the disjoncteurs are broken:
@@ -869,7 +904,7 @@ After going west from Couloir 2 for the first time:
 	increment the knownCommands of the player.
 	
 After eating the small gray creature:
-	say "[line break]You blindly sweep the base of the wall with your hand. Despite your lack of speed and dexterity, by some miracle you manage to trap the tiny rodent against the wall. You seize it firmly and feel something warm, furry -- and now moist -- melt in your hand. Without another thought, you pop it into your mouth and swallow.[paragraph break]A moment later, you are overcome as new thoughts flood your mind.[paragraph break][italic type]Help! A giant monster is after me! It's going to eat me! I have to hide.[paragraph break]I…um.  Am I dead or what? I don't get it. What's going on?[roman type][paragraph break]";
+	say "[line break]You blindly sweep the base of the wall with your hand. Despite your lack of speed and dexterity, by some miracle you manage to trap the tiny creature against the wall. You seize it firmly and feel something warm, furry [unicode 8212] and now moist [unicode 8212] melt in your hand. Without another thought, you pop it into your mouth and swallow.[paragraph break]A moment later, you are overcome as new thoughts flood your mind.[paragraph break][italic type]Help! A giant monster is after me! It's going to eat me! I have to hide.[paragraph break]I…um.  Am I dead or what? I don't get it. What's going on?[roman type][paragraph break]";
 	increment the consciousness of the player.
 	
 After going east when the consciousness of the player is 1 for the first time:
@@ -893,7 +928,7 @@ After opening the cage:
 	
 After eating the chien:
 	now the chien is dead;
-	now the animal body is in the cage;
+	move the chien to the void;
 	say "[line break]Out of instinct, you eat the wolf[apostrophe]s brain and throw the body back into the cage. Once again, new thoughts invade your mind.[paragraph break][italic type]I'm warning you: if you get near my cage, I'll eat you. Stop! I'm not kidding…[paragraph break]Huh? What's going on? What's that dead dog doing in my cage… bleeding on my favorite pillow?[paragraph break]And what am I doing standing on my hind legs like a human? It seems to be easier than I would have thought.";
 	increment the consciousness of the player;
 	now the BlockChatterFlag is true;
@@ -928,7 +963,7 @@ Chapter 15 - Dialogue
 
 Every turn:
 	if the curedFlag of the player is not true:
-		if the disjoncteurs are not broken and the servo motor is not broken and the player is in the Laboratoire Biochimique:
+		if the disjoncteurs are not broken and the the microfluidic synthesis unit is not broken and the player is in the Laboratoire Biochimique:
 			now the BlockChatterFlag is true;
 			say "The robotic workstation emits a beep and fills a flask with fluorescent green fluid. You take the flask, propose a short toast to yourself, and kick it back in one gulp.[paragraph break][italic type][quotation mark]I don't feel anything,[quotation mark] worries the slice of brain.[line break][quotation mark]Wait for it,[quotation mark] reassures Isabelle.[line break][quotation mark]Me neither,[quotation mark] pipes up the mouse.[line break][quotation mark]Wait for it,[quotation mark] insists the scientist.[line break][quotation mark]Oh my![quotation mark] barks Lucky. [quotation mark]Something's starting to…[quotation mark][line break][quotation mark]And we're off![quotation mark] shouts the doctor.[roman type][paragraph break]You shake violently and pass out. When you are able to stand up again, you note that you skin has recovered its normal tint and that you can walk without lurching back and forth. In short, you've been cured.[paragraph break]";
 			now the curedFlag of the player is true;
@@ -996,11 +1031,11 @@ mouseDogDialogue is a list of text that varies.
 mouseDogDialogue is {
 "The mouse? What mouse?[quotation mark][line break][quotation mark]The mouse who lives here.[quotation mark][line break][quotation mark]That damned mouse who is always swiping crumbs from around my food dispenser?[quotation mark][line break][quotation mark]Yes, one and the same. Once again, just wanted to say that I'm sorry if I upset you.",
 "Don't sweat it. I would have done the same.[quotation mark][line break][quotation mark]Thanks.[quotation mark][line break][quotation mark]Say, mouse, do you have a name?[quotation mark][line break][quotation mark]No, we mice don't have names. You can just call me [apostrophe]Mouse[apostrophe]. How about you? What's yours?[quotation mark][line break][quotation mark][apostrophe]Lucky[apostrophe]. Or, at least that's what my family called me before I got here. The torturers refer to me as [apostrophe]Subject 205-Alpha[apostrophe], but I prefer [apostrophe]Lucky[apostrophe].[quotation mark][line break][quotation mark]Okay, Lucky.",
-"Mouse, can you explain something to me? I'm still a bit confused. How can it be that you, a tiny little mouse, could manage to eat a big strong dog like me, when I'm several times your size?[quotation mark][line break][quotation mark]You know, I've asked myself the same question. Hang on -- you're a dog? I thought you were a wolf![quotation mark][line break][quotation mark]Nope, a dog.[quotation mark][line break][quotation mark]Really?[quotation mark][line break][quotation mark]Yes, I'm pretty sure.",
-"I can't figure out how I managed to eat you.[quotation mark][line break][quotation mark]What do you remember about it?[quotation mark][line break][quotation mark]I was seized by a sudden urge to eat brains.[quotation mark][line break][quotation mark]Brains? Which ones?[quotation mark][line break][quotation mark]In this case -- yours.[quotation mark][line break][quotation mark]Ah, I see… no, not really.",
+"Mouse, can you explain something to me? I'm still a bit confused. How can it be that you, a tiny little mouse, could manage to eat a big strong dog like me, when I'm several times your size?[quotation mark][line break][quotation mark]You know, I've asked myself the same question. Hang on [unicode 8212] you're a dog? I thought you were a wolf![quotation mark][line break][quotation mark]Nope, a dog.[quotation mark][line break][quotation mark]Really?[quotation mark][line break][quotation mark]Yes, I'm pretty sure.",
+"I can't figure out how I managed to eat you.[quotation mark][line break][quotation mark]What do you remember about it?[quotation mark][line break][quotation mark]I was seized by a sudden urge to eat brains.[quotation mark][line break][quotation mark]Brains? Which ones?[quotation mark][line break][quotation mark]In this case [unicode 8212] yours.[quotation mark][line break][quotation mark]Ah, I see… no, not really.",
 "Have you always lived here, Mouse?[quotation mark][line break][quotation mark]My family has lived here for generations, it is our hereditary territory. We defend it against all invaders. Field mice are nothing but thugs and thieves.[quotation mark][line break][quotation mark]Have you ever seen the outside world?[quotation mark][line break][quotation mark]I don't have the slightest desire to do so. I've heard stories, of course: the sky, clouds, fields, and so on, but none that interests me.",
 "What about you, Lucky? You mentioned a family? Do you have a wife? We mice don't believe in marriage, but I've heard you dogs are more traditional.[quotation mark][line break][quotation mark]A family, yes, but not a wife (although there was that poodle next door… but, um, that's another story). No, when I speak of family, I'm talking about a human family.",
-"You were their slave?[quotation mark] asks the mouse.[line break][quotation mark]No, it wasn't like that. I played with the kids, they fed me, they petted me all day, and I even had my own bed.[quotation mark][line break][quotation mark]You're dreaming. I've never seen anything like that. Humans don't like animals -- they're always trying to crush us under their heels.",
+"You were their slave?[quotation mark] asks the mouse.[line break][quotation mark]No, it wasn't like that. I played with the kids, they fed me, they petted me all day, and I even had my own bed.[quotation mark][line break][quotation mark]You're dreaming. I've never seen anything like that. Humans don't like animals [unicode 8212] they're always trying to crush us under their heels.",
 "Meh, you don't know anything about humans,[quotation mark] refutes Lucky.[line break][quotation mark]I don't want to know them from any closer, thank you very much.[quotation mark][line break][quotation mark]You would have liked my family.[quotation mark][line break][quotation mark]If that's the case, why did you leave such an amazing family, if I may ask?[quotation mark][line break][quotation mark]Not by choice. We were in a forest, I saw a squirrel, and you can figure out the rest. I never saw them again.[quotation mark][line break][quotation mark]Don't talk to me about squirrels. They're worse than wild mice.",
 "Lucky, do you think that some day you'll find your family?[quotation mark][line break][quotation mark]Hope so.[quotation mark][line break][quotation mark]Me too. I'd like to chase squirrels with you.[quotation mark][line break][quotation mark]Yeah, that would be great."
 }
@@ -1019,7 +1054,7 @@ mouseDogGuardDialogue is {
 "[quotation mark]Do you think there's anything we could do to get your memories back?[quotation mark] asks Lucky.[line break][quotation mark]How? I've tried remembering all sorts of things and nothing comes to mind.[quotation mark][line break][quotation mark]Probably because you're just a little slice of brain,[quotation mark] remarks the mouse. [quotation mark]If we could find the rest of your brain, which I guess must be around here some place, we could eat it and get back all your missing memories, right?[quotation mark][line break][quotation mark]Really? Do you think so?[quotation mark] wonders the slice of brain.[line break][quotation mark]Oh yes, certainly,[quotation mark] reassures the dog.", 
 "[quotation mark]But what if the rest of the brain finds us before we find it?[quotation mark] asks the mouse.[line break][quotation mark]Yeah, so?[quotation mark] says Lucky.[line break][quotation mark]The rest of the brain could eat us before we eat it,[quotation mark] replies the mouse anxiously.[line break][quotation mark]And what exactly would that change?[quotation mark] asks the slice of brain. [quotation mark]Either way, we'd all still be together in one spot, wouldn't we?[quotation mark] asks the slice of brain.[line break][quotation mark]Yes, but usually I prefer to eat others before they eat me.[quotation mark]", 
 "[quotation mark]You know what we need?[quotation mark] asks Lucky. [quotation mark]A plan. We need a plan.[quotation mark][line break][quotation mark]Yes, I agree,[quotation mark] says the mouse. [quotation mark]What do you propose?[quotation mark][line break][quotation mark]Number one[quotation mark], explains the dog, [quotation mark]we need to explore a bit to, as the slice of brain says, secure the installation. Number two: to search for the missing brain. And number… um, the number that comes after two: we need to escape.[quotation mark][line break][quotation mark]Amazing! You're a genius, Lucky,[quotation mark] says the slice of brain.",
-"[quotation mark]Escape? You mean out of here? Outside?[quotation mark] asks the mouse. [quotation mark]What does the outside world offer? Nothing but headaches, I'd say. Here, I have inherited lands and even a title -- did you know that I am a duke? It's true, I'm not kidding. I am the eighteenth duke of my line. You want me to throw all that away?[quotation mark][line break][quotation mark]But, there's a whole world out there![quotation mark] howls the dog.[line break][quotation mark]I've lived out there,[quotation mark] adds the slice of brain. [quotation mark]I think I lived not too far from the installation with my girlfriend… what was her name?[quotation mark]", 
+"[quotation mark]Escape? You mean out of here? Outside?[quotation mark] asks the mouse. [quotation mark]What does the outside world offer? Nothing but headaches, I'd say. Here, I have inherited lands and even a title [unicode 8212] did you know that I am a duke? It's true, I'm not kidding. I am the eighteenth duke of my line. You want me to throw all that away?[quotation mark][line break][quotation mark]But, there's a whole world out there![quotation mark] howls the dog.[line break][quotation mark]I've lived out there,[quotation mark] adds the slice of brain. [quotation mark]I think I lived not too far from the installation with my girlfriend… what was her name?[quotation mark]", 
 "[quotation mark]Eww, a girlfriend, huh?[quotation mark] asks Lucky, suddenly interested.[line break][quotation mark]Details, please,[quotation mark] encourages the mouse.[line break][quotation mark]Well, to tell you the truth, I don't remember much about her, not even her name. That said, I do recall that was blindingly clever… she had a great sense of humor and a loud, rowdy laugh… and almond-shaped eyes of the deepest violet… and she had huge… hmm…  Sorry, I don't recall the word.[quotation mark]",
 "[quotation mark]If we manage to get out of the installation, do you think you could find your house?[quotation mark] asks Lucky.[line break][quotation mark]Sure, no doubt. There are only a handful of rooms to get through and we'll be out. The house is not far at all, we just have to follow the street… I don't remember which one, but I'd recognize it.[quotation mark][line break][quotation mark]Your amnesia does not fill me with confidence,[quotation mark] complains the mouse.[line break][quotation mark]If we can find the rest of the brain on our way out, everything will fall into place,[quotation mark] suggests Lucky.", 
 "[quotation mark]Do you think that if we can get out of this building, you can help Lucky find his family?[quotation mark] asks the mouse.[line break][quotation mark]Maybe. Probably. Lucky, is your house also nearby?[quotation mark] inquires the slice of brain.[line break][quotation mark]I think so,[quotation mark] replies the dog. [quotation mark]My family lives in a large, white house surrounded by tall trees. There can't be many houses like that.[quotation mark][line break][quotation mark]Are there any cats?[quotation mark] interrupts the mouse.[line break][quotation mark]Not one,[quotation mark] says the dog proudly.",
@@ -1045,9 +1080,9 @@ EverybodyDialogue is { "[quotation mark]What an incredible sensation![quotation 
 "[quotation mark]What about animals?[quotation mark] asks the mouse. [quotation mark]Were they affected?[quotation mark][line break][quotation mark]In fact,[quotation mark] replies Isabelle, [quotation mark]we think that the disease was canine in origin. Before we lost communications with the Pasteur Institute in Ho Chi Minh City, they had isolated a mutant form of rabies putatively responsible for the pandemic.[quotation mark][line break][quotation mark]Rabies![quotation mark] Lucky cries, [quotation mark]There's nothing more terrifying than rabies![quotation mark][line break][quotation mark]Until now,[quotation mark] corrects the slice of brain.",
 "[quotation mark]If zombie-ism spreads so quickly,[quotation mark] worries Lucky, [quotation mark]do you think that my family has survived?[quotation mark][line break][quotation mark]Yes, I know so,[quotation mark] reassures the scientist. [quotation mark]The Drummonds work here at the installation and all staff families are housed within the compound. You're not far from them right now.[quotation mark][line break][quotation mark]That's great![quotation mark] exclaims the dog.", 
 "[quotation mark]Isabelle,[quotation mark] says the mouse, [quotation mark]if the cure works as expected, what will become of us?[quotation mark][line break][quotation mark]In what sense?[quotation mark][line break][quotation mark]Will we remain individuals with our own thoughts or do you think that we'll somehow blend together into one mind?[quotation mark][line break][quotation mark]Impossible to say. Up until now, we've all lead our own separate lives. You have your memories, I have mine. But in the future, we'll see everything from the same point of view. We'll share one body and it's possible that over time we'll end up as a single mind. Can't really say right now how that will go.[quotation mark]", 
-"[quotation mark]I never wanted to be anything other than a mouse. What you say terrifies me -- that my mind might be diluted or even fade out of existence.[quotation mark][line break][quotation mark]But look at the plus side,[quotation mark] says Lucky. [quotation mark]Look into my thoughts -- this is how it feels to chase a squirrel. And here's what it feel like to be scratched between the ears.[quotation mark][line break][quotation mark]Yes, I suppose.[quotation mark][line break][quotation mark]And here,[quotation mark] says the scientist, [quotation mark]is what Earth looks like from space -- something that no other mouse has ever seen.[quotation mark][line break][quotation mark]Hmm. Impressive. And I suppose that for my part, I have some memories to share as well: the warmth of sleeping huddled with the other mice, the joy of stealing bits and scraps from around Lucky's food dispenser…[quotation mark][line break][quotation mark]Hey![quotation mark] howls the dog.", 
+"[quotation mark]I never wanted to be anything other than a mouse. What you say terrifies me [unicode 8212] that my mind might be diluted or even fade out of existence.[quotation mark][line break][quotation mark]But look at the plus side,[quotation mark] says Lucky. [quotation mark]Look into my thoughts [unicode 8212] this is how it feels to chase a squirrel. And here's what it feel like to be scratched between the ears.[quotation mark][line break][quotation mark]Yes, I suppose.[quotation mark][line break][quotation mark]And here,[quotation mark] says the scientist, [quotation mark]is what Earth looks like from space [unicode 8212] something that no other mouse has ever seen.[quotation mark][line break][quotation mark]Hmm. Impressive. And I suppose that for my part, I have some memories to share as well: the warmth of sleeping huddled with the other mice, the joy of stealing bits and scraps from around Lucky's food dispenser…[quotation mark][line break][quotation mark]Hey![quotation mark] howls the dog.", 
 "[quotation mark]When I saw Julien's body enter the airlock, I noticed that he was getting around with difficulty, shambling, if you will,[quotation mark] says the scientist.[line break][quotation mark]Right. I know how to walk,[quotation mark] says the slice of brain, [quotation mark]but I find it infuriatingly difficult to do it.[quotation mark][line break][quotation mark]The mouse doesn[apostrophe]t help,[quotation mark] whines Lucky. [quotation mark]He's always moving the legs, and I don't think he knows what he's doing.[quotation mark][line break][quotation mark]Me?[quotation mark] says the mouse with indignation, [quotation mark]You're the one who's always trying to run on all fours.[quotation mark][line break][quotation mark]Okay, gentlemen,[quotation mark] says the scientist, [quotation mark]Do you think I could convince you to let one of us drive at a time?[quotation mark][line break][quotation mark]Yes, certainly,[quotation mark] agrees the slice of brain, [quotation mark]You have the wheel.[quotation mark]", 
-"[quotation mark]Okay[quotation mark], says the scientist. [quotation mark]I need to concentrate on how we're going to produce an effective cure.[quotation mark][line break][quotation mark]Right -- enough chit-chat, fellows, let her focus,[quotation mark] suggests the slice of brain.[line break][quotation mark]Right, okay,[quotation mark] say the mouse and dog."
+"[quotation mark]Okay[quotation mark], says the scientist. [quotation mark]I need to concentrate on how we're going to produce an effective cure.[quotation mark][line break][quotation mark]Right [unicode 8212] enough chit-chat, fellows, let her focus,[quotation mark] suggests the slice of brain.[line break][quotation mark]Right, okay,[quotation mark] say the mouse and dog."
 }
 
 Section Cured Dialogue
@@ -1083,18 +1118,11 @@ Instead of pushing the intercom:[only present at consciousness 4]
 	otherwise:
 		say "You have already activated the intercom; the red LED is still on."
 
-The panneau électrique is an openable closed container in the void. The printed name of the panneau électrique is "[if the panneau électrique is open]open[otherwise]closed[end if] electrical panel".
+The panneau électrique is an openable closed container in the void. The printed name of the panneau électrique is "electrical panel".
 
 The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The printed name of the disjoncteurs is "[if the disjoncteurs are broken]flipped[otherwise]reset[end if] circuit breakers".
 
-The microfluidic synthesis unit is an openable closed container in the void. The printed name of the microfluidic synthesis unit is "microfluidic synthesis unit".
-
-The servo motor is in the microfluidic synthesis unit. The servo motor is broken. The printed name of the servo motor is "[pnServo]". 
-
-To say pnServo:
-	say "servo motor";
-	if the servo motor is not broken:
-		say " that you have repaired".
+The microfluidic synthesis unit is an openable closed container in the void. The printed name of the microfluidic synthesis unit is "microfluidic synthesis unit". microfluidic synthesis unit is broken.
 
 After opening the microfluidic synthesis unit:
 	say "You open the service panel and immediately recognize the problem: a fleck of solder has fallen across the terminals of a servo motor, shorting it out."
