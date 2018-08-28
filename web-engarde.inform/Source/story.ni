@@ -836,14 +836,14 @@ Carry out simpleRepairing:
 	repeat with the item running through visible things:
 		if the item is:
 			-- the microfluidic synthesis unit:
-				if the microfluidic synthesis unit is broken:
+				if the microfluidic synthesis unit is broken and the microfluidic synthesis unit is open:
 					say "You brush aside the bit of solder. The machine should work normally now, when powered up.";
 					now the microfluidic synthesis unit is not broken;
 				otherwise:
 					if the curedFlag of the player is true:
 						say "All of the equipment in here has performed flawlessly, there is nothing more to fix. In theory, with some resupply, the unit is now capable of cranking out more doses of the cure.";
-					otherwise:
-						say "The machinery itself looks functional [unicode 8212] the problem appears to be lack of electrical current to the room itself.";
+					otherwise: [broken mfsu means flipped circuit breakers, so this would be true]	
+						say "The machinery itself looks functional [unicode 8212] the problem appears to be lack of electrical current to the room itself.";	
 				stop the action;
 			-- the disjoncteurs:
 				if the the microfluidic synthesis unit is broken:
