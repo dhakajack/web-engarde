@@ -16,7 +16,7 @@ Use no scoring.
 Release along with the "Vorple" interpreter.
 Release along with style sheet "web-engarde.css".
 
-Release along with cover art, a file of "Blurb" called "blurb.txt" and a file of "Walkthrough" called "walkthrough.txt".
+Release along with cover art ("A cadaverous man in a guard hat surrounded by pictures of a woman scientist, a mouse, a dog, and an electric motor"), a file of "Blurb" called "blurb.txt" and a file of "Walkthrough" called "walkthrough.txt".
 
 [********]
 debugMode is a truth state that varies. debugMode is FALSE.
@@ -244,7 +244,7 @@ To say liftDoorDogStatus:
 	if the door east from the location is closed:
 		say ". A red button shines on the wall to the east";
 	otherwise:
-		say ". The opening to the east has disappeared".
+		say ". The opening to the east has disappeared. There's a red button on the wall next to where the opening was"
 			
 To say pnCouloir2:
 	if the consciousness of the player is:
@@ -483,7 +483,7 @@ Section Ascenseur 1
 Ascenseur 1 is an elevator. The Ascenseur1door is an elevatorDoor. It is east of Couloir 1 and west of Ascenseur 1. 
 
 To say descAscenseur1:
-	say "A button green shines on a panel".
+	say "A green button shines on a panel".
 	
 After going west from an Ascenseur 1:
 	say "[portesReferment].";
@@ -801,7 +801,7 @@ Carry out simpleTalking:
 	if the bloody corpse of Doctor Rambaud is not in the void:
 		now the BlockChatterFlag is true;
 		if the curedFlag of the player is not true:
-			say "[one of]Speaking into the intercom, you explain your plan. The technician on the other end of the line wishes you good luck. Beyond that, he instructs you report back when you have succeeded. Short of that, though, he requests that you not use the intercom[or]The control room refuses to talk to you until you have a proven cure in hand[stopping]. They hang up on you and the intercom goes dark.";
+			say "[one of]Speaking into the intercom, you explain your plan. The technician on the other end of the line hurriedly wishes you good luck. Yelling between bursts of gunfire, he instructs you report back when you have succeeded. Short of that, though, he requests that you not use the intercom. He hangs up on you and the intercom goes dark[or]They must have a lot going on up there. You wait impatiently, but no one answers[or]Until and unless you find a cure, there isn't much to discuss with the control room. You decide to save their time and yours and hold off on calling them for now[stopping].";
 			now the intercom is not live;
 		otherwise:
 			increase the conversations of the player by 1;
@@ -855,7 +855,7 @@ Carry out simpleRepairing:
 					say "As soon as you flip the circuit breakers, there is a sharp clicking sound from the electrical panel and you notice the breakers have again tripped[one of][or][or]. As long as an electrical fault condition persists, they will automatically cut in to avert damage to the sensitive equipment in the lab[or]. They will not remain in the [quotation mark]on[quotation mark] position until you address whatever condition is causing a massive electrical current draw in the lab[or]. Chances are, something in the lab has shorted out. You need to fix that first[or][stopping].";
 				otherwise:
 					if the disjoncteurs are broken:
-						say "Having fixed the short circuit in the biochemical synthesis laboratory, once you reset the circuit breakers, they remain in the reset position. Consequently, power should now be flowing to that lab.";
+						say "You reset the circuit breakers. Power should now be restored to the molecular synthesis lab.";
 						now the disjoncteurs are not broken;
 					otherwise:
 						say "The circuit breaks are already locked in the [quotation mark]on[quotation mark] position, so power should be flowing to all stations on level two of the complex.";
