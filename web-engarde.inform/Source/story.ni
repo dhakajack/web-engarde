@@ -2,7 +2,7 @@
 
 The story headline is "A voyager forever mindless".
 The story genre is "horror".
-The release number is 3.
+The release number is 4.
 The story creation year is 2018.
 The story description is "The one thing you don't miss is memory."
 
@@ -141,9 +141,6 @@ Palette is {"black","brown","red","orange","yellow","green","blue","violet","gra
 Chapter 9 - Start of Play
 
 When play begins:
-	execute JavaScript command "function forceScroll() {if (navigator.userAgent.indexOf('Chrome') !== -1 || navigator.userAgent.indexOf('Opera') !== -1  || navigator.userAgent.indexOf('OPR') !== -1) {return false;} else {return true;}} forceScroll()";
-	if the JavaScript command returned false:
-		now forceScroll is false;
 	if debugMode is false:
 		hide the prompt;
 	place a block level element called "arrows";
@@ -154,9 +151,7 @@ After printing the banner text:
 	listHiddenExits;
 	say "[line break][italic type]Where am I? For that matter, who am I?[roman type][paragraph break]You wake up alone in a plain room with a bluish hue.[paragraph break][italic type]Why can't I remember anything?[paragraph break]I've got to concentrate! What happened? Come on. Think! Think![paragraph break]In any case, the solution isn't here [unicode 8212] I'll have to look around.";
 	say roman type;
-	increment the knownCommands of the player;
-	if forceScroll is true:
-		show a modal window reading "This game works best with Chrome or Opera; other browsers may not scroll as well."
+	increment the knownCommands of the player.
 
 Chapter 10 - Geography
 
@@ -1010,16 +1005,8 @@ Every turn:
 	if the knownCommands of the player is greater than 0:
 		listHiddenExits.
 	
-
-[This is a little kludgey, but necessary because the javascript library at present behaves differently 
-across browers. For Chrome and Opera, it is not necessary. However, for Safari and Firefox (and 
-perhaps others), when a hyperlink is clicked, the window scrolls upwards. This rule forces the window
-to scroll back to the bottom. After that, the player can still manually scroll backwards to see previous bits 
-of the story.]
-
 This is the scroll update rule:
-	if forceScroll is true:
-		scroll to the bottom of the page.
+	execute javascript command "$('html, body').animate({scrollTop:$(document).height()}, 1);".
 	
 The scroll update rule is listed last in the every turn rules.
 	
