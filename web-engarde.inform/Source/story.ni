@@ -17,7 +17,7 @@ Use no scoring.
 Release along with the "Vorple" interpreter.
 Release along with style sheet "web-engarde.css".
 
-Release along with cover art ("A cadaverous man in a guard hat surrounded by pictures of a woman scientist, a mouse, a dog, and an electric motor"), a file of "Blurb" called "blurb.txt" and a file of "Walkthrough" called "walkthrough.txt".
+Release along with cover art ("A cadaverous man in a guard hat surrounded by pictures of a woman scientist, a mouse, a dog, and an electric motor"), a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt" and a file of "Credits" called "credits.txt".
 
 [********]
 debugMode is a truth state that varies. debugMode is FALSE.
@@ -1145,7 +1145,7 @@ To say VictoryText:
 To infos:
 	say "[bold type]>about[roman type][line break]This game was originally created as part of the 2018 French Interactive Fiction Competition. The English translation of the game was submitted to the 2018 IFcomp. The game was written in Inform 7. The source code is available on ";
 	place a link to web site "https://github.com/dhakajack/web-engarde" reading "github";
-	say " and is provided under the MIT license. Please report any errors by email to  engarde@templaro.com.[paragraph break]";
+	say " and is provided under the MIT license. Please report any errors by email to engarde@templaro.com.[paragraph break]";
 	
 To credits:
 	say "[bold type]>credits[roman type]";
