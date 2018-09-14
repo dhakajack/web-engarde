@@ -1,4 +1,4 @@
-=== SOLUTION ===
+=== SOLUTION: EN GARDE ===
 
 Accessibility: The game has been designed for accessibility, with some features only visible for users employing screenreaders or voice synthesizers. Game play should be the same. Please let me know if you encounter any difficulties related to accessibility at engarde@templaro.com.
 
