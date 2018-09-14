@@ -1143,19 +1143,9 @@ To say VictoryText:
 	say "[paragraph break]        *** YOU HAVE WON ***[roman type][paragraph break]You have saved the world from the scourge of the zombie777 virus.[paragraph break]".
 	
 To infos:
-	say "[bold type]>about[roman type][line break]This game was originally created as part of the ";
-	place a link to web site "http://www.fiction-interactive.fr/concours/concours-2018/" reading "2018 French Interactive Fiction Competition";
-	say ". The English translation of the game was submitted to the ";
-	place a link to web site "https://ifcomp.org/" reading "2018 IFcomp";
-	say ". The game was written in ";
-	place a link to web site "http://inform7.com/" reading "Inform 7";
-	say ". The source code is available on ";
+	say "[bold type]>about[roman type][line break]This game was originally created as part of the 2018 French Interactive Fiction Competition. The English translation of the game was submitted to the 2018 IFcomp. The game was written in Inform 7. The source code is available on ";
 	place a link to web site "https://github.com/dhakajack/web-engarde" reading "github";
-	say " and is provided under ";
-	place a link to web site "https://github.com/dhakajack/web-engarde/blob/master/LICENSE" reading "the MIT license";
-	say ". Please report any errors using the ";
-	place a link to web site "https://github.com/dhakajack/web-engarde/issues" reading "online bug tracker";
-	say ".[paragraph break]";
+	say " and is provided under the MIT license. Please report any errors by email to  engarde@templaro.com.[paragraph break]";
 	
 To credits:
 	say "[bold type]>credits[roman type]";
@@ -1164,44 +1154,19 @@ To credits:
 	say "Organizers of both competitions.";
 	close HTML tag;
 	open HTML tag "li";
-	place a link to web site "http://www.ifwiki.org/index.php/Graham_Nelson" reading "Graham Nelson";
-	say " for having conceived and written Inform.";
+	say "Graham Nelson for having conceived and written Inform.";
 	close HTML tag;
 	open HTML tag "li";
-	say "Authors of the extensions used in this work and its previous versions : ";
-	place a link to web site "http://www.ifwiki.org/index.php/Eric_Forgeot" reading "Éric Forgeot";
-	say ", ";
-	place a link to web site "http://www.ifwiki.org/index.php/Emily_Short" reading "Emily Short";
-	say ", ";
-	place a link to web site "http://www.ifwiki.org/index.php/Erik_Temple" reading "Erik Temple";
-	say ", and ";
-	place a link to web site "http://www.ifwiki.org/index.php/Juhana_Leinonen" reading "Juhana Leinonen";
-	say ".";
+	say "Authors of the extensions used in this work and its previous versions : Éric Forgeot, Emily Short, Erik Temple and Juhana Leinonen.";
 	close HTML tag;
 	open HTML tag "li";
-	place a link to web site "http://www.ifwiki.org/index.php/Ben_Collins-Sussman" reading "Ben Collins-Sussman";
-	say ", who painted the cover.";
+	say "Ben Collins-Sussman, who painted the cover.";
 	close HTML tag;
 	open HTML tag "li";
-	say "Proofers and beta-testers: ";
-	place a link to web site "http://www.ifwiki.org/index.php/Eric_Forgeot" reading "Éric Forgeot";
-	say ", ";
-	place a link to web site "http://www.ifwiki.org/index.php/St%C3%A9phane_Flauder" reading "Stéphane Flauder";
-	say ", Denise Jobin, ";
-	place a link to web site "http://www.ifwiki.org/index.php/Mathbrush" reading "Brian Rushton";
-	say ", and ";
-	place a link to web site "http://www.ifwiki.org/index.php/Hugo_Labrande" reading "Hugo Labrande";
-	say " (original version). Lara Welch, ";
-	place a link to web site "http://www.ifwiki.org/index.php/Ben_Collins-Sussman" reading "Ben Collins-Sussman";
-	say ", ";
-	place a link to web site "http://www.ifwiki.org/index.php/Andrew_Schultz" reading "Andrew Schultz";
-	say ", and ";
-	place a link to web site "http://www.ifwiki.org/index.php/Valentine_Kopteltsev" reading "Valentin Koptel[apostrophe]tsev";
-	say " (English version).";
+	say "Proofers and beta-testers: Éric Forgeot, Stéphane Flauder, Brian Rushton, Hugo Labrande, Denise Jobin (original version). Lara Welch, Ben Collins-Sussman, Andrew Schultz, Valentin Koptel[apostrophe]tsev, and David White (English version).";
 	close HTML tag;
 	open HTML tag "li";
-	place a link to web site "http://www.fiction-interactive.fr/author/corax/" reading "Corax";
-	say " for suggestions regarding accessibility.";
+	say "Corax for suggestions regarding accessibility.";
 	close HTML tag;
 	close HTML tag;
 	say "[bold type]FIN."
