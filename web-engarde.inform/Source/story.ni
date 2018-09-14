@@ -118,7 +118,7 @@ Rule for printing the banner text:
 	place an inline element called "titre" reading "[story title]";
 	say line break;
 	say "[story headline] by [story author][line break]";
-	say "Release [release number] / Serial number 180225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
+	say "Release [release number] / Serial number 180925 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
 	
 The can't go that way rule response (A) is "[bougePas]."
 
