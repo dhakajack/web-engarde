@@ -1,6 +1,6 @@
 === SOLUTION: EN GARDE ===
 
-Accessibility: The game has been designed for accessibility, with some features only visible for users employing screenreaders or voice synthesizers. Game play should be the same. Please let me know if you encounter any difficulties related to accessibility at engarde@templaro.com.
+Accessibility: The game has been designed for accessibility, with some features only visible to users employing screen readers or voice synthesizers. Game play should be the same regardless of mode of access. Please let me know if you encounter any difficulties related to accessibility at engarde@templaro.com.
 
 Navigation: If you prefer to use the keyboard versus mouse, it should be possible to tab or shift-tab between hyperlinks. In testing, this works best in Chrome and Opera.
 
@@ -11,9 +11,9 @@ A few hints:
 * You can’t type commands. The keyboard is no use in that regard; chuck it out the window.
 * Before tossing it, check under the window to be be sure that no one is below.
 * During the game, colored boxes will appear.
-* Each color coresponds to a command. It may help to write down their order on first play.
+* Each color corresponds to a command. It may help to write down their order initially.
 * It’s up to you to figure out what command each color represents.
-* Don’t worry — you can’t put the game into an unwinnnable state, so feel free to experiment.
+* Don’t worry -— you can’t put the game into an unwinnnable state, so feel free to experiment.
 
 Commands:
 
