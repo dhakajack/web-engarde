@@ -115,7 +115,6 @@ To say hiddenExitList:
 Chapter 5 -Language-specific tweaks
 
 Rule for printing the banner text: 
-	place an inline element called "titre" reading "[story title]";
 	say line break;
 	say "[story headline] by [story author][line break]";
 	say "Release [release number] / Serial number 180925 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
@@ -131,11 +130,18 @@ To say realworldchatter:
 	place an inline element called "hidden" reading "A spoken conversation resumes: ".
 	
 Rule for printing the name of a room:
-	place an inline element called "hidden" reading "The current location is  ";
+	place an inline element called "hidden" reading "The current location is ";
 	say "[printed name of the location]";
 	place an inline element called "hidden" reading "."
 	
-
+After reading a command:
+	if the toggle flag is true:
+		 clear the element called "window0";
+	place an inline element called "hidden" reading "Options: ";
+	place link to the command "toggle" called "hidden" reading "toggle screen";
+	place an inline element called "hidden" reading " or ";
+	place link to the command "listCommands" called "hidden" reading "list commands";
+	place an inline element called "hidden" reading ".";
 
 Chapter 7 - Suppress Mention of Doors
 
@@ -158,6 +164,11 @@ Chapter 10 - Start of Play
 When play begins:
 	if debugMode is false:
 		hide the prompt;
+	place an inline element called "hidden" reading "If you are using an adaptive technology like a screen reader of voice synthesizer and you find that game is reading the entire text of the game including previous turns, at any time during the game, you can select the [quotation mark]";
+	place link to the command "toggle" called "hidden" reading "toggle screen";
+	place an inline element called "hidden" reading "[quotation mark] hyperlink to switch the screen to display only one turn at a time. Selecting it again will restore the usual appearance of the screen after that point, but it will not be possible to scroll upwards to earlier history.[paragraph break]Another useful hyperlink is [quotation mark]";
+	place link to the command "listCommands" called "hidden" reading "list commands";
+	place an inline element called "hidden" reading "[quotation mark]. Selecting that will list all commands available. At the beginnng of the game, commands are named with colors, and it is up to you to figure out what they do. Over the course of the game, additional commands will appear. This command lists them in order, which may help you remember them. There is no typing in this game, to issue a command, select the corresponding hyperlink.";
 	place a block level element called "arrows";
 	sort the palette in random order.
 
@@ -723,7 +734,35 @@ Rule for printing a locale paragraph about the bloody corpse of Doctor Rambaud w
 
 Chapter 12 - Verbs
 
-Section 1 - simpleUnlocking
+Section 1 - Toggling
+
+The toggle flag is a truth state that varies. Toggle flag is false.
+
+Toggling is an action applying to nothing. Understand "toggle" as Toggling.
+
+Carry out Toggling:
+	if the toggle flag is false:
+		now the toggle flag is true;
+	otherwise:
+		now the toggle flag is false.
+		
+Report Toggling:
+	say "The game is [if toggle flag is true]now[otherwise]no longer[end if] clearing the screen after each turn."
+	
+Section 2 - listCommands
+
+commandListing is an action applying to nothing. Understand "listCommands" as commandListing.
+
+Report commandListing:
+	place an inline element called "hidden" reading "You know the following commands:";
+	repeat with N running from 1 to knownCommands of the player:
+		place an inline element called "hidden" reading " [if N is greater than 1 and N is knownCommands of the player]and [end if]";
+		place a link to the command "[entry N of actionList]" called "hidden" reading "[if N is less than 8][entry N of palette][otherwise][entry N of actionList]";
+	place an inline element called "hidden" reading "."
+		
+
+
+Section 3 - simpleUnlocking
 
 simpleUnlocking is an action applying to nothing. Understand "unlock" as simpleUnlocking.
 
@@ -744,7 +783,7 @@ To say firstUnlocked:
 	now the BlockChatterFlag is true;[hate to side effect this way, but here it seems expedient]
 	say "[paragraph break][headchatter][italic type][quotation mark]Hang on a minute,[quotation mark] says the dog. [quotation mark]What kind of a trick is that?[quotation mark][line break][quotation mark]To unlock these doors with electronic locks, you have to enter the right code.[quotation mark][line break][quotation mark]And you remember the code?[quotation mark] asks the mouse.[line break][quotation mark]Apparently so.[quotation mark][roman type]".
 	
-Section 2- simpleOpening
+Section 4 simpleOpening
 
 Definition: A door is simpleOpenable if it is closed and it is not locked and it is not buttoned.
 	
@@ -767,7 +806,7 @@ Carry out simpleOpening:
 After opening the plastic container:
 	say "You grab the plastic container by a corner and shake it back and forth until it comes apart. A glistening slice of brain goes flying across the kitchen, strikes the wall with a rubbery smack, and slides to the floor."
 
-Section 3 - simpleEating
+Section 5 - simpleEating
 
 simpleEating is an action applying to nothing. Understand "eat" as simpleEating.
 
@@ -786,7 +825,7 @@ Carry out simpleEating:
 Rule for implicitly taking something (called the target) while eating:
 	try silently taking the target.
 	
-Section 4- simplePushing
+Section 6 simplePushing
 
 simplePushing is an action applying to nothing. Understand "push" as simplePushing.
 
@@ -796,7 +835,7 @@ Carry out simplePushing:
 		stop the action;
 	say "There's nothing to push here."
 	
-Section 5- simpleTalking
+Section 7 simpleTalking
 
 simpleTalking is an action applying to nothing. Understand "talk" as simpleTalking.
 
@@ -846,7 +885,7 @@ Carry out simpleTalking:
 			-- otherwise:
 				say "There's nothing more to say."
 									
-Section 6 - simpleRepairing
+Section 8 - simpleRepairing
 
 simpleRepairing is an action applying to nothing. Understand "repair" as simpleRepairing.
 
@@ -894,7 +933,7 @@ To increment the knownCommands of the player:
 	add the knownCommands of the player to commandList;
 	if the knownCommands of the player is 8:
 		remove all elements called "vorple-link";
-		place an inline element called "hidden" reading "To reiterate, commands up to this point include: ";
+		place an inline element called "hidden" reading "Commands have switched from colors to actual command words, which are: ";
 		repeat with N running from 1 to 7:
 			place a link to the command "[entry N of actionList]" called "boutons box[N] literate" reading "[entry N of actionList]";	
 	place an inline element called "hidden" reading "A new command has appeared: ";
@@ -902,9 +941,10 @@ To increment the knownCommands of the player:
 		place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
 	otherwise:
 		place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] literate" reading "[entry knownCommands of the player of actionList]";	
-	place an inline element called "hidden" reading ". ".
+		place an inline element called "hidden" reading ". ".
+
 	
-Understand "east/west/eat/open/north/south/push/unlock/talk/repair" as "[okayCommand]".
+Understand "east/west/eat/open/north/south/push/unlock/talk/toggle/listCommands" as "[okayCommand]".
 
 [To prevent players bypassing the CSS to enter arbitrary commands; the full range of in-game commands is permitted for debugging purposes]
 
