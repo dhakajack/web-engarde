@@ -8,7 +8,7 @@ Here’s the minimal solution for “En Garde”.
 
 A few hints:
 
-* You can’t type commands. The keyboard is no use in that regard; chuck it out the window.
+* You can’t type commands. The keyboard is of no use in that regard; chuck it out the window.
 * Before tossing it, check under the window to be be sure that no one is below.
 * During the game, colored boxes will appear.
 * Each color corresponds to a command. It may help to write down their order initially.
