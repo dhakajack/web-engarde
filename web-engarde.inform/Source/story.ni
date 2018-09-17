@@ -968,7 +968,7 @@ After eating the small gray creature:
 After going east when the consciousness of the player is 1 for the first time:
 	try looking;
 	now the BlockChatterFlag is true;
-	say "[headchatter][italic type]Ah, the great white hallway.[paragraph break]How many times I have seen the giants walk right through the smooth walls into secret rooms? How do they do it?[roman type][line break]";
+	say "[headchatter][italic type]Ah, the great white hallway.[paragraph break]How many times have I seen the giants walk right through the smooth walls into secret rooms? How do they do it?[roman type][line break]";
 	increment the knownCommands of the player.
 	
 After opening the labZooDoor:
