@@ -115,6 +115,7 @@ To say hiddenExitList:
 Chapter 5 -Language-specific tweaks
 
 Rule for printing the banner text: 
+	place an inline element called "titre" reading "[story title]";
 	say line break;
 	say "[story headline] by [story author][line break]";
 	say "Release [release number] / Serial number 180925 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
@@ -136,7 +137,7 @@ Rule for printing the name of a room:
 	
 After reading a command:
 	if the toggle flag is true:
-		 clear the element called "window0";
+		 execute JavaScript command "$( '#window0').empty()";
 	place an inline element called "hidden" reading "Options: ";
 	place link to the command "toggle" called "hidden" reading "toggle screen";
 	place an inline element called "hidden" reading " or ";
@@ -754,7 +755,7 @@ Section 2 - listCommands
 commandListing is an action applying to nothing. Understand "listCommands" as commandListing.
 
 Report commandListing:
-	place an inline element called "hidden" reading "You know the following commands:";
+	place an inline element called "hidden" reading "You know the following command[if the knownCommands of the player is greater than 1][end if]s:";
 	repeat with N running from 1 to knownCommands of the player:
 		place an inline element called "hidden" reading " [if N is greater than 1 and N is knownCommands of the player]and [end if]";
 		place a link to the command "[entry N of actionList]" called "hidden" reading "[if N is less than 8][entry N of palette][otherwise][entry N of actionList]";
