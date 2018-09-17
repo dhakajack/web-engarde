@@ -10,7 +10,7 @@ A few hints:
 
 * You can’t type commands. The keyboard is of no use in that regard; chuck it out the window.
 * Before tossing it, check under the window to be be sure that no one is below.
-* During the game, colored boxes will appear.
+* During the game, some pill-shaped colored controls will appear.
 * Each color corresponds to a command. It may help to write down their order initially.
 * It’s up to you to figure out what command each color represents.
 * Don’t worry -— you can’t put the game into an unwinnnable state, so feel free to experiment.
