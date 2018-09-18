@@ -5,9 +5,9 @@ I would like to thank:
 * Organizers of the 2018 Francophone IF competition and IFcomp.
 * Graham Nelson for having conceived and written Inform.
 * Authors of the extensions used in this work and its previous 
-  versions : Éric Forgeot, Emily Short, Erik Temple and Juhana Leinonen.
+  versions: Éric Forgeot, Emily Short, Erik Temple and Juhana Leinonen.
 * Ben Collins-Sussman, who painted the cover.
 * Proofers and beta-testers: Éric Forgeot, Stéphane Flauder, Brian Rushton,
   Hugo Labrande, Denise Jobin (original version). Lara Welch, Andrew Schultz,
   Ben Collins-Sussman, Valentin Koptel'tsev, and David White (English version).
-* Corax for suggestions regarding accessibility.
+* Corax and Michael Great for accessibility recommendations and testing.

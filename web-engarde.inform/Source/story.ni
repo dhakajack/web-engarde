@@ -1214,7 +1214,7 @@ To credits:
 	say "Proofers and beta-testers: Éric Forgeot, Stéphane Flauder, Brian Rushton, Hugo Labrande, Denise Jobin (original version). Lara Welch, Ben Collins-Sussman, Andrew Schultz, Valentin Koptel[apostrophe]tsev, and David White (English version).";
 	close HTML tag;
 	open HTML tag "li";
-	say "Corax and Michael Gerwat for suggestions regarding accessibility.";
+	say "Corax and Michael Gerwat for accessibility recommendations and testing.";
 	close HTML tag;
 	close HTML tag;
 	say "[bold type]FIN."
