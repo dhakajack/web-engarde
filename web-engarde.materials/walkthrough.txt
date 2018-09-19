@@ -17,7 +17,7 @@ Walkthrough:
 
 Goal 1: Moar Brains! 
 
-Find something with more brains than you and eat it. When you move from your initial location, a mouse will run by you. Return to the starting room and pop it in your mouth. Yum.
+The first goal is to find something with more brains than you (a low bar) and eat it. When you move from your initial location, a mouse will run past you. Return to the starting room and pop it into your mouth. Yum. A little gross maybe, but the zombie palette is not discerning.
 
 east 
 west 
@@ -25,7 +25,7 @@ eat
 
 Goal 2: Man’s Best (Tasting) Friend
 
-Mouse brains will only get you so far in unlife. You’re looking for an upgrade, and will need to borrow some brains from a dog to the north of the east-west hallway. When you are as east as you can go, you will note that there is a potential exit to the north. However, there is a wall there. To move north, you will have to use new commands (open and then north) that you learned from the mouse brain.
+Mouse brains will only get you so far in unlife. You’re looking for an upgrade and will need to “borrow” some brains from a dog to the north of the east-west hallway. When you are as east as you can go, you will note that there is a potential exit to the north. However, there is a wall there. To move north, you will have to use new commands (open and then north) that you learned from the mouse brain.
 
 east   
 open   
@@ -93,7 +93,7 @@ eat
 
 Goal 8: Fix Synthesis Unit
 
-The goal for the rest of the game is to manufacture a dose of the cure to the zombie virus. You’ll need a machine in a lab on the upper floor of the facility, so you need to back track down the stairs, east across the lower level hallway, take the elevator to the upper floor, and then unlock the door to the south, to access the lab. If you open the access panel on the synthesis machine, you’ll see the problem and can use your new repair still to fix a short circuit. 
+The goal for the rest of the game is to manufacture a dose of the cure to the zombie virus. You’ll need a machine in a lab on the upper floor of the facility, so you have to to back track down the stairs, east across the lower level hallway, take the elevator to the upper floor, and then unlock the door to the south, to access the lab. If you open the access panel on the synthesis machine, you’ll see the problem and can use your new repair skill to fix a short circuit. 
 
 On the way to the lab, at the bottom of the stairs, you may notice an electrical panel. If you open it, you’ll see that the circuit breaker for the synthesis lab has flipped. If you try to repair the circuit breaker before fixing the short circuit in the lab, the breaker will just flip again, so order does matter here.
 
@@ -112,7 +112,7 @@ repair
 
 Goal 9: Let the Juice Flow
 
-Now that the machine has been repaired, the next step is to restore electrical power to the lab. The circuit breaker is found in an electrical panel at the base of the stairs to the airlock. Go back to the lower level, all the way west to the decontamination room (until recently known as the locker room) and then one room to the north. Open the electrical panel and use “repair” to reset the circuit breakers. Current should now be flowing to the lab.
+Now that the machine has been repaired, the next step is to restore electrical power to the lab. The circuit breaker is found in an electrical panel at the base of the stairs to the airlock. Go back to the lower level, all the way west to the decontamination room (until recently referred to as the locker room) and then go one room to the north. Open the electrical panel and use “repair” to reset the circuit breakers. Current should now be flowing to the lab.
   
 north   
 push   
@@ -126,7 +126,7 @@ repair
 
 Goal 10: The Cure
 
-Head back to the synthesis lab, where the cure will be waiting for you. As soon as you get there, you automatically drink it.
+Head back to the synthesis lab, where the cure will be waiting for you. As soon as you get there, you automatically drink it. Cheers.
    
 south   
 east   
@@ -154,3 +154,9 @@ talk
 talk   
 talk    
 talk 
+
+THE END.
+
+To replay the game, just reload it in your browser. 
+
+A final hint: The colors randomize on each play reflecting the confused and illiterate state of the zombie mind. The order of the commands remains the same, however, from game to game (i.e. “east” will always be the first command button). 
