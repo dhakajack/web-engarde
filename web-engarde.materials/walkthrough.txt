@@ -4,8 +4,6 @@ Accessibility: The game has been designed for accessibility, with some features 
 
 Navigation: If you prefer to use the keyboard versus mouse, it should be possible to tab or shift-tab between hyperlinks. In testing, this works best in Chrome and Opera.
 
-Here’s the minimal solution for “En Garde”.
-
 A few hints:
 
 * You can’t type commands. The keyboard is of no use in that regard; chuck it out the window.
@@ -15,40 +13,75 @@ A few hints:
 * It’s up to you to figure out what command each color represents.
 * Don’t worry -— you can’t put the game into an unwinnnable state, so feel free to experiment.
 
-Commands:
+Walkthrough:
+
+Goal: Moar Brains! 
+
+Find something with more brains than you and eat it. When you move from your initial location, a mouse will run by you. Return to the starting room and pop it in your mouth. Yum.
 
 east 
 west 
 eat 
+
+Goal: Man’s Best (Tasting) Friend
+
+Mouse brains will only get you so far in unlife. You’re looking for an upgrade, and will need to borrow some brains from a dog to the north of the east-west hallway. When you are as east as you can go, you will note that there is a potential exit to the north. However, there is a wall there. To move north, you will have to use new commands (open and then north) that you learned from the mouse brain.
+
 east   
 open   
 north   
 open   
 eat   
 push   
-south   
+south  
+
+Goal: Lower Level
+
+Fido knows one trick: pushing things. When you get back to the main east-west hallway, a potential exit is shown to the east, but again there is a wall there, so you can’t just walk east. There is a red glowing button on that wall, and you should do what comes naturally: press it. That will call the elevator. Enter the elevator and press the green button on the panel in the elevator to change floors, then walk out.
+ 
 push   
 east   
 push   
-west   
+west 
+
+Goal: High brow humor
+
+You are now on the lower level of the complex in a hall similar to the one on the upper level. You can move freely to the south, so why not check it out.
+
 south   
 open   
 eat   
 eat   
 eat   
-north   
+north  
+
+
+Goal: A slice of life
+
+You should be back in the east-west hallway of the lower level now. Again, north is listed as a potential exit, but there is a wall there. Drawing on what you learned from the mouse, you can again open it and proceed north. There, you will find a refrigerator. Open the fridge and the item contained therein to reveal a slice of brain. Yes.
+
 open   
 north   
 open   
 open   
-eat   
+eat
+
+Goal: Unlock the future
+
+Seven colors is a lot to remember, and now that you are at least mildly literate, you can just read the labels on the command buttons. Also, the skill you just acquired from the slice of brain will literally open up some new doors for you. When you return south to the east-west corridor of the lower level, you will notice that west is now listed as a potential exit. Attempting to open that door results in a message that it is locked, so you unlock it and proceed west. Same situation in the locker room, unlock the door north and climb the stairs.
+   
 south   
 west   
 unlock    
 west   
 unlock    
 north   
-north   
+north
+
+Goal: Reunited
+
+You’re an old hand at unlocking doors, so when you get to the top of the staircase, unlock this one and proceed north into the airlock, where you will meet the scientist. There hasn’t been anyone to talk to up to this point, but now that there is, a new command appears: talk. Trying to eat the scientist right off will get you whacked with a crowbar repeatedly, so ease into it with some conversation first.
+
 unlock     
 north   
 talk   
@@ -56,7 +89,14 @@ talk
 talk   
 talk   
 talk   
-eat   
+eat
+
+Goal: Fix Synthesis Unit
+
+The goal for the rest of the game is to manufacture a dose of the cure to the zombie virus. You’ll need a machine in a lab on the upper floor of the facility, so you need to back track down the stairs, east across the lower level hallway, take the elevator to the upper floor, and then unlock the door to the south, to access the lab. If you open the access panel on the synthesis machine, you’ll see the problem and can use your new repair still to fix a short circuit. 
+
+On the way to the lab, at the bottom of the stairs, you may notice an electrical panel. If you open it, you’ll see that the circuit breaker for the synthesis lab has flipped. If you try to repair the circuit breaker before fixing the short circuit in the lab, the breaker will just flip again, so order does matter here.
+
 south   
 south   
 south   
@@ -68,7 +108,12 @@ west
 unlock     
 south   
 open   
-repair   
+repair 
+
+Goal: Let the Juice Flow
+
+Now that the machine has been repaired, the next step is to restore electrical power to the lab. The circuit breaker is found in an electrical panel at the base of the stairs to the airlock. Go back to the lower level, all the way west to the decontamination room (until recently known as the locker room) and then one room to the north. Open the electrical panel and use “repair” to reset the circuit breakers. Current should now be flowing to the lab.
+  
 north   
 push   
 east   
@@ -77,14 +122,24 @@ west
 west   
 north   
 open   
-repair   
+repair
+
+Goal: The Cure
+
+Head back to the synthesis lab, where the cure will be waiting for you. As soon as you get there, you automatically drink it.
+   
 south   
 east   
 push   
 east   
 push   
 west   
-south   
+south
+
+Goal: Report to the Control Room
+
+Now you just have to convince the folks in the control room that you have succeeded in finding a cure to the zombie virus. You’ll need to navigate back to the lower level, all the way west to the stairs, and then northward on the stairs to the airlock. There, you will activate the intercom by pushing it and then talk with the control room staff until they are convinced to release you from the locked down airlock.
+   
 north   
 push   
 east   
